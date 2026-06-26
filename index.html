@@ -1753,8 +1753,7 @@ showWelcome();
 <!-- ===== 全局面板样式 ===== -->
 <style>
 /* ─── 分歧页面专用样式 ─── */
-#pageFenqi * {box-sizing:border-box;margin:0;padding:0}
-#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f0f0ec;color:#333}
+#pageFenqi {background:#f0f0ec;color:#333}
 
 /* 切换标签 */
 #pageFenqi .fq-btn {
@@ -1828,7 +1827,7 @@ showWelcome();
 
 /* 分页 */
 .fq-page {display:none}
-.fq-page.active {display:block; overflow-y:auto}
+.fq-page.active {display:block; height:100%; overflow-y:auto}
 </style>
 <script>
 function switchFenqi(n) {
