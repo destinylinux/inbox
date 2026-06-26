@@ -176,41 +176,7 @@ body{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background
 #pageCompare .c-ok {background:#f0fdf4!important;color:#166534!important }
 #pageCompare .c-fl {background:#fef2f2!important;color:#991b1b!important }
 #pageCompare tr:last-child td {border-bottom:none }
-/* 分歧 */
-#pageFenqi * {box-sizing:border-box;margin:0;padding:0 }
-#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f5f6fa;padding:16px;color:#333;max-width:500px;margin:0 auto }
-#pageFenqi .top-bar {background:#ff9800;color:#fff;text-align:center;padding:8px;border-radius:10px;margin-bottom:14px;font-size:14px;font-weight:600 }
-#pageFenqi .sm {display:flex;gap:10px;margin-bottom:14px }
-#pageFenqi .sc {background:#fff;border-radius:10px;padding:12px;flex:1;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.08) }
-#pageFenqi .sc .l {font-size:10px;color:#888;margin-bottom:2px }
-#pageFenqi .sc .v {font-size:22px;font-weight:700 }
-#pageFenqi .panel {background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:14px;overflow:hidden }
-#pageFenqi .panel .ph {padding:8px 12px;font-size:13px;font-weight:600;border-bottom:1px solid #eef0f4;text-align:center }
-#pageFenqi .panel .ph.warn {background:#fff3e0;border-bottom-color:#ffe0b2 }
-#pageFenqi .panel .ph.info {background:#e3f2fd;border-bottom-color:#bbdefb }
-#pageFenqi .panel .body {padding:10px 12px }
-#pageFenqi .row {display:flex;gap:10px;margin-bottom:8px }
-#pageFenqi .row:last-child {margin-bottom:0 }
-#pageFenqi .col {flex:1;background:#f8f9fc;border-radius:8px;padding:8px;font-size:12px }
-#pageFenqi .col .nm {font-weight:600;margin-bottom:4px;text-align:center }
-#pageFenqi .vs {display:flex;align-items:center;color:#999;font-weight:700;font-size:14px;padding:0 2px }
-#pageFenqi .tag {display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin:4px 0 }
-#pageFenqi .tag.pd {background:#fff8e1;color:#e67e22 }
-#pageFenqi .c-ok {background:#e8f5e9 }
-#pageFenqi .c-fl {background:#ffebee }
-#pageFenqi .tbl {width:100%;border-collapse:collapse;font-size:12px;margin-top:6px }
-#pageFenqi .tbl td {padding:5px 8px;border:1px solid #eef0f4;text-align:center }
-#pageFenqi .tbl td:first-child {background:#f8f9fc;font-weight:600;text-align:left;width:90px }
-#pageFenqi .dl {font-size:12px;line-height:1.9 }
-#pageFenqi .dl .kv {display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #f0f0f0 }
-#pageFenqi .dl .kv:last-child {border-bottom:none }
-#pageFenqi .dl .kv .k {color:#888 }
-#pageFenqi .dl .kv .v {font-weight:600 }
-#pageFenqi .ep {font-size:12px;line-height:1.7;padding:4px 2px }
-#pageFenqi .ep p {margin-bottom:6px }
-#pageFenqi .ft {background:#fafafa;border-top:1px solid #eef0f4;padding:10px 12px;font-size:11px;color:#666;text-align:center;line-height:1.6 }
-@media(max-width:400px){.sc .v{font-size:18px }
-#pageFenqi {padding:10px }
+/* ⚠ 分歧（旧CSS已迁移到内联样式，此处保留空占位避免序号错乱） */
 </style>
 </head>
 <body>
@@ -1788,7 +1754,7 @@ showWelcome();
 <style>
 /* ─── 分歧页面专用样式 ─── */
 #pageFenqi * {box-sizing:border-box;margin:0;padding:0}
-#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f0f0ec;color:#333;min-height:100vh}
+#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f0f0ec;color:#333}
 
 /* 切换标签 */
 #pageFenqi .fq-btn {
@@ -1843,7 +1809,8 @@ showWelcome();
 .fq-section {margin-bottom:10px}
 .fq-section:last-child {margin-bottom:0}
 .fq-section-title {font-size:12px; font-weight:700; color:#333; padding:6px 0; border-bottom:1px solid #eee; margin-bottom:6px}
-.fq-section-body {font-size:12px; line-height:1.7; color:#444}
+.fq-section-body {font-size:12px; line-height:1.9; color:#444}
+.fq-section-body p {margin-bottom:6px}
 
 /* Tips */
 .fq-tip {display:flex; gap:8px; margin-bottom:6px; align-items:flex-start}
@@ -1861,7 +1828,7 @@ showWelcome();
 
 /* 分页 */
 .fq-page {display:none}
-.fq-page.active {display:block}
+.fq-page.active {display:block; overflow-y:auto}
 </style>
 <script>
 function switchFenqi(n) {
