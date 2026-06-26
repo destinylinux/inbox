@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>阿策 · 个人面板 🧮</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f0f0ec;color:#2c2c2c;display:flex;flex-direction:column}
+.top-bar{background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.top-bar .logo{font-size:18px;font-weight:700}
+.top-bar .logo span{color:#a5b4fc}
+.top-bar .sub{font-size:11px;color:#a5b4fc}
+.top-bar .date{font-size:11px;color:#a5b4fc}
+.tab-bar-l1{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;flex-shrink:0}
+.tab-l1{flex:1;text-align:center;padding:10px 6px 8px;font-size:13px;font-weight:600;color:#888;cursor:pointer;border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap}
+.tab-l1 .ti{font-size:18px;display:block;margin-bottom:2px}
+.tab-l1.active{color:#312e81;border-bottom-color:#7c3aed;background:#f5f3ff}
+.tab-bar-l2{display:none;background:#f8f8f6;border-bottom:1px solid #e5e7eb;flex-shrink:0;padding:0 8px}
+.tab-bar-l2.show{display:flex}
+.tab-l2{flex:1;text-align:center;padding:8px 4px 6px;font-size:12px;font-weight:600;color:#999;cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
+.tab-l2 .ti{font-size:15px;display:block;margin-bottom:1px}
+.tab-l2.active{color:#7c3aed;border-bottom-color:#7c3aed;background:#ede9fe}
+.content{flex:1;position:relative;overflow:hidden}
+.page{display:none;width:100%;height:100%;position:absolute;top:0;left:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#f5f6fa}
+.page.active{display:block}
+/* 打卡 */
+#pageCheckin * {margin:0;padding:0;box-sizing:border-box }
+#pageCheckin {font-size:16px }
+#pageCheckin {font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f0f0ec;color:#2c2c2c;padding:0 0 20px;min-height:100vh }
+#pageCheckin .container {max-width:500px;margin:0 auto;padding:0 14px }
+#pageCheckin h1 {font-size:20px;font-weight:700;background:linear-gradient(135deg,#8b5cf6,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent }
+#pageCheckin .top {display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px }
+#pageCheckin .top h1 {margin:0 }
+#pageCheckin .top .sub {font-size:11px;color:#999 }
+#pageCheckin .btn-sm {background:none;border:1px solid #ddd;border-radius:6px;padding:4px 10px;font-size:11px;color:#999;cursor:pointer }
+#pageCheckin .btn-sm:hover {background:#fee2e2;border-color:#fca5a5;color:#dc2626 }
+#pageCheckin /* countdown */
+.cd-bar {background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,.2) }
+#pageCheckin .cd-bar .cd-label {font-size:11px;color:#a5b4fc;text-transform:uppercase;letter-spacing:.5px }
+#pageCheckin .cd-bar .cd-num {font-size:32px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1 }
+#pageCheckin .cd-bar .cd-unit {font-size:11px;color:#a5b4fc;margin-left:2px }
+#pageCheckin .cd-bar .cd-r {text-align:right }
+#pageCheckin .cd-bar .cd-sub {font-size:10px;color:#6366f1;margin-top:2px }
+#pageCheckin /* stats */
+.stats {display:grid;grid-template-columns:1fr 1fr 1fr;gap: 8px;margin-bottom:12px }
+#pageCheckin .sc {background:#fff;border-radius:10px;padding:12px 8px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.06);border:1px solid #e5e7eb }
+#pageCheckin .sc .n {font-size:22px;font-weight:700;color:#8b5cf6 }
+#pageCheckin .sc .l {font-size:11px;color:#999;margin-top:2px }
+#pageCheckin /* progress */
+.pb {background:#fff;border-radius:10px;padding:14px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.06);border:1px solid #e5e7eb }
+#pageCheckin .pb-h {display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;color:#555 }
+#pageCheckin .pb-bar {height:8px;border-radius:4px;background:#e5e7eb;overflow:hidden }
+#pageCheckin .pb-fill {height:100%;border-radius:4px;background:linear-gradient(90deg,#8b5cf6,#7c3aed);transition:width .3s }
+#pageCheckin /* today card */
+.today-card {background:#fff;border-radius:12px;padding:16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #ede9fe }
+#pageCheckin .today-card .day {font-size:12px;color:#999 }
+#pageCheckin .today-card .sec {font-size:15px;font-weight:600;margin-top:4px }
+#pageCheckin .today-card .sub {font-size:12px;color:#999;margin-top:2px }
+#pageCheckin .check-btn {width:100%;padding:12px;border-radius:10px;border:none;font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:10px }
+#pageCheckin .check-btn.pending {background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff }
+#pageCheckin .check-btn.done {background:#d1fae5;color:#059669 }
+#pageCheckin .check-btn.complete {background:#e5e7eb;color:#9ca3af }
+#pageCheckin /* filters */
+.filters {display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap }
+#pageCheckin .fb {padding:6px 12px;border-radius:16px;border:1px solid #e5e7eb;background:#fff;font-size:12px;cursor:pointer;transition:all .15s }
+#pageCheckin .fb.active {background:#ede9fe;border-color:#8b5cf6;color:#8b5cf6;font-weight:600 }
+#pageCheckin /* week nav */
+.week-nav {display:flex;align-items:center;gap:8px;margin-bottom:10px }
+#pageCheckin .week-nav .wl {font-size:13px;font-weight:600;flex:1;text-align:center;color:#555 }
+#pageCheckin .week-nav button {width:30px;height:30px;border-radius:15px;border:1px solid #e5e7eb;background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center }
+#pageCheckin /* week calendar strip */
+.wk-strip {display:flex;gap:4px;overflow-x:auto;padding:4px 0;margin-bottom:14px }
+#pageCheckin .wk-d {min-width:38px;text-align:center;padding:8px 4px;border-radius:8px;background:#fff;border:1px solid #e5e7eb;font-size:11px }
+#pageCheckin .wk-d.today {background:#ede9fe;border-color:#8b5cf6 }
+#pageCheckin .wk-d.done {background:#d1fae5;border-color:#10b981 }
+#pageCheckin .wk-d .dd {font-weight:700;font-size:15px }
+#pageCheckin .wk-d .dl {font-size:9px;color:#999;margin-top:2px }
+#pageCheckin /* section list */
+.sl {display:flex;flex-direction:column;gap:6px }
+#pageCheckin .si {display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;transition:all .15s }
+#pageCheckin .si.done {border-color:#d1fae5;background:#f8fcf9 }
+#pageCheckin .si .idx {width:26px;height:26px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:#f3f4f6;color:#6b7280;flex-shrink:0 }
+#pageCheckin .si.done .idx {background:#10b981;color:#fff }
+#pageCheckin .si .cinfo {flex:1;min-width:0 }
+#pageCheckin .si .ctitle {font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis }
+#pageCheckin .si .csec {font-size:11px;color:#999;margin-top:2px }
+#pageCheckin .si .csubj {font-size:10px;padding:2px 6px;border-radius:8px;font-weight:600;flex-shrink:0 }
+#pageCheckin .si .经济基础 {background:#ede9fe;color:#7c3aed }
+#pageCheckin .si .财政税收 {background:#fce7f3;color:#be185d }
+#pageCheckin .si .复习 {background:#dbeafe;color:#2563eb }
+#pageCheckin .si .休息 {background:#fef3c7;color:#d97706 }
+#pageCheckin /* empty */
+.empty {text-align:center;padding:30px 20px;color:#999 }
+#pageCheckin .empty .emoji {font-size:36px;margin-bottom:8px }
+#pageCheckin /* toast */
+.toast {position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none }
+#pageCheckin .toast.show {opacity:1 }
+#pageCheckin /* modal */
+.mo {display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:999;align-items:center;justify-content:center }
+#pageCheckin .mo.show {display:flex }
+#pageCheckin .mo .mc {background:#fff;border-radius:16px;padding:24px;width:85%;max-width:360px;text-align:center }
+#pageCheckin .mo h3 {font-size:16px;margin-bottom:8px }
+#pageCheckin .mo p {font-size:13px;color:#666;margin-bottom:16px;line-height:1.5 }
+#pageCheckin .mo .ma {display:flex;gap:8px;justify-content:center }
+#pageCheckin .mo .ma button {padding:10px 24px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer }
+#pageCheckin .mo .ma .cancel {background:#f3f4f6;color:#555 }
+#pageCheckin .mo .ma .confirm {background:#8b5cf6;color:#fff }
+#pageCheckin .mo .ma .danger {background:#ef4444;color:#fff }
+/* GTHT + 问财 */
+#pageGtht *, #pageWencai * {box-sizing:border-box;margin:0;padding:0 }
+#pageGtht, #pageWencai {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f5f6fa;padding:16px;color:#333 }
+#pageGtht .sm, #pageWencai .sm {display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px }
+#pageGtht .sc, #pageWencai .sc {background:#fff;border-radius:12px;padding:14px 18px;flex:1;min-width:120px;box-shadow:0 1px 4px rgba(0,0,0,.08);text-align:center }
+#pageGtht .sc .l, #pageWencai .sc .l {font-size:11px;color:#888;margin-bottom:3px }
+#pageGtht .sc .v, #pageWencai .sc .v {font-size:24px;font-weight:700 }
+#pageGtht .sc.up .v, #pageWencai .sc.up .v {color:#e74c3c }
+#pageGtht .sc.dn .v, #pageWencai .sc.dn .v {color:#27ae60 }
+#pageGtht .sc.neu .v, #pageWencai .sc.neu .v {color:#333 }
+#pageGtht .sc.blue .v, #pageWencai .sc.blue .v {color:#2980b9 }
+#pageGtht .sc .s, #pageWencai .sc .s {font-size:10px;color:#999;margin-top:2px }
+#pageGtht .divbox, #pageWencai .divbox {background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:16px;overflow:hidden }
+#pageGtht .divbox .hdr, #pageWencai .divbox .hdr {background:#ffebee;padding:9px 14px;font-size:13px;font-weight:600;border-bottom:1px solid #ffcdd2 }
+#pageGtht .divbox .body, #pageWencai .divbox .body {display:flex;gap:8px;padding:10px 12px;font-size:11px;align-items:stretch }
+#pageGtht .divbox .col, #pageWencai .divbox .col {flex:1;background:#f8f9fc;border-radius:8px;padding:8px 10px }
+#pageGtht .divbox .col .nm, #pageWencai .divbox .col .nm {font-weight:600;margin-bottom:4px }
+#pageGtht .divbox .vs, #pageWencai .divbox .vs {display:flex;align-items:center;color:#999;font-weight:700;font-size:13px;padding:0 4px }
+#pageGtht .divbox .ft, #pageWencai .divbox .ft {background:#fafafa;border-top:1px solid #eef0f4;padding:6px 14px 10px;font-size:11px;color:#666 }
+#pageGtht .w, #pageWencai .w {overflow-x:auto;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);max-height:82vh;overflow-y:auto }
+#pageGtht table, #pageWencai table {border-collapse:collapse;font-size:12px;width:100%;min-width:700px }
+#pageGtht th, #pageWencai th {background:#f8f9fc;border-bottom:2px solid #dee2e6;border-right:1px solid #eef0f4;padding:7px 6px;text-align:center;font-weight:600;position:sticky;top:0;z-index:2 }
+#pageGtht th .sh, #pageWencai th .sh {font-size:10px;color:#888;font-weight:400;display:block;margin-top:2px }
+#pageGtht td, #pageWencai td {border:1px solid #eef0f4;padding:5px 6px;text-align:center;vertical-align:middle;white-space:nowrap }
+#pageGtht td.dc, #pageWencai td.dc {font-weight:600;background:#f8f9fc;position:sticky;left:0;z-index:1;text-align:center;min-width:62px;font-size:12px;border-right:2px solid #dee2e6 }
+#pageGtht td.dc .dw, #pageWencai td.dc .dw {font-size:10px;font-weight:400;color:#666;display:block }
+#pageGtht td.dc.fri, #pageWencai td.dc.fri {background:#ffecec }
+#pageGtht td.dc.fri .dw, #pageWencai td.dc.fri .dw {color:#e74c3c }
+#pageGtht .c-ok, #pageWencai .c-ok {background:#e8f5e9 }
+#pageGtht .c-fl, #pageWencai .c-fl {background:#ffebee }
+#pageGtht .c-pd, #pageWencai .c-pd {background:#fff8e1 }
+#pageGtht .c-zz, #pageWencai .c-zz {background:#fafafa;color:#bbb }
+#pageGtht .dc .pend-marker, #pageWencai .dc .pend-marker {display:block;font-size:9px;color:#e74c3c;border-top:1px dashed #e74c3c;margin-top:2px;padding-top:2px }
+#pageGtht .p-p, #pageWencai .p-p {color:#e74c3c;font-size:11px }
+#pageGtht .p-n, #pageWencai .p-n {color:#27ae60;font-size:11px }
+#pageGtht .badge, #pageWencai .badge {display:inline-block;padding:2px 6px;border-radius:4px;margin:4px 0 }
+@media(max-width:600px){.sc .v{font-size:18px }
+#pageGtht, #pageWencai {padding:8px }
+#pageGtht td, #pageWencai td, #pageGtht th, #pageWencai th {padding:4px;font-size:11px }
+#pageGtht td.dc, #pageWencai td.dc {min-width:52px;font-size:11px }
+/* 对比 */
+#pageCompare * {box-sizing:border-box;margin:0;padding:0 }
+#pageCompare {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f5f6fa;padding:10px;color:#333 }
+#pageCompare .sm {display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap }
+#pageCompare .sc {background:#fff;border-radius:10px;padding:10px;flex:1;min-width:100px;box-shadow:0 1px 4px rgba(0,0,0,.08);text-align:center }
+#pageCompare .sc .l {font-size:10px;color:#888;margin-bottom:2px }
+#pageCompare .sc .v {font-size:18px;font-weight:700 }
+#pageCompare .sc.up .v {color:#e74c3c }
+#pageCompare .sc.blue .v {color:#2980b9 }
+#pageCompare .sc.green .v {color:#27ae60 }
+#pageCompare .w {overflow-x:auto;background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08) }
+#pageCompare table {border-collapse:collapse;font-size:11px;width:100%;min-width:700px }
+#pageCompare th {background:#f8f9fc;border-bottom:2px solid #dee2e6;border-right:1px solid #eef0f4;padding:6px 4px;text-align:center;font-weight:600;position:sticky;top:0;z-index:2;font-size:10px }
+#pageCompare th.grp {background:#e8ecf3;border-bottom:3px solid #aaa }
+#pageCompare td {border:1px solid #eef0f4;padding:4px 3px;text-align:center;vertical-align:middle;white-space:nowrap }
+#pageCompare td.dc {font-weight:600;background:#f8f9fc;position:sticky;left:0;z-index:1;text-align:center;min-width:55px;font-size:11px;border-right:2px solid #dee2e6 }
+#pageCompare .c-ok {background:#e8f5e9!important }
+#pageCompare .c-fl {background:#ffebee!important }
+/* 分歧 */
+#pageFenqi * {box-sizing:border-box;margin:0;padding:0 }
+#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f5f6fa;padding:16px;color:#333;max-width:500px;margin:0 auto }
+#pageFenqi .top-bar {background:#ff9800;color:#fff;text-align:center;padding:8px;border-radius:10px;margin-bottom:14px;font-size:14px;font-weight:600 }
+#pageFenqi .sm {display:flex;gap:10px;margin-bottom:14px }
+#pageFenqi .sc {background:#fff;border-radius:10px;padding:12px;flex:1;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.08) }
+#pageFenqi .sc .l {font-size:10px;color:#888;margin-bottom:2px }
+#pageFenqi .sc .v {font-size:22px;font-weight:700 }
+#pageFenqi .panel {background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:14px;overflow:hidden }
+#pageFenqi .panel .ph {padding:8px 12px;font-size:13px;font-weight:600;border-bottom:1px solid #eef0f4;text-align:center }
+#pageFenqi .panel .ph.warn {background:#fff3e0;border-bottom-color:#ffe0b2 }
+#pageFenqi .panel .ph.info {background:#e3f2fd;border-bottom-color:#bbdefb }
+#pageFenqi .panel .body {padding:10px 12px }
+#pageFenqi .row {display:flex;gap:10px;margin-bottom:8px }
+#pageFenqi .row:last-child {margin-bottom:0 }
+#pageFenqi .col {flex:1;background:#f8f9fc;border-radius:8px;padding:8px;font-size:12px }
+#pageFenqi .col .nm {font-weight:600;margin-bottom:4px;text-align:center }
+#pageFenqi .vs {display:flex;align-items:center;color:#999;font-weight:700;font-size:14px;padding:0 2px }
+#pageFenqi .tag {display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin:4px 0 }
+#pageFenqi .tag.pd {background:#fff8e1;color:#e67e22 }
+#pageFenqi .c-ok {background:#e8f5e9 }
+#pageFenqi .c-fl {background:#ffebee }
+#pageFenqi .tbl {width:100%;border-collapse:collapse;font-size:12px;margin-top:6px }
+#pageFenqi .tbl td {padding:5px 8px;border:1px solid #eef0f4;text-align:center }
+#pageFenqi .tbl td:first-child {background:#f8f9fc;font-weight:600;text-align:left;width:90px }
+#pageFenqi .dl {font-size:12px;line-height:1.9 }
+#pageFenqi .dl .kv {display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #f0f0f0 }
+#pageFenqi .dl .kv:last-child {border-bottom:none }
+#pageFenqi .dl .kv .k {color:#888 }
+#pageFenqi .dl .kv .v {font-weight:600 }
+#pageFenqi .ep {font-size:12px;line-height:1.7;padding:4px 2px }
+#pageFenqi .ep p {margin-bottom:6px }
+#pageFenqi .ft {background:#fafafa;border-top:1px solid #eef0f4;padding:10px 12px;font-size:11px;color:#666;text-align:center;line-height:1.6 }
+@media(max-width:400px){.sc .v{font-size:18px }
+#pageFenqi {padding:10px }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div><div class="logo">阿策 <span>🧮</span></div><div class="sub">个人专属 · 仅你可见</div></div>
+  <div class="date" id="dateDisplay"></div>
+</div>
+<div class="tab-bar-l1">
+  <div class="tab-l1 active" onclick="switchL1('checkin')"><span class="ti">📅</span>打卡</div>
+  <div class="tab-l1" onclick="switchL1('invest')"><span class="ti">📊</span>投资</div>
+</div>
+<div class="tab-bar-l2" id="tabBarL2">
+  <div class="tab-l2 active" onclick="switchL2('gtht')"><span class="ti">📈</span>国泰海通</div>
+  <div class="tab-l2" onclick="switchL2('wencai')"><span class="ti">📊</span>问财</div>
+  <div class="tab-l2" onclick="switchL2('compare')"><span class="ti">⚖️</span>对比</div>
+  <div class="tab-l2" onclick="switchL2('fenqi')"><span class="ti">⚠️</span>分歧</div>
+</div>
+<div class="content">
+  <div class="page active" id="pageCheckin"><div class="container">
+<div class="top">
+<div><h1>中级经济师</h1><div class="sub">每天一节 · 打卡备考</div></div>
+<button class="btn-sm" onclick="showReset()">🔄 重置</button>
+</div>
+
+<div class="cd-bar" id="countdownBar">
+<div><div class="cd-label">📅 距离考试</div></div>
+<div class="cd-r">
+<span class="cd-num" id="cdDays">--</span><span class="cd-unit">天</span>
+<div class="cd-sub" id="cdDate">预计 2026年11月7-8日</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="sc"><div class="n" id="statDone">0</div><div class="l">✅ 已完成</div></div>
+<div class="sc"><div class="n" id="statStreak">0</div><div class="l">🔥 连续天数</div></div>
+<div class="sc"><div class="n" id="statTotal">120</div><div class="l">📖 总章节</div></div>
+</div>
+
+<div class="pb"><div class="pb-h"><span>学习进度</span><span><span id="progressLabel">0%</span> · <span id="progressCount">0/120</span></span></div><div class="pb-bar"><div class="pb-fill" id="progressFill" style="width:0%"></div></div></div>
+
+<div class="today-card" id="todayCard">
+<div class="day" id="todayLabel">-</div>
+<div class="sec" id="todaySection">加载中...</div>
+<div class="sub" id="todaySections"></div>
+<button class="check-btn pending" id="checkBtn" onclick="doCheckin()">📌 打卡</button>
+</div>
+
+<button class="btn-sm" style="margin-bottom:12px" onclick="scrollToToday()">📍 跳到今天</button>
+
+<div class="filters" id="filterBar"></div>
+
+<div class="week-nav"><button onclick="prevWeek()">◀</button><span class="wl" id="weekLabel">本周</span><button onclick="nextWeek()">▶</button></div>
+<div class="wk-strip" id="weekCalendar"></div>
+
+<div class="empty" id="emptyState" style="display:none"><div class="emoji">🎉</div><div>全部完成！🏆</div></div>
+<div class="sl" id="sectionList"></div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<div class="mo" id="resetModal"><div class="mc"><h3 id="modalTitle">确认重置</h3><p id="modalMsg"></p><div class="ma"><button class="cancel" onclick="hideModal()">取消</button><button class="confirm" id="modalBtn">确认</button></div></div></div>
+
+<script>
+// ==================== CHAPTERS DATA ====================
+const CHAPTERS = [
+  { subject: "经济基础", chapter: "第1章 社会主义基本经济制度", sections: "第1-4节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第2章 市场需求供给与均衡价格", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第3章 生产及成本理论", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第4章 市场结构理论", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第5章 生产要素市场理论", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第6章 市场失灵和政府干预", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第7章 国民收入核算和宏观经济模型", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第8章 经济增长和经济发展理论", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第9章 价格总水平和就业失业", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第10章 国际贸易理论和政策", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "经济学基础·阶段复习", sections: "第1-10章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "回顾错题+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第11章 公共物品与财政职能", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第12章 财政支出", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第13章 财政收入", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第14章 税收制度", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第15章 政府预算", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第16章 财政管理体制", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第17章 财政政策", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "财政部分·阶段复习", sections: "第11-17章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "经济基础", chapter: "第18章 货币供求与货币均衡", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第19章 中央银行与货币政策", sections: "第1-2节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第20章 商业银行与金融市场", sections: "第1-2节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第21章 金融风险与金融监管", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第22章 对外金融关系与政策", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "货币金融·阶段复习", sections: "第18-22章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日①", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第23章 统计与统计数据", sections: "第1-5节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第24章 描述统计", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第25章 抽样调查", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第26章 回归分析", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第27章 时间序列分析", sections: "第1-5节全章 🔴", sessions: 1 },
+  { subject: "复习", chapter: "统计部分·阶段复习", sections: "第23-27章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日②", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第28章 会计概论", sections: "第1-7节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第29章 会计循环", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第30章 会计报表", sections: "第1-5节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第31章 财务报表分析", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第32章 政府会计", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "复习", chapter: "会计部分·阶段复习", sections: "第28-32章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 经济基础·中期复盘", sections: "前半本薄弱点标记+补强", sessions: 1 },
+  { subject: "经济基础", chapter: "第33章 法律对经济关系的调整", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第34章 物权法律制度", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第35章 合同法律制度", sections: "第1-6节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第36章 公司法律制度", sections: "第1-8节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第37章 其他法律制度", sections: "第1-6节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "法律部分·阶段复习", sections: "第33-37章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "查漏补缺+休息", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·全科目摸底", sections: "自测摸底卷+分数评估", sessions: 1 },
+  { subject: "休息", chapter: "📅 经济基础·全书总复盘", sections: "37章错题全量回顾+薄弱再补强", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日③", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "财政税收", chapter: "第1章 公共财政与财政职能", sections: "第1-2节全章 🟢", sessions: 1 },
+  { subject: "财政税收", chapter: "第2章 财政支出理论与内容", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第3章 税收理论", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度①", sections: "第1节 增值税(上)—基本原理+税率 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度②", sections: "第1节 增值税(下)—进销项计算 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度③", sections: "第2-3节 消费税制+关税制 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度①", sections: "第1节 企业所得税(上)—收入+扣除 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度②", sections: "第1节 企业所得税(下)—优惠+应纳税额 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度③", sections: "第2节 个人所得税—综合+分类计算 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第6章 财产和行为税制度①", sections: "第1-3节 房产+城镇土地+土地增值税+契税 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第6章 财产和行为税制度②", sections: "第4-5节 印花税+城建税教育费+车船车辆购置税+环保资源烟叶税 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第7章 税务管理", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第8章 纳税检查", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第9章 公债", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第10章 政府预算理论与管理制度", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第11章 政府间财政关系", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第12章 财政平衡与财政政策", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "财政税收前半本回顾", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·综合复习①", sections: "第1-6章重点+计算题专项训练", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·综合复习②", sections: "第7-12章重点+综合案例", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·真题模拟①", sections: "真题模拟卷一+判卷分析", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日④", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·真题模拟②", sections: "真题模拟卷二+查漏补缺", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·真题模拟①", sections: "真题模拟卷一+判卷分析错题", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·真题模拟②", sections: "真题模拟卷二+查漏补缺", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第1套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第2套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第3套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息调整日", sections: "休息+错题整理归类", sessions: 1 },
+  { subject: "复习", chapter: "错题回顾·经济基础全科", sections: "第1-37章所有标记错题重做", sessions: 1 },
+  { subject: "复习", chapter: "错题回顾·财政税收全科", sections: "第1-12章所有标记错题重做", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·经济基础①", sections: "经济学基础+财政部分高频考点背诵", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·经济基础②", sections: "货币金融+统计会计+法律高频考点背诵", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·财政税收①", sections: "第1-6章税率表+计算公式记忆", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·财政税收②", sections: "第7-12章管理流程+政策工具记忆", sessions: 1 },
+  { subject: "复习", chapter: "考前冲刺·经济基础押题", sections: "高频考点+易错点最后过一遍", sessions: 1 },
+  { subject: "复习", chapter: "考前冲刺·财政税收押题", sections: "增值税+企业所得税核心计算过一遍", sessions: 1 },
+  { subject: "复习", chapter: "考前最后查漏补缺", sections: "全书快速浏览+心态调整", sessions: 1 },
+  { subject: "休息", chapter: "📅 考前一天休息", sections: "轻松心态+文具准备+早睡早起", sessions: 1 },
+  { subject: "复习", chapter: "机动调整日①", sections: "补进度+额外刷题+查漏", sessions: 1 },
+  { subject: "复习", chapter: "机动调整日②", sections: "补进度+额外刷题+查漏", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日⑤", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 1", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 2", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 3", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 4", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 5", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 6", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 7", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 8", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 9", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 10", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 11", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 12", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 13", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 14", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 15", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 16", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 17", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 18", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 19", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 20", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 21", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 22", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 23", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 24", sections: "弹性补进度+休息+复盘", sessions: 1 },
+];
+
+// ==================== CORE LOGIC ====================
+const STORAGE_KEY = 'jjjs_checkin_v1';
+const TOTAL_SECTIONS = 120;
+
+// State
+let state = {
+  startDate: '2026-06-15',
+  checkedIn: {},       // { "dayIndex": "ISO-date" }
+  filterSubject: '全部',
+  currentWeek: null,      // null = auto-calculate from today
+  firstVisit: true,
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state = { ...state, ...parsed };
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) { toast('⚠️ 存储空间不足，请清理浏览器缓存'); }
+}
+
+// Compute sections array from CHAPTERS
+function getSections() {
+  const result = [];
+  CHAPTERS.forEach((ch, ci) => {
+    for (let i = 0; i < ch.sessions; i++) {
+      result.push({
+        chapterIndex: ci,
+        id: result.length + 1,
+        label: ch.chapter,
+        sections: ch.sections,
+        subject: ch.subject,
+      });
+    }
+  });
+  return result;
+}
+
+const allSections = getSections();
+
+// Get today's date string (YYYY-MM-DD)
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+// Date math helpers
+function parseDate(s) {
+  const [y,m,d] = s.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function dateStr(date) {
+  return date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
+}
+function addDays(s, n) {
+  const d = parseDate(s);
+  d.setDate(d.getDate() + n);
+  return dateStr(d);
+}
+function dayDiff(a, b) {
+  const da = parseDate(a);
+  const db = parseDate(b);
+  return Math.floor((db - da) / (1000*60*60*24));
+}
+
+// Get today's day index
+function todayDayIndex() {
+  return dayDiff(state.startDate, todayStr());
+}
+
+// Get checked status for a day index
+function isChecked(dayIndex) {
+  return state.checkedIn[String(dayIndex)] || false;
+}
+
+// Check in / cancel for any day index (0-based)
+function toggleCheckin(idx) {
+  if (idx < 0 || idx >= TOTAL_SECTIONS) {
+    toast('不在备考计划范围内');
+    return;
+  }
+  if (isChecked(idx)) {
+    // Cancel: require confirmation
+    const sec = allSections[idx];
+    document.getElementById('modalTitle').textContent = '取消打卡？';
+    document.getElementById('modalMsg').textContent = `确定要取消「${sec.label}」的打卡记录吗？`;
+    const btn = document.getElementById('modalBtn');
+    btn.textContent = '确认取消';
+    btn.className = 'confirm danger';
+    btn.onclick = () => {
+      delete state.checkedIn[String(idx)];
+      saveState();
+      renderAll();
+      hideModal();
+      toast('已取消打卡');
+    };
+    document.getElementById('resetModal').classList.add('show');
+  } else {
+    // Check in: directly
+    const dateStr = addDays(state.startDate, idx);
+    state.checkedIn[String(idx)] = dateStr;
+    saveState();
+    renderAll();
+    toast('✅ 打卡成功！');
+  }
+}
+
+// Check in today (via button)
+function doCheckin() {
+  toggleCheckin(todayDayIndex());
+}
+
+function showReset() {
+  const btn = document.getElementById('modalBtn');
+  if (Object.keys(state.checkedIn).length === 0) {
+    toast('没有打卡记录');
+    return;
+  }
+  document.getElementById('modalTitle').textContent = '⚠️ 确认重置';
+  document.getElementById('modalMsg').textContent = '这将清空所有打卡记录，此操作不可撤销。';
+  btn.textContent = '确认重置';
+  btn.className = 'confirm danger';
+  btn.onclick = doReset;
+  document.getElementById('resetModal').classList.add('show');
+}
+
+function doReset() {
+  state.checkedIn = {};
+  state.firstVisit = false;
+  saveState();
+  renderAll();
+  hideModal();
+  toast('已清空全部记录');
+}
+
+function hideModal() {
+  document.getElementById('resetModal').classList.remove('show');
+}
+
+function showWelcome() {
+  if (!state.firstVisit) return;
+  state.firstVisit = false;
+  saveState();
+  document.getElementById('modalTitle').textContent = '📚 欢迎！';
+  document.getElementById('modalMsg').innerHTML = `
+    <strong>中级经济师（财政税收）</strong><br>
+    经济基础知识37章 + 财政税收实务12章<br><br>
+    备考计划共 <strong>120天</strong>，每天一节。<br>
+    从 <strong>2026-06-15</strong> 开始计算进度。<br><br>
+    打卡后数据自动保存在浏览器中，不会丢失。
+  `;
+  const btn = document.getElementById('modalBtn');
+  btn.textContent = '开始打卡 🚀';
+  btn.className = 'confirm';
+  btn.onclick = () => {
+    hideModal();
+  };
+  document.getElementById('resetModal').classList.add('show');
+}
+
+// Toast
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._timeout);
+  el._timeout = setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+// Filter
+function setFilter(subj) {
+  state.filterSubject = subj;
+  renderAll();
+}
+
+// Week navigation
+function currentWeekStart() {
+  if (state.currentWeek !== null) return state.currentWeek;
+  const today = todayStr();
+  const d = parseDate(today);
+  const dayOfWeek = d.getDay();
+  const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const mon = new Date(d);
+  mon.setDate(d.getDate() + diff);
+  return dateStr(mon);
+}
+function setWeekStart(s) {
+  state.currentWeek = s;
+  renderAll();
+}
+function prevWeek() {
+  setWeekStart(addDays(currentWeekStart(), -7));
+}
+function nextWeek() {
+  setWeekStart(addDays(currentWeekStart(), 7));
+}
+function resetWeek() {
+  state.currentWeek = null;
+  renderAll();
+}
+
+function getWeekRange(monStr) {
+  const mon = parseDate(monStr);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  return { mon: monStr, sun: dateStr(sun), label: `${mon.getMonth()+1}/${mon.getDate()} - ${sun.getMonth()+1}/${sun.getDate()}` };
+}
+
+// Scroll to today
+function scrollToToday() {
+  resetWeek();
+  const el = document.getElementById('sectionList');
+  const todayIdx = todayDayIndex();
+  if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+    const child = document.getElementById('si-' + (todayIdx + 1));
+    if (child) {
+      child.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      child.style.outline = '3px solid #8b5cf6';
+      child.style.outlineOffset = '-2px';
+      setTimeout(() => { child.style.outline = ''; }, 2000);
+    }
+  }
+}
+
+// ==================== RENDER ====================
+function renderAll() {
+  // Countdown to exam
+  const examDate = new Date(2026, 10, 7); // Nov 7, 2026
+  const now = new Date();
+  const daysLeft = Math.ceil((examDate - now) / (1000*60*60*24));
+  document.getElementById('cdDays').textContent = Math.max(0, daysLeft);
+  document.getElementById('cdDate').textContent = daysLeft <= 0 ? '🏆 考试已到来！' : '预计 2026年11月7-8日';
+
+  const todayIdx = todayDayIndex();
+  const doneCount = Object.keys(state.checkedIn).length;
+  const todayStrVal = todayStr();
+
+  // Calculate streak
+  let streak = 0;
+  for (let i = todayIdx; i >= 0; i--) {
+    if (isChecked(i)) streak++;
+    else break;
+  }
+
+  // Stats
+  document.getElementById('statDone').textContent = doneCount;
+  document.getElementById('statStreak').textContent = streak;
+  document.getElementById('statTotal').textContent = TOTAL_SECTIONS;
+  const pct = Math.round((doneCount / TOTAL_SECTIONS) * 100);
+  document.getElementById('progressLabel').textContent = `进度 ${pct}%`;
+  document.getElementById('progressCount').textContent = `${doneCount} / ${TOTAL_SECTIONS}`;
+  document.getElementById('progressFill').style.width = `${pct}%`;
+
+  // Today card
+  const weekDayNames = ['日','一','二','三','四','五','六'];
+  const d = new Date();
+  document.getElementById('todayLabel').textContent = `${todayStrVal} 周${weekDayNames[d.getDay()]}`;
+
+  if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+    const sec = allSections[todayIdx];
+    document.getElementById('todaySection').textContent = sec.label;
+    document.getElementById('todaySections').textContent = sec.sections;
+  } else {
+    document.getElementById('todaySection').textContent = '🎉 全部完成！';
+    document.getElementById('todaySections').textContent = '';
+  }
+
+  const btn = document.getElementById('checkBtn');
+  if (todayIdx < 0 || todayIdx >= TOTAL_SECTIONS) {
+    btn.textContent = '🏆 完成';
+    btn.className = 'check-btn complete';
+  } else if (isChecked(todayIdx)) {
+    btn.textContent = '✅ 已打卡';
+    btn.className = 'check-btn done';
+  } else {
+    btn.textContent = '📌 打卡';
+    btn.className = 'check-btn pending';
+  }
+
+  // Filters
+  const subjects = ['全部', '经济基础', '财政税收', '复习'];
+  document.getElementById('filterBar').innerHTML = subjects.map(s =>
+    `<span class="fb${state.filterSubject === s ? ' active' : ''}" onclick="setFilter('${s}')">${s}</span>`
+  ).join('');
+
+  // Week calendar
+  const mon = currentWeekStart();
+  const weekInfo = getWeekRange(mon);
+  document.getElementById('weekLabel').textContent = weekInfo.label;
+
+  let calHtml = '';
+  for (let i = 0; i < 7; i++) {
+    const date = addDays(mon, i);
+    const idx = dayDiff(state.startDate, date);
+    const dd = parseDate(date);
+    const cls = date === todayStrVal ? ' today' : '';
+    const doneCls = isChecked(idx) ? ' done' : '';
+    calHtml += `<div class="wk-d${cls}${doneCls}" onclick="toggleCheckin(${idx})">
+      <div class="dd">${dd.getDate()}</div>
+      <div class="dl">周${weekDayNames[dd.getDay()]}</div>
+    </div>`;
+  }
+  document.getElementById('weekCalendar').innerHTML = calHtml;
+
+  // Section list
+  const listEl = document.getElementById('sectionList');
+  const emptyEl = document.getElementById('emptyState');
+  let filtered = allSections;
+  if (state.filterSubject !== '全部') {
+    filtered = filtered.filter(s => s.subject === state.filterSubject);
+  }
+  if (filtered.length === 0) {
+    emptyEl.style.display = 'block';
+    listEl.innerHTML = '';
+  } else {
+    emptyEl.style.display = 'none';
+    listEl.innerHTML = filtered.map(s => {
+      const checked = isChecked(s.id - 1);
+      return `<div class="si${checked ? ' done' : ''}" id="si-${s.id}" onclick="toggleCheckin(${s.id - 1})" style="cursor:pointer">
+        <div class="idx">${checked ? '✓' : s.id}</div>
+        <div class="cinfo">
+          <div class="ctitle">${s.label}</div>
+          <div class="csec">${s.sections}</div>
+        </div>
+        <div class="csubj ${s.subject}">${s.subject}</div>
+      </div>`;
+    }).join('');
+
+    // Highlight today
+    if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+      const todayEl = document.getElementById('si-' + (todayIdx + 1));
+      if (todayEl) {
+        todayEl.style.background = '#f5f3ff';
+        todayEl.style.borderColor = '#8b5cf6';
+      }
+    }
+  }
+}
+
+// Init
+loadState();
+renderAll();
+showWelcome();
+</script></div>
+  <div class="page" id="pageGtht"><div class="sm"><div class="sc up"><div class="l">V7 模拟累计</div><div class="v">+25.43%</div><div class="s">已验证 110 天</div></div><div class="sc ne"><div class="l">实盘累计</div><div class="v">-849.00</div></div><div class="sc blue"><div class="l">交易日 / 有候选</div><div class="v">113</div><div class="s">候选 111 | 待验 1 | 无 2 | 待补 0</div></div><div class="sc neu"><div class="l">V7 已验证</div><div class="s" style="font-size:13px;line-height:1.8;color:#333">盘中 51/110 = 46%<br>收盘 27/110 = 25%</div></div></div><div class="w"><table><thead><tr><th style="min-width:62px;background:#e8ecf3;border-right:2px solid #dee2e6">日期</th><th>首推<span class="sh">股票（评分）</span></th><th>行业<span class="sh">所属板块</span></th><th>涨幅<span class="sh">当日±%</span></th><th>量比<span class="sh">资金关注</span></th><th>换手<span class="sh">活跃度%</span></th><th>净流入<span class="sh">主力亿</span></th><th>评分<span class="sh">V7总分</span></th><th>次开%<span class="sh">次日开盘</span></th><th>次高%<span class="sh">次日最高</span></th><th>次收%<span class="sh">次日收盘</span></th><th>判定<span class="sh">✅/❌</span></th><th>累计%<span class="sh">V7累加</span></th></tr></thead><tbody><tr><td class="dc">1月5日<span class="dw">周一</span></td><td class="c-fl">梦网科技<br><span style="font-size:10px;color:#999">73分</span></td><td style="font-size:11px">通信</td><td>5.1%</td><td>2</td><td>8.83%</td><td>0.83亿</td><td>73</td><td>-0.63%</td><td>0.31%</td><td>-0.16%</td><td class="c-fl">❌</td><td class="c-fl">-0.16%</td></tr><tr><td class="dc">1月6日<span class="dw">周二</span></td><td class="c-fl">京东方A<br><span style="font-size:10px;color:#999">92分</span></td><td style="font-size:11px">电子</td><td>6.38%</td><td>2.94</td><td>5.73%</td><td>21.1亿</td><td>92</td><td>-1.11%</td><td>-0.67%</td><td>-3.11%</td><td class="c-fl">❌</td><td class="c-fl">-3.27%</td></tr><tr><td class="dc">1月7日<span class="dw">周三</span></td><td class="c-fl">北方华创<br><span style="font-size:10px;color:#999">87分</span></td><td style="font-size:11px">电子</td><td>6.06%</td><td>1.63</td><td>2.44%</td><td>10.06亿</td><td>87</td><td>0.00%</td><td>1.28%</td><td>-1.70%</td><td class="c-fl">❌</td><td class="c-fl">-4.97%</td></tr><tr><td class="dc">1月8日<span class="dw">周四</span></td><td class="c-ok">国新健康<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>5.27%</td><td>3.1</td><td>3.39%</td><td>0.55亿</td><td>75</td><td>0.00%</td><td>10.01%</td><td>10.01%</td><td class="c-ok">✅</td><td class="c-ok">5.04%</td></tr><tr><td class="dc fri">1月9日<span class="dw">周五</span></td><td class="c-ok">科大讯飞<br><span style="font-size:10px;color:#999">90分</span></td><td style="font-size:11px">计算机</td><td>4.1%</td><td>1.5</td><td>6.48%</td><td>8.28亿</td><td>90</td><td>3.42%</td><td>8.81%</td><td>7.19%</td><td class="c-ok">✅</td><td class="c-ok">12.23%</td></tr><tr><td class="dc">1月12日<span class="dw">周一</span></td><td class="c-fl">常山北明<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>5.52%</td><td>2.44</td><td>7.99%</td><td>2.53亿</td><td>75</td><td>0.60%</td><td>0.60%</td><td>-4.21%</td><td class="c-fl">❌</td><td class="c-ok">8.02%</td></tr><tr><td class="dc">1月13日<span class="dw">周二</span></td><td class="c-fl">盐湖股份<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">基础化工</td><td>5.76%</td><td>1.45</td><td>3.93%</td><td>5.98亿</td><td>84</td><td>-0.15%</td><td>0.89%</td><td>-1.72%</td><td class="c-fl">❌</td><td class="c-ok">6.30%</td></tr><tr><td class="dc">1月14日<span class="dw">周三</span></td><td class="c-fl">中国长城<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>3.72%</td><td>2.42</td><td>9.16%</td><td>3.9亿</td><td>75</td><td>1.55%</td><td>1.55%</td><td>-2.33%</td><td class="c-fl">❌</td><td class="c-ok">3.97%</td></tr><tr><td class="dc">1月15日<span class="dw">周四</span></td><td class="c-ok">深科技<br><span style="font-size:10px;color:#999">92分</span></td><td style="font-size:11px">电子</td><td>4.46%</td><td>1.5</td><td>9.96%</td><td>5.97亿</td><td>92</td><td>2.51%</td><td>7.50%</td><td>6.06%</td><td class="c-ok">✅</td><td class="c-ok">10.03%</td></tr><tr><td class="dc fri">1月16日<span class="dw">周五</span></td><td class="c-ok">风华高科<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电子</td><td>6.8%</td><td>2.22</td><td>7.11%</td><td>1.93亿</td><td>75</td><td>5.10%</td><td>9.45%</td><td>5.73%</td><td class="c-ok">✅</td><td class="c-ok">15.76%</td></tr><tr><td class="dc">1月19日<span class="dw">周一</span></td><td class="c-fl">江淮汽车<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.77%</td><td>2.09</td><td>5.63%</td><td>14.75亿</td><td>94</td><td>-0.08%</td><td>1.67%</td><td>-1.20%</td><td class="c-fl">❌</td><td class="c-ok">14.56%</td></tr><tr><td class="dc">1月20日<span class="dw">周二</span></td><td class="c-fl">中泰化学<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">基础化工</td><td>4.97%</td><td>1.61</td><td>7.12%</td><td>1.6亿</td><td>91</td><td>-0.65%</td><td>-0.16%</td><td>-2.28%</td><td class="c-fl">❌</td><td class="c-ok">12.28%</td></tr><tr><td class="dc">1月21日<span class="dw">周三</span></td><td class="c-fl">万科A<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">房地产</td><td>4.59%</td><td>2.25</td><td>5.27%</td><td>6.8亿</td><td>94</td><td>0.00%</td><td>0.20%</td><td>-1.20%</td><td class="c-fl">❌</td><td class="c-ok">11.08%</td></tr><tr><td class="dc">1月22日<span class="dw">周四</span></td><td class="c-fl">融发核电<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>3.21%</td><td>1.52</td><td>7.2%</td><td>2.41亿</td><td>91</td><td>-0.84%</td><td>0.12%</td><td>0.12%</td><td class="c-fl">❌</td><td class="c-ok">11.20%</td></tr><tr><td class="dc fri">1月23日<span class="dw">周五</span></td><td class="c-ok">有研新材<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电子</td><td>3.86%</td><td>1.52</td><td>6.18%</td><td>3.31亿</td><td>94</td><td>0.53%</td><td>3.36%</td><td>-0.17%</td><td class="c-ok">✅</td><td class="c-ok">11.03%</td></tr><tr><td class="dc">1月26日<span class="dw">周一</span></td><td class="c-fl">特发信息<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">通信</td><td>4.1%</td><td>2.3</td><td>9.77%</td><td>1.97亿</td><td>91</td><td>-2.30%</td><td>-1.89%</td><td>-3.52%</td><td class="c-fl">❌</td><td class="c-ok">7.51%</td></tr><tr><td class="dc">1月27日<span class="dw">周二</span></td><td class="c-ok">士兰微<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>4.37%</td><td>1.48</td><td>6.0%</td><td>5.66亿</td><td>89</td><td>-0.44%</td><td>7.31%</td><td>6.18%</td><td class="c-ok">✅</td><td class="c-ok">13.69%</td></tr><tr><td class="dc">1月28日<span class="dw">周三</span></td><td class="c-ok">大北农<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">农林牧渔</td><td>4.12%</td><td>3.1</td><td>9.77%</td><td>3.61亿</td><td>91</td><td>1.63%</td><td>5.12%</td><td>2.79%</td><td class="c-ok">✅</td><td class="c-ok">16.48%</td></tr><tr><td class="dc">1月29日<span class="dw">周四</span></td><td class="c-fl">北新建材<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">建筑材料</td><td>4.01%</td><td>1.64</td><td>3.58%</td><td>2.42亿</td><td>94</td><td>-0.14%</td><td>1.19%</td><td>-2.24%</td><td class="c-fl">❌</td><td class="c-ok">14.24%</td></tr><tr><td class="dc fri">1月30日<span class="dw">周五</span></td><td class="c-ok">天顺风能<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>4.93%</td><td>3.33</td><td>6.44%</td><td>1.74亿</td><td>91</td><td>0.25%</td><td>6.10%</td><td>1.40%</td><td class="c-ok">✅</td><td class="c-ok">15.64%</td></tr><tr><td class="dc">2月2日<span class="dw">周一</span></td><td class="c-ok">鹏鼎控股<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>3.01%</td><td>1.67</td><td>2.59%</td><td>3.62亿</td><td>89</td><td>2.40%</td><td>8.83%</td><td>7.16%</td><td class="c-ok">✅</td><td class="c-ok">22.80%</td></tr><tr><td class="dc">2月3日<span class="dw">周二</span></td><td class="c-fl">光迅科技<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">通信</td><td>3.76%</td><td>1.24</td><td>5.42%</td><td>3.89亿</td><td>89</td><td>-1.00%</td><td>0.20%</td><td>-2.82%</td><td class="c-fl">❌</td><td class="c-ok">19.98%</td></tr><tr><td class="dc">2月4日<span class="dw">周三</span></td><td class="c-fl">山子高科<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.47%</td><td>1.51</td><td>12.07%</td><td>7.24亿</td><td>94</td><td>-2.72%</td><td>-2.33%</td><td>-6.23%</td><td class="c-fl">❌</td><td class="c-ok">13.75%</td></tr><tr><td class="dc">2月5日<span class="dw">周四</span></td><td class="c-fl">银轮股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>2.75%</td><td>2.42</td><td>9.26%</td><td>6.93亿</td><td>94</td><td>-0.52%</td><td>0.81%</td><td>-2.69%</td><td class="c-fl">❌</td><td class="c-ok">11.06%</td></tr><tr><td class="dc fri">2月6日<span class="dw">周五</span></td><td class="c-fl">多氟多<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">基础化工</td><td>6.06%</td><td>2.55</td><td>10.25%</td><td>7.43亿</td><td>91</td><td>0.03%</td><td>1.22%</td><td>0.07%</td><td class="c-fl">❌</td><td class="c-ok">11.13%</td></tr><tr><td class="dc">2月9日<span class="dw">周一</span></td><td class="c-fl">隆基绿能<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>4.47%</td><td>1.53</td><td>5.66%</td><td>10.57亿</td><td>94</td><td>-0.94%</td><td>0.52%</td><td>-1.93%</td><td class="c-fl">❌</td><td class="c-ok">9.20%</td></tr><tr><td class="dc">2月10日<span class="dw">周二</span></td><td class="c-ok">包钢股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">钢铁</td><td>3.16%</td><td>1.81</td><td>5.04%</td><td>8.05亿</td><td>94</td><td>-0.77%</td><td>3.83%</td><td>2.30%</td><td class="c-ok">✅</td><td class="c-ok">11.50%</td></tr><tr><td class="dc">2月11日<span class="dw">周三</span></td><td class="c-fl">多氟多<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">基础化工</td><td>4.46%</td><td>1.56</td><td>8.15%</td><td>5.31亿</td><td>94</td><td>-2.13%</td><td>-0.43%</td><td>-0.93%</td><td class="c-fl">❌</td><td class="c-ok">10.57%</td></tr><tr><td class="dc">2月12日<span class="dw">周四</span></td><td class="c-fl">浪潮信息<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>4.33%</td><td>2.07</td><td>5.03%</td><td>9.74亿</td><td>94</td><td>-1.95%</td><td>1.88%</td><td>0.87%</td><td class="c-fl">❌</td><td class="c-ok">11.44%</td></tr><tr><td class="dc fri">2月13日<span class="dw">周五</span></td><td class="c-fl">先导基电<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">电子</td><td>5.81%</td><td>3.16</td><td>5.31%</td><td>1.89亿</td><td>88</td><td>0.00%</td><td>0.26%</td><td>-2.27%</td><td class="c-fl">❌</td><td class="c-ok">9.17%</td></tr><tr><td class="dc">2月24日<span class="dw">周二</span></td><td class="c-ok">山子高科<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.97%</td><td>2.02</td><td>7.54%</td><td>8.72亿</td><td>94</td><td>-0.82%</td><td>2.88%</td><td>1.44%</td><td class="c-ok">✅</td><td class="c-ok">10.61%</td></tr><tr><td class="dc">2月25日<span class="dw">周三</span></td><td class="c-fl">多氟多<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">基础化工</td><td>4.47%</td><td>1.88</td><td>9.99%</td><td>4.54亿</td><td>91</td><td>1.95%</td><td>1.95%</td><td>-2.05%</td><td class="c-fl">❌</td><td class="c-ok">8.56%</td></tr><tr><td class="dc">2月26日<span class="dw">周四</span></td><td class="c-fl">光迅科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>4.23%</td><td>1.61</td><td>6.96%</td><td>7.84亿</td><td>94</td><td>-2.42%</td><td>1.86%</td><td>0.78%</td><td class="c-fl">❌</td><td class="c-ok">9.34%</td></tr><tr><td class="dc fri">2月27日<span class="dw">周五</span></td><td class="c-fl">神州数码<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">计算机</td><td>5.61%</td><td>3.52</td><td>10.46%</td><td>5.46亿</td><td>91</td><td>-1.58%</td><td>1.28%</td><td>-1.82%</td><td class="c-fl">❌</td><td class="c-ok">7.52%</td></tr><tr><td class="dc">3月2日<span class="dw">周一</span></td><td class="c-ok">南山铝业<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">有色金属</td><td>4.66%</td><td>1.67</td><td>3.38%</td><td>3.93亿</td><td>94</td><td>-1.08%</td><td>2.43%</td><td>-2.83%</td><td class="c-ok">✅</td><td class="c-ok">4.69%</td></tr><tr><td class="dc">3月3日<span class="dw">周二</span></td><td class="c-ok">爱旭股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>2.75%</td><td>2.48</td><td>5.64%</td><td>3.69亿</td><td>94</td><td>-1.51%</td><td>3.64%</td><td>0.62%</td><td class="c-ok">✅</td><td class="c-ok">5.31%</td></tr><tr><td class="dc">3月4日<span class="dw">周三</span></td><td class="c-fl">大北农<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">农林牧渔</td><td>4.25%</td><td>2.75</td><td>12.48%</td><td>3.56亿</td><td>91</td><td>-3.17%</td><td>-2.94%</td><td>-6.33%</td><td class="c-fl">❌</td><td class="c-fl">-1.02%</td></tr><tr><td class="dc">3月5日<span class="dw">周四</span></td><td class="c-ok">中国电建<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">建筑装饰</td><td>2.68%</td><td>1.64</td><td>3.4%</td><td>3.73亿</td><td>94</td><td>0.17%</td><td>4.52%</td><td>3.65%</td><td class="c-ok">✅</td><td class="c-ok">2.63%</td></tr><tr><td class="dc fri">3月6日<span class="dw">周五</span></td><td class="c-fl">中国电建<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">建筑装饰</td><td>3.65%</td><td>2.17</td><td>5.24%</td><td>6.08亿</td><td>94</td><td>0.17%</td><td>1.85%</td><td>-0.67%</td><td class="c-fl">❌</td><td class="c-ok">1.96%</td></tr><tr><td class="dc">3月9日<span class="dw">周一</span></td><td class="c-ok">三六零<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>4.6%</td><td>1.93</td><td>3.37%</td><td>3.79亿</td><td>94</td><td>1.00%</td><td>7.38%</td><td>4.39%</td><td class="c-ok">✅</td><td class="c-ok">6.35%</td></tr><tr><td class="dc">3月10日<span class="dw">周二</span></td><td class="c-ok">天赐材料<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>4.13%</td><td>2.26</td><td>8.52%</td><td>7.33亿</td><td>94</td><td>0.89%</td><td>9.04%</td><td>8.06%</td><td class="c-ok">✅</td><td class="c-ok">14.41%</td></tr><tr><td class="dc">3月11日<span class="dw">周三</span></td><td class="c-ok">三安光电<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电子</td><td>5.77%</td><td>1.49</td><td>6.56%</td><td>9.03亿</td><td>86</td><td>0.06%</td><td>9.98%</td><td>9.98%</td><td class="c-ok">✅</td><td class="c-ok">24.39%</td></tr><tr><td class="dc">3月12日<span class="dw">周四</span></td><td class="c-fl">晶澳科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>4.44%</td><td>2.02</td><td>5.08%</td><td>3.27亿</td><td>94</td><td>-0.39%</td><td>1.62%</td><td>-1.62%</td><td class="c-fl">❌</td><td class="c-ok">22.77%</td></tr><tr><td class="dc fri">3月13日<span class="dw">周五</span></td><td class="c-ok">沪电股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>6.34%</td><td>1.98</td><td>6.82%</td><td>13.89亿</td><td>91</td><td>0.27%</td><td>5.31%</td><td>3.41%</td><td class="c-ok">✅</td><td class="c-ok">26.18%</td></tr><tr><td class="dc">3月16日<span class="dw">周一</span></td><td class="c-fl">比亚迪<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">汽车</td><td>4.97%</td><td>1.54</td><td>3.12%</td><td>25.27亿</td><td>86</td><td>0.01%</td><td>1.95%</td><td>-1.67%</td><td class="c-fl">❌</td><td class="c-ok">24.51%</td></tr><tr><td class="dc">3月17日<span class="dw">周二</span></td><td class="c-ok">福斯特<br><span style="font-size:10px;color:#999">83分</span></td><td style="font-size:11px">电力设备</td><td>4.61%</td><td>2.46</td><td>3.23%</td><td>1.49亿</td><td>83</td><td>0.61%</td><td>4.91%</td><td>1.23%</td><td class="c-ok">✅</td><td class="c-ok">25.74%</td></tr><tr><td class="dc">3月18日<span class="dw">周三</span></td><td class="c-fl">济民健康<br><span style="font-size:10px;color:#999">81分</span></td><td style="font-size:11px">医药生物</td><td>3.51%</td><td>3.19</td><td>5.35%</td><td>0.52亿</td><td>81</td><td>-1.97%</td><td>-0.33%</td><td>-1.31%</td><td class="c-fl">❌</td><td class="c-ok">24.43%</td></tr><tr><td class="dc">3月19日<span class="dw">周四</span></td><td class="c-ok">新天然气<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">石油石化</td><td>6.15%</td><td>1.65</td><td>8.01%</td><td>3.05亿</td><td>88</td><td>-4.60%</td><td>4.44%</td><td>1.36%</td><td class="c-ok">✅</td><td class="c-ok">25.79%</td></tr><tr><td class="dc fri">3月20日<span class="dw">周五</span></td><td class="c-ok">隆基绿能<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>2.54%</td><td>1.91</td><td>5.9%</td><td>11.06亿</td><td>94</td><td>0.32%</td><td>2.16%</td><td>-0.95%</td><td class="c-ok">✅</td><td class="c-ok">24.84%</td></tr><tr><td class="dc">3月23日<span class="dw">周一</span></td><td class="c-fl">比亚迪<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.46%</td><td>2.4</td><td>5.11%</td><td>34.19亿</td><td>94</td><td>0.72%</td><td>0.72%</td><td>-0.92%</td><td class="c-fl">❌</td><td class="c-ok">23.92%</td></tr><tr><td class="dc">3月24日<span class="dw">周二</span></td><td class="c-ok">爱旭股份<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">电力设备</td><td>5.91%</td><td>2.34</td><td>6.93%</td><td>2.73亿</td><td>88</td><td>0.58%</td><td>2.21%</td><td>0.32%</td><td class="c-ok">✅</td><td class="c-ok">24.24%</td></tr><tr><td class="dc">3月25日<span class="dw">周三</span></td><td class="c-fl">华勤技术<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>2.35%</td><td>1.52</td><td>2.76%</td><td>1.79亿</td><td>91</td><td>0.00%</td><td>0.00%</td><td>-5.15%</td><td class="c-fl">❌</td><td class="c-ok">19.09%</td></tr><tr><td class="dc">3月26日<span class="dw">周四</span></td><td class="c-ok">远东股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>3.02%</td><td>1.81</td><td>5.25%</td><td>2.29亿</td><td>91</td><td>-2.20%</td><td>5.94%</td><td>3.59%</td><td class="c-ok">✅</td><td class="c-ok">22.68%</td></tr><tr><td class="dc fri">3月27日<span class="dw">周五</span></td><td class="c-fl">科力远<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">电力设备</td><td>4.87%</td><td>1.61</td><td>5.01%</td><td>1.01亿</td><td>88</td><td>-0.13%</td><td>0.93%</td><td>-0.13%</td><td class="c-fl">❌</td><td class="c-ok">22.55%</td></tr><tr><td class="dc">3月30日<span class="dw">周一</span></td><td class="c-ok">航天机电<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">汽车</td><td>4.14%</td><td>2.07</td><td>4.67%</td><td>1.3亿</td><td>88</td><td>0.15%</td><td>3.91%</td><td>0.74%</td><td class="c-ok">✅</td><td class="c-ok">23.29%</td></tr><tr><td class="dc">3月31日<span class="dw">周二</span></td><td class="c-zz">无候选</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-ok">23.29%</td></tr><tr><td class="dc">4月1日<span class="dw">周三</span></td><td class="c-ok">宇通客车<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>3.85%</td><td>3.95</td><td>4.12%</td><td>4.83亿</td><td>94</td><td>0.00%</td><td>3.38%</td><td>2.71%</td><td class="c-ok">✅</td><td class="c-ok">26.00%</td></tr><tr><td class="dc">4月2日<span class="dw">周四</span></td><td class="c-ok">福晶科技<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电子</td><td>2.73%</td><td>1.42</td><td>10.03%</td><td>4.28亿</td><td>86</td><td>2.49%</td><td>10.00%</td><td>10.00%</td><td class="c-ok">✅</td><td class="c-ok">36.00%</td></tr><tr><td class="dc fri">4月3日<span class="dw">周五</span></td><td class="c-fl">紫光股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">计算机</td><td>5.87%</td><td>1.68</td><td>5.06%</td><td>10.28亿</td><td>91</td><td>-0.43%</td><td>0.94%</td><td>-1.91%</td><td class="c-fl">❌</td><td class="c-ok">34.09%</td></tr><tr><td class="dc">4月7日<span class="dw">周二</span></td><td class="c-ok">中国稀土<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">有色金属</td><td>3.81%</td><td>1.65</td><td>3.38%</td><td>2.5亿</td><td>94</td><td>2.44%</td><td>4.22%</td><td>4.20%</td><td class="c-ok">✅</td><td class="c-ok">38.29%</td></tr><tr><td class="dc">4月8日<span class="dw">周三</span></td><td class="c-fl">沃尔核材<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>6.22%</td><td>2.28</td><td>5.0%</td><td>3.67亿</td><td>91</td><td>-1.60%</td><td>0.45%</td><td>-0.53%</td><td class="c-fl">❌</td><td class="c-ok">37.76%</td></tr><tr><td class="dc">4月9日<span class="dw">周四</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>4.47%</td><td>3.21</td><td>4.56%</td><td>8.63亿</td><td>94</td><td>-0.17%</td><td>1.72%</td><td>0.65%</td><td class="c-fl">❌</td><td class="c-ok">38.41%</td></tr><tr><td class="dc fri">4月10日<span class="dw">周五</span></td><td class="c-ok">浪潮信息<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>3.73%</td><td>2.01</td><td>8.0%</td><td>14.1亿</td><td>94</td><td>-2.22%</td><td>3.99%</td><td>1.24%</td><td class="c-ok">✅</td><td class="c-ok">39.66%</td></tr><tr><td class="dc">4月13日<span class="dw">周一</span></td><td class="c-fl">紫光股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>4.25%</td><td>1.68</td><td>7.6%</td><td>8.07亿</td><td>94</td><td>-0.53%</td><td>-0.21%</td><td>-1.35%</td><td class="c-fl">❌</td><td class="c-ok">38.31%</td></tr><tr><td class="dc">4月14日<span class="dw">周二</span></td><td class="c-ok">鹏鼎控股<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>4.2%</td><td>1.56</td><td>2.24%</td><td>3.33亿</td><td>89</td><td>0.36%</td><td>2.75%</td><td>-1.51%</td><td class="c-ok">✅</td><td class="c-ok">36.80%</td></tr><tr><td class="dc">4月15日<span class="dw">周三</span></td><td class="c-fl">彩虹股份<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">电子</td><td>5.27%</td><td>2.2</td><td>5.57%</td><td>1.98亿</td><td>88</td><td>-3.20%</td><td>-1.39%</td><td>-1.53%</td><td class="c-fl">❌</td><td class="c-ok">35.27%</td></tr><tr><td class="dc">4月16日<span class="dw">周四</span></td><td class="c-fl">中国铀业<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">有色金属</td><td>3.45%</td><td>1.88</td><td>9.72%</td><td>3.71亿</td><td>91</td><td>-0.20%</td><td>0.99%</td><td>-0.87%</td><td class="c-fl">❌</td><td class="c-ok">34.40%</td></tr><tr><td class="dc fri">4月17日<span class="dw">周五</span></td><td class="c-ok">深圳华强<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>3.98%</td><td>1.71</td><td>8.16%</td><td>3.47亿</td><td>91</td><td>3.86%</td><td>7.49%</td><td>4.74%</td><td class="c-ok">✅</td><td class="c-ok">39.14%</td></tr><tr><td class="dc">4月20日<span class="dw">周一</span></td><td class="c-fl">深圳华强<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>4.74%</td><td>1.56</td><td>8.06%</td><td>3.9亿</td><td>91</td><td>-2.63%</td><td>-1.83%</td><td>-4.81%</td><td class="c-fl">❌</td><td class="c-ok">34.33%</td></tr><tr><td class="dc">4月21日<span class="dw">周二</span></td><td class="c-ok">江特电机<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>4.37%</td><td>1.58</td><td>11.67%</td><td>4.67亿</td><td>91</td><td>-1.79%</td><td>8.63%</td><td>5.81%</td><td class="c-ok">✅</td><td class="c-ok">40.14%</td></tr><tr><td class="dc">4月22日<span class="dw">周三</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">通信</td><td>6.08%</td><td>3.07</td><td>5.73%</td><td>14.75亿</td><td>75</td><td>-0.37%</td><td>0.64%</td><td>-1.31%</td><td class="c-fl">❌</td><td class="c-ok">38.83%</td></tr><tr><td class="dc">4月23日<span class="dw">周四</span></td><td class="c-ok">中国长城<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>3.72%</td><td>3.12</td><td>7.62%</td><td>5.36亿</td><td>75</td><td>7.23%</td><td>9.02%</td><td>1.61%</td><td class="c-ok">✅</td><td class="c-ok">40.44%</td></tr><tr><td class="dc fri">4月24日<span class="dw">周五</span></td><td class="c-fl">神州数码<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>2.29%</td><td>1.73</td><td>6.59%</td><td>1.08亿</td><td>75</td><td>1.26%</td><td>1.26%</td><td>-1.82%</td><td class="c-fl">❌</td><td class="c-ok">38.62%</td></tr><tr><td class="dc">4月27日<span class="dw">周一</span></td><td class="c-ok">恒逸石化<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">基础化工</td><td>2.54%</td><td>1.64</td><td>2.1%</td><td>0.99亿</td><td>75</td><td>0.07%</td><td>3.59%</td><td>3.14%</td><td class="c-ok">✅</td><td class="c-ok">41.76%</td></tr><tr><td class="dc">4月28日<span class="dw">周二</span></td><td class="c-fl">吉林敖东<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">医药生物</td><td>4.22%</td><td>2.9</td><td>2.15%</td><td>0.77亿</td><td>75</td><td>-0.70%</td><td>0.76%</td><td>0.70%</td><td class="c-fl">❌</td><td class="c-ok">42.46%</td></tr><tr><td class="dc">4月29日<span class="dw">周三</span></td><td class="c-fl">中国宝安<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电力设备</td><td>5.22%</td><td>2.49</td><td>2.46%</td><td>0.68亿</td><td>75</td><td>-3.02%</td><td>-2.91%</td><td>-6.79%</td><td class="c-fl">❌</td><td class="c-ok">35.67%</td></tr><tr><td class="dc">4月30日<span class="dw">周四</span></td><td class="c-ok">模塑科技<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">汽车</td><td>6.17%</td><td>1.61</td><td>7.06%</td><td>1.02亿</td><td>75</td><td>-0.25%</td><td>3.49%</td><td>2.41%</td><td class="c-ok">✅</td><td class="c-ok">38.08%</td></tr><tr><td class="dc">5月6日<span class="dw">周三</span></td><td class="c-fl">钒钛股份<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">钢铁</td><td>6.32%</td><td>1.59</td><td>2.94%</td><td>1.26亿</td><td>75</td><td>0.52%</td><td>1.81%</td><td>0.26%</td><td class="c-fl">❌</td><td class="c-ok">38.34%</td></tr><tr><td class="dc">5月7日<span class="dw">周四</span></td><td class="c-fl">神州数码<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">计算机</td><td>5.0%</td><td>1.81</td><td>10.32%</td><td>3.48亿</td><td>75</td><td>-0.97%</td><td>-0.85%</td><td>-3.34%</td><td class="c-fl">❌</td><td class="c-ok">35.00%</td></tr><tr><td class="dc fri">5月8日<span class="dw">周五</span></td><td class="c-ok">万向钱潮<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">汽车</td><td>2.79%</td><td>2.13</td><td>5.3%</td><td>1.22亿</td><td>75</td><td>0.00%</td><td>2.00%</td><td>0.69%</td><td class="c-ok">✅</td><td class="c-ok">35.69%</td></tr><tr><td class="dc">5月11日<span class="dw">周一</span></td><td class="c-fl">深科技<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电子</td><td>6.29%</td><td>1.52</td><td>9.61%</td><td>4.69亿</td><td>75</td><td>-0.70%</td><td>-0.70%</td><td>-2.02%</td><td class="c-fl">❌</td><td class="c-ok">33.67%</td></tr><tr><td class="dc">5月12日<span class="dw">周二</span></td><td class="c-fl">风华高科<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电子</td><td>3.48%</td><td>1.7</td><td>11.97%</td><td>1.63亿</td><td>75</td><td>-1.94%</td><td>1.09%</td><td>0.41%</td><td class="c-fl">❌</td><td class="c-ok">34.08%</td></tr><tr><td class="dc">5月13日<span class="dw">周三</span></td><td class="c-ok">深科技<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电子</td><td>7.12%</td><td>1.39</td><td>10.57%</td><td>6.94亿</td><td>75</td><td>0.55%</td><td>4.04%</td><td>-0.79%</td><td class="c-ok">✅</td><td class="c-ok">33.29%</td></tr><tr><td class="dc">5月14日<span class="dw">周四</span></td><td class="c-ok">山子高科<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">汽车</td><td>4.07%</td><td>1.77</td><td>11.84%</td><td>4.48亿</td><td>75</td><td>0.00%</td><td>5.29%</td><td>1.38%</td><td class="c-ok">✅</td><td class="c-ok">34.67%</td></tr><tr><td class="dc fri">5月15日<span class="dw">周五</span></td><td class="c-ok">中鼎股份<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">汽车</td><td>4.79%</td><td>2.04</td><td>4.13%</td><td>0.87亿</td><td>75</td><td>-0.55%</td><td>2.36%</td><td>1.37%</td><td class="c-ok">✅</td><td class="c-ok">36.04%</td></tr><tr><td class="dc">5月18日<span class="dw">周一</span></td><td class="c-fl">汇绿生态<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">通信</td><td>6.49%</td><td>1.24</td><td>11.58%</td><td>6.47亿</td><td>75</td><td>-1.21%</td><td>-0.09%</td><td>-4.44%</td><td class="c-fl">❌</td><td class="c-ok">31.60%</td></tr><tr><td class="dc">5月19日<span class="dw">周二</span></td><td class="c-fl">东山精密<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电子</td><td>5.13%</td><td>1.29</td><td>7.94%</td><td>17.22亿</td><td>75</td><td>-0.89%</td><td>1.57%</td><td>0.41%</td><td class="c-fl">❌</td><td class="c-ok">32.01%</td></tr><tr><td class="dc">5月20日<span class="dw">周三</span></td><td class="c-ok">豪鹏科技<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电力设备</td><td>3.94%</td><td>1.76</td><td>10.35%</td><td>0.86亿</td><td>75</td><td>0.01%</td><td>2.46%</td><td>-0.73%</td><td class="c-ok">✅</td><td class="c-ok">31.28%</td></tr><tr><td class="dc">5月21日<span class="dw">周四</span></td><td class="c-ok">中钨高新<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">有色金属</td><td>2.77%</td><td>1.52</td><td>7.09%</td><td>4.09亿</td><td>75</td><td>0.93%</td><td>10.00%</td><td>10.00%</td><td class="c-ok">✅</td><td class="c-ok">41.28%</td></tr><tr><td class="dc fri">5月22日<span class="dw">周五</span></td><td class="c-fl">钒钛股份<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">钢铁</td><td>7.47%</td><td>1.79</td><td>2.52%</td><td>1.28亿</td><td>75</td><td>-0.27%</td><td>1.07%</td><td>-2.14%</td><td class="c-fl">❌</td><td class="c-ok">39.14%</td></tr><tr><td class="dc">5月25日<span class="dw">周一</span></td><td class="c-fl">东方电子<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电力设备</td><td>5.39%</td><td>1.52</td><td>4.29%</td><td>0.84亿</td><td>75</td><td>0.21%</td><td>0.21%</td><td>-1.04%</td><td class="c-fl">❌</td><td class="c-ok">38.10%</td></tr><tr><td class="dc">5月26日<span class="dw">周二</span></td><td class="c-fl">中金岭南<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">有色金属</td><td>2.6%</td><td>1.59</td><td>7.54%</td><td>1.61亿</td><td>75</td><td>-1.27%</td><td>-0.13%</td><td>-4.43%</td><td class="c-fl">❌</td><td class="c-ok">33.67%</td></tr><tr><td class="dc">5月27日<span class="dw">周三</span></td><td class="c-ok">安泰科技<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">有色金属</td><td>3.92%</td><td>1.52</td><td>8.58%</td><td>1.28亿</td><td>75</td><td>1.82%</td><td>7.49%</td><td>4.80%</td><td class="c-ok">✅</td><td class="c-ok">38.47%</td></tr><tr><td class="dc">5月28日<span class="dw">周四</span></td><td class="c-ok">深圳能源<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">公用事业</td><td>4.68%</td><td>2.2</td><td>2.66%</td><td>0.69亿</td><td>75</td><td>-0.87%</td><td>4.97%</td><td>0.37%</td><td class="c-ok">✅</td><td class="c-ok">38.84%</td></tr><tr><td class="dc fri">5月29日<span class="dw">周五</span></td><td class="c-zz">无候选</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-ok">38.84%</td></tr><tr><td class="dc">6月1日<span class="dw">周一</span></td><td class="c-ok">山西焦煤<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">煤炭</td><td>7.51%</td><td>1.98</td><td>3.68%</td><td>2.4亿</td><td>75</td><td>-1.10%</td><td>2.47%</td><td>0.82%</td><td class="c-ok">✅</td><td class="c-ok">39.66%</td></tr><tr><td class="dc">6月2日<span class="dw">周二</span></td><td class="c-fl">科华数据<br><span style="font-size:10px;color:#999">75分</span></td><td style="font-size:11px">电力设备</td><td>7.1%</td><td>1.93</td><td>7.32%</td><td>2.19亿</td><td>75</td><td>-0.22%</td><td>1.35%</td><td>-1.00%</td><td class="c-fl">❌</td><td class="c-ok">38.66%</td></tr><tr><td class="dc">6月3日<span class="dw">周三</span></td><td class="c-fl">中南文化<br><span style="font-size:10px;color:#999">73分</span></td><td style="font-size:11px">机械设备</td><td>4.2%</td><td>1.64</td><td>7.82%</td><td>1.14亿</td><td>73</td><td>-1.61%</td><td>-0.81%</td><td>-2.96%</td><td class="c-fl">❌</td><td class="c-ok">35.70%</td></tr><tr><td class="dc">6月4日<span class="dw">周四</span></td><td class="c-ok">TCL科技<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电子</td><td>3.8%</td><td>1.69</td><td>11.14%</td><td>7.68亿</td><td>86</td><td>-0.61%</td><td>4.77%</td><td>-0.61%</td><td class="c-ok">✅</td><td class="c-ok">35.08%</td></tr><tr><td class="dc fri">6月5日<span class="dw">周五</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>3.68%</td><td>2.12</td><td>11.51%</td><td>27.08亿</td><td>94</td><td>-2.84%</td><td>-0.33%</td><td>-5.93%</td><td class="c-fl">❌</td><td class="c-ok">29.15%</td></tr><tr><td class="dc">6月8日<span class="dw">周一</span></td><td class="c-ok">永太科技<br><span style="font-size:10px;color:#999">80分</span></td><td style="font-size:11px">基础化工</td><td>5.62%</td><td>2.24</td><td>8.16%</td><td>2.38亿</td><td>80</td><td>2.81%</td><td>3.55%</td><td>-0.91%</td><td class="c-ok">✅</td><td class="c-ok">28.24%</td></tr><tr><td class="dc">6月9日<span class="dw">周二</span></td><td class="c-ok">中国稀土<br><span style="font-size:10px;color:#999">76分</span></td><td style="font-size:11px">有色金属</td><td>7.33%</td><td>1.4</td><td>6.24%</td><td>4.21亿</td><td>76</td><td>-1.30%</td><td>2.09%</td><td>-2.59%</td><td class="c-ok">✅</td><td class="c-ok">25.65%</td></tr><tr><td class="dc">6月10日<span class="dw">周三</span></td><td class="c-ok">景旺电子<br><span style="font-size:10px;color:#999">73分</span></td><td style="font-size:11px">电子</td><td>4.33%</td><td>1.59</td><td>5.73%</td><td>2.64亿</td><td>73</td><td>-0.12%</td><td>4.19%</td><td>0.61%</td><td class="c-ok">✅</td><td class="c-ok">26.26%</td></tr><tr><td class="dc">6月11日<span class="dw">周四</span></td><td class="c-ok">盛和资源<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">有色金属</td><td>6.04%</td><td>1.93</td><td>8.44%</td><td>4亿</td><td>88</td><td>0.71%</td><td>6.37%</td><td>2.10%</td><td class="c-ok">✅</td><td class="c-ok">28.36%</td></tr><tr><td class="dc fri">6月12日<span class="dw">周五</span></td><td class="c-ok">招商南油<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">交通运输</td><td>5.58%</td><td>1.56</td><td>7.46%</td><td>1.93亿</td><td>88</td><td>10.10%</td><td>10.10%</td><td>10.10%</td><td class="c-ok">✅</td><td class="c-ok">38.46%</td></tr><tr><td class="dc">6月15日<span class="dw">周一</span></td><td class="c-fl">长江证券<br><span style="font-size:10px;color:#999">82分</span></td><td style="font-size:11px">证券</td><td>7.03%</td><td>2.83</td><td>4.25%</td><td>3.2亿</td><td>82</td><td>-0.88%</td><td>1.52%</td><td>0.63%</td><td class="c-fl">❌</td><td class="c-ok">39.09%</td></tr><tr><td class="dc">6月16日<span class="dw">周二</span></td><td class="c-fl">中国稀土<br><span style="font-size:10px;color:#999">85分</span></td><td style="font-size:11px">有色金属</td><td>4.5%</td><td>1.65</td><td>9.36%</td><td>3.88亿</td><td>85</td><td>-1.75%</td><td>1.16%</td><td>-3.08%</td><td class="c-fl">❌</td><td class="c-ok">36.01%</td></tr><tr><td class="dc">6月17日<span class="dw">周三</span></td><td class="c-ok">华天科技<br><span style="font-size:10px;color:#999">63分</span></td><td style="font-size:11px">电子</td><td>6.9%</td><td>1.86</td><td>15.64%</td><td>5.58亿</td><td>63</td><td>1.31%</td><td>4.67%</td><td>2.94%</td><td class="c-ok">✅</td><td class="c-ok">38.95%</td></tr><tr><td class="dc">6月18日<span class="dw">周四</span></td><td class="c-fl">领益智造<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>6.12%</td><td>1.77</td><td>5.05%</td><td>7.91亿</td><td>89</td><td>0.36%</td><td>1.66%</td><td>-0.83%</td><td class="c-fl">❌</td><td class="c-ok">38.12%</td></tr><tr><td class="dc">6月22日<span class="dw">周一</span></td><td class="c-fl">北方稀土<br><span style="font-size:10px;color:#999">77分</span></td><td style="font-size:11px">有色金属</td><td>5.35%</td><td>1.55</td><td>6.82%</td><td>14.1亿</td><td>77</td><td>-1.00%</td><td>-1.00%</td><td>-7.76%</td><td class="c-fl">❌</td><td class="c-ok">30.36%</td></tr><tr><td class="dc">6月23日<span class="dw">周二</span><span class="pend-marker">⚠两线分歧</span></td><td class="c-fl">星光股份<br><span style="font-size:10px;color:#999">51分</span></td><td style="font-size:11px">电子</td><td>5.51%</td><td>2.3</td><td>9.09%</td><td>0.56亿</td><td>51</td><td>-1.12%</td><td>0.00%</td><td>-8.21%</td><td class="c-fl">❌</td><td class="c-ok">22.15%</td></tr><tr><td class="dc">6月24日<span class="dw">周三</span></td><td class="c-ok">龙旗科技<br><span style="font-size:10px;color:#999">83分</span></td><td style="font-size:11px">电子</td><td>5.17%</td><td>2.26</td><td>8.34%</td><td>1.93亿</td><td>83</td><td>-0.81%</td><td>5.05%</td><td>3.28%</td><td class="c-ok">✅</td><td class="c-ok">25.43%</td></tr><tr><td class="dc">6月25日<span class="dw">周四</span></td><td class="c-pd">浪潮信息<br><span style="font-size:10px;color:#999">90分</span></td><td style="font-size:11px">计算机</td><td>5.82%</td><td>1.72</td><td>7.42%</td><td>7.65亿</td><td>90</td><td class="c-pd">?</td><td class="c-pd">?</td><td class="c-pd">?</td><td class="c-pd">⌛</td><td class="c-ok">25.43%</td></tr></tbody></table></div></div>
+  <div class="page" id="pageWencai"><div class="sm"><div class="sc up"><div class="l">V7 模拟累计</div><div class="v">+47.78%</div><div class="s">已验证 110 天</div></div><div class="sc ne"><div class="l">实盘累计</div><div class="v">0.00</div></div><div class="sc blue"><div class="l">交易日 / 有候选</div><div class="v">113</div><div class="s">候选 111 | 待验 1 | 无 2 | 待补 0</div></div><div class="sc neu"><div class="l">V7 已验证</div><div class="s" style="font-size:13px;line-height:1.8;color:#333">盘中 60/110 = 55%<br>收盘 29/110 = 26%</div></div></div><div class="w"><table><thead><tr><th style="min-width:62px;background:#e8ecf3;border-right:2px solid #dee2e6">日期</th><th>首推<span class="sh">股票（评分）</span></th><th>行业<span class="sh">所属板块</span></th><th>涨幅<span class="sh">当日±%</span></th><th>量比<span class="sh">资金关注</span></th><th>换手<span class="sh">活跃度%</span></th><th>净流入<span class="sh">主力亿</span></th><th>评分<span class="sh">V7总分</span></th><th>次开%<span class="sh">次日开盘</span></th><th>次高%<span class="sh">次日最高</span></th><th>次收%<span class="sh">次日收盘</span></th><th>判定<span class="sh">✅/❌</span></th><th>累计%<span class="sh">V7累加</span></th></tr></thead><tbody><tr><td class="dc">1月5日<span class="dw">周一</span></td><td class="c-fl">移远通信<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">通信</td><td>4.94%</td><td>2.06</td><td>5.64%</td><td>2.02亿</td><td>91</td><td>0.43%</td><td>0.77%</td><td>-0.55%</td><td class="c-fl">❌</td><td class="c-fl">-0.55%</td></tr><tr><td class="dc">1月6日<span class="dw">周二</span></td><td class="c-ok">赛力斯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>3.31%</td><td>2.1</td><td>2.49%</td><td>6.61亿</td><td>94</td><td>0.01%</td><td>4.55%</td><td>2.43%</td><td class="c-ok">✅</td><td class="c-ok">1.88%</td></tr><tr><td class="dc">1月7日<span class="dw">周三</span></td><td class="c-fl">北方稀土<br><span style="font-size:10px;color:#999">87分</span></td><td style="font-size:11px">有色金属</td><td>4.88%</td><td>3.19</td><td>7.51%</td><td>7.82亿</td><td>87</td><td>-1.45%</td><td>-1.45%</td><td>-3.55%</td><td class="c-fl">❌</td><td class="c-fl">-1.67%</td></tr><tr><td class="dc">1月8日<span class="dw">周四</span></td><td class="c-fl">杉杉股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>4.56%</td><td>2.26</td><td>7.05%</td><td>3.34亿</td><td>91</td><td>1.07%</td><td>1.07%</td><td>-1.00%</td><td class="c-fl">❌</td><td class="c-fl">-2.67%</td></tr><tr><td class="dc fri">1月9日<span class="dw">周五</span></td><td class="c-ok">北汽蓝谷<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">汽车</td><td>2.16%</td><td>1.2</td><td>4.0%</td><td>2.27亿</td><td>86</td><td>0.59%</td><td>4.34%</td><td>3.87%</td><td class="c-ok">✅</td><td class="c-ok">1.20%</td></tr><tr><td class="dc">1月12日<span class="dw">周一</span></td><td class="c-fl">包钢股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">钢铁</td><td>3.46%</td><td>1.77</td><td>5.41%</td><td>7.46亿</td><td>94</td><td>-0.37%</td><td>-0.37%</td><td>-2.97%</td><td class="c-fl">❌</td><td class="c-fl">-1.77%</td></tr><tr><td class="dc">1月13日<span class="dw">周二</span></td><td class="c-ok">赣锋锂业<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">有色金属</td><td>4.16%</td><td>1.82</td><td>9.79%</td><td>7.43亿</td><td>89</td><td>-1.12%</td><td>2.08%</td><td>-2.46%</td><td class="c-ok">✅</td><td class="c-fl">-4.23%</td></tr><tr><td class="dc">1月14日<span class="dw">周三</span></td><td class="c-ok">卫星化学<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">基础化工</td><td>4.29%</td><td>1.85</td><td>3.18%</td><td>2.02亿</td><td>89</td><td>-0.43%</td><td>2.33%</td><td>0.00%</td><td class="c-ok">✅</td><td class="c-fl">-4.23%</td></tr><tr><td class="dc">1月15日<span class="dw">周四</span></td><td class="c-ok">深科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电子</td><td>4.46%</td><td>1.5</td><td>9.96%</td><td>5.97亿</td><td>94</td><td>2.51%</td><td>7.50%</td><td>6.06%</td><td class="c-ok">✅</td><td class="c-ok">1.83%</td></tr><tr><td class="dc fri">1月16日<span class="dw">周五</span></td><td class="c-ok">露笑科技<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">公用事业</td><td>5.1%</td><td>2.31</td><td>11.68%</td><td>2.59亿</td><td>88</td><td>4.50%</td><td>10.05%</td><td>7.16%</td><td class="c-ok">✅</td><td class="c-ok">8.99%</td></tr><tr><td class="dc">1月19日<span class="dw">周一</span></td><td class="c-fl">江淮汽车<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.77%</td><td>2.09</td><td>5.63%</td><td>11.07亿</td><td>94</td><td>-0.08%</td><td>1.67%</td><td>-1.20%</td><td class="c-fl">❌</td><td class="c-ok">7.79%</td></tr><tr><td class="dc">1月20日<span class="dw">周二</span></td><td class="c-fl">海螺水泥<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">建筑材料</td><td>5.74%</td><td>3.96</td><td>2.82%</td><td>3.56亿</td><td>91</td><td>-0.38%</td><td>-0.21%</td><td>-1.31%</td><td class="c-fl">❌</td><td class="c-ok">6.48%</td></tr><tr><td class="dc">1月21日<span class="dw">周三</span></td><td class="c-fl">大华股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>4.23%</td><td>1.98</td><td>6.29%</td><td>3.66亿</td><td>94</td><td>0.24%</td><td>1.02%</td><td>-0.92%</td><td class="c-fl">❌</td><td class="c-ok">5.56%</td></tr><tr><td class="dc">1月22日<span class="dw">周四</span></td><td class="c-fl">北新建材<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">建筑材料</td><td>4.99%</td><td>2.87</td><td>3.53%</td><td>2.39亿</td><td>94</td><td>-0.48%</td><td>0.92%</td><td>-2.01%</td><td class="c-fl">❌</td><td class="c-ok">3.55%</td></tr><tr><td class="dc fri">1月23日<span class="dw">周五</span></td><td class="c-fl">甘李药业<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">医药生物</td><td>3.32%</td><td>1.33</td><td>2.21%</td><td>1.23亿</td><td>86</td><td>0.00%</td><td>0.65%</td><td>-1.60%</td><td class="c-fl">❌</td><td class="c-ok">1.95%</td></tr><tr><td class="dc">1月26日<span class="dw">周一</span></td><td class="c-ok">德业股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>6.11%</td><td>2.1</td><td>2.45%</td><td>2.6亿</td><td>91</td><td>-0.21%</td><td>2.72%</td><td>0.46%</td><td class="c-ok">✅</td><td class="c-ok">2.41%</td></tr><tr><td class="dc">1月27日<span class="dw">周二</span></td><td class="c-ok">士兰微<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>4.37%</td><td>1.48</td><td>6.0%</td><td>4.27亿</td><td>89</td><td>-0.44%</td><td>7.31%</td><td>6.18%</td><td class="c-ok">✅</td><td class="c-ok">8.59%</td></tr><tr><td class="dc">1月28日<span class="dw">周三</span></td><td class="c-ok">大北农<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">农林牧渔</td><td>4.12%</td><td>3.1</td><td>9.77%</td><td>2.4亿</td><td>91</td><td>1.63%</td><td>5.12%</td><td>2.79%</td><td class="c-ok">✅</td><td class="c-ok">11.38%</td></tr><tr><td class="dc">1月29日<span class="dw">周四</span></td><td class="c-fl">TCL中环<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>5.94%</td><td>2.12</td><td>9.02%</td><td>4.97亿</td><td>91</td><td>-1.22%</td><td>-0.10%</td><td>-4.08%</td><td class="c-fl">❌</td><td class="c-ok">7.30%</td></tr><tr><td class="dc fri">1月30日<span class="dw">周五</span></td><td class="c-fl">深圳华强<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>4.55%</td><td>2.81</td><td>3.72%</td><td>1.51亿</td><td>91</td><td>-0.38%</td><td>0.00%</td><td>-3.79%</td><td class="c-fl">❌</td><td class="c-ok">3.51%</td></tr><tr><td class="dc">2月2日<span class="dw">周一</span></td><td class="c-ok">海翔药业<br><span style="font-size:10px;color:#999">80分</span></td><td style="font-size:11px">医药生物</td><td>7.58%</td><td>3.85</td><td>6.31%</td><td>1.43亿</td><td>80</td><td>2.20%</td><td>2.64%</td><td>1.62%</td><td class="c-ok">✅</td><td class="c-ok">5.13%</td></tr><tr><td class="dc">2月3日<span class="dw">周二</span></td><td class="c-fl">东方电子<br><span style="font-size:10px;color:#999">81分</span></td><td style="font-size:11px">电力设备</td><td>4.07%</td><td>1.26</td><td>2.52%</td><td>0.58亿</td><td>81</td><td>-0.87%</td><td>0.65%</td><td>-0.87%</td><td class="c-fl">❌</td><td class="c-ok">4.26%</td></tr><tr><td class="dc">2月4日<span class="dw">周三</span></td><td class="c-fl">通威股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>4.82%</td><td>1.63</td><td>2.85%</td><td>3.12亿</td><td>94</td><td>-1.12%</td><td>-1.12%</td><td>-6.08%</td><td class="c-fl">❌</td><td class="c-fl">-1.82%</td></tr><tr><td class="dc">2月5日<span class="dw">周四</span></td><td class="c-fl">银轮股份<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">汽车</td><td>2.75%</td><td>2.42</td><td>9.26%</td><td>2.81亿</td><td>86</td><td>-0.52%</td><td>0.81%</td><td>-2.69%</td><td class="c-fl">❌</td><td class="c-fl">-4.51%</td></tr><tr><td class="dc fri">2月6日<span class="dw">周五</span></td><td class="c-ok">沪电股份<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电子</td><td>4.84%</td><td>1.68</td><td>4.29%</td><td>7.41亿</td><td>94</td><td>2.24%</td><td>6.04%</td><td>3.54%</td><td class="c-ok">✅</td><td class="c-fl">-0.97%</td></tr><tr><td class="dc">2月9日<span class="dw">周一</span></td><td class="c-fl">隆基绿能<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电力设备</td><td>4.47%</td><td>1.53</td><td>5.66%</td><td>8.54亿</td><td>89</td><td>-0.94%</td><td>0.52%</td><td>-1.93%</td><td class="c-fl">❌</td><td class="c-fl">-2.90%</td></tr><tr><td class="dc">2月10日<span class="dw">周二</span></td><td class="c-ok">包钢股份<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">钢铁</td><td>3.16%</td><td>1.81</td><td>5.04%</td><td>4.2亿</td><td>89</td><td>-0.77%</td><td>3.83%</td><td>2.30%</td><td class="c-ok">✅</td><td class="c-fl">-0.60%</td></tr><tr><td class="dc">2月11日<span class="dw">周三</span></td><td class="c-ok">北方稀土<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">有色金属</td><td>5.02%</td><td>1.83</td><td>6.18%</td><td>21.59亿</td><td>91</td><td>0.00%</td><td>3.01%</td><td>1.94%</td><td class="c-ok">✅</td><td class="c-ok">1.34%</td></tr><tr><td class="dc">2月12日<span class="dw">周四</span></td><td class="c-ok">中国长城<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>3.19%</td><td>1.6</td><td>4.33%</td><td>3.45亿</td><td>94</td><td>-0.85%</td><td>3.09%</td><td>1.33%</td><td class="c-ok">✅</td><td class="c-ok">2.67%</td></tr><tr><td class="dc fri">2月13日<span class="dw">周五</span></td><td class="c-fl">先导基电<br><span style="font-size:10px;color:#999">85分</span></td><td style="font-size:11px">电子</td><td>5.81%</td><td>3.16</td><td>5.31%</td><td>1.21亿</td><td>85</td><td>0.00%</td><td>0.26%</td><td>-2.27%</td><td class="c-fl">❌</td><td class="c-ok">0.40%</td></tr><tr><td class="dc">2月24日<span class="dw">周二</span></td><td class="c-ok">山子高科<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.97%</td><td>2.02</td><td>7.54%</td><td>4.57亿</td><td>94</td><td>-0.82%</td><td>2.88%</td><td>1.44%</td><td class="c-ok">✅</td><td class="c-ok">1.84%</td></tr><tr><td class="dc">2月25日<span class="dw">周三</span></td><td class="c-ok">永泰能源<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">公用事业</td><td>2.98%</td><td>2.05</td><td>6.41%</td><td>4.1亿</td><td>94</td><td>0.00%</td><td>2.31%</td><td>-1.16%</td><td class="c-ok">✅</td><td class="c-ok">0.68%</td></tr><tr><td class="dc">2月26日<span class="dw">周四</span></td><td class="c-fl">光迅科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>4.23%</td><td>1.61</td><td>6.96%</td><td>5.59亿</td><td>94</td><td>-2.42%</td><td>1.86%</td><td>0.78%</td><td class="c-fl">❌</td><td class="c-ok">1.46%</td></tr><tr><td class="dc fri">2月27日<span class="dw">周五</span></td><td class="c-ok">京东方A<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电子</td><td>3.46%</td><td>2.07</td><td>3.02%</td><td>6.39亿</td><td>94</td><td>-0.90%</td><td>2.49%</td><td>0.23%</td><td class="c-ok">✅</td><td class="c-ok">1.69%</td></tr><tr><td class="dc">3月2日<span class="dw">周一</span></td><td class="c-fl">胜利精密<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>3.44%</td><td>2.34</td><td>10.82%</td><td>2.46亿</td><td>91</td><td>0.00%</td><td>0.71%</td><td>-7.13%</td><td class="c-fl">❌</td><td class="c-fl">-5.44%</td></tr><tr><td class="dc">3月3日<span class="dw">周二</span></td><td class="c-ok">爱旭股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>2.75%</td><td>2.48</td><td>5.64%</td><td>1.83亿</td><td>91</td><td>-1.51%</td><td>3.64%</td><td>0.62%</td><td class="c-ok">✅</td><td class="c-fl">-4.82%</td></tr><tr><td class="dc">3月4日<span class="dw">周三</span></td><td class="c-ok">南山铝业<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">有色金属</td><td>7.78%</td><td>1.79</td><td>4.84%</td><td>5.17亿</td><td>86</td><td>3.15%</td><td>3.15%</td><td>0.00%</td><td class="c-ok">✅</td><td class="c-fl">-4.82%</td></tr><tr><td class="dc">3月5日<span class="dw">周四</span></td><td class="c-fl">京东方A<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>3.24%</td><td>1.24</td><td>2.86%</td><td>5.95亿</td><td>89</td><td>-0.91%</td><td>-0.68%</td><td>-2.04%</td><td class="c-fl">❌</td><td class="c-fl">-6.86%</td></tr><tr><td class="dc fri">3月6日<span class="dw">周五</span></td><td class="c-ok">科华数据<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>4.87%</td><td>1.51</td><td>8.27%</td><td>2.75亿</td><td>91</td><td>0.17%</td><td>4.80%</td><td>4.09%</td><td class="c-ok">✅</td><td class="c-fl">-2.77%</td></tr><tr><td class="dc">3月9日<span class="dw">周一</span></td><td class="c-ok">三六零<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">计算机</td><td>4.6%</td><td>1.93</td><td>3.37%</td><td>3.15亿</td><td>89</td><td>1.00%</td><td>7.44%</td><td>4.43%</td><td class="c-ok">✅</td><td class="c-ok">1.66%</td></tr><tr><td class="dc">3月10日<span class="dw">周二</span></td><td class="c-ok">天赐材料<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电力设备</td><td>4.13%</td><td>2.26</td><td>8.52%</td><td>5.14亿</td><td>89</td><td>0.89%</td><td>9.10%</td><td>8.12%</td><td class="c-ok">✅</td><td class="c-ok">9.78%</td></tr><tr><td class="dc">3月11日<span class="dw">周三</span></td><td class="c-fl">多氟多<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">基础化工</td><td>5.07%</td><td>2.66</td><td>10.14%</td><td>5.3亿</td><td>91</td><td>-0.99%</td><td>0.49%</td><td>-0.89%</td><td class="c-fl">❌</td><td class="c-ok">8.89%</td></tr><tr><td class="dc">3月12日<span class="dw">周四</span></td><td class="c-fl">晶澳科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>4.44%</td><td>2.02</td><td>5.08%</td><td>2.95亿</td><td>94</td><td>-0.39%</td><td>1.62%</td><td>-1.62%</td><td class="c-fl">❌</td><td class="c-ok">7.27%</td></tr><tr><td class="dc fri">3月13日<span class="dw">周五</span></td><td class="c-ok">沪电股份<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>6.34%</td><td>1.98</td><td>6.82%</td><td>14.37亿</td><td>91</td><td>0.27%</td><td>5.34%</td><td>3.43%</td><td class="c-ok">✅</td><td class="c-ok">10.70%</td></tr><tr><td class="dc">3月16日<span class="dw">周一</span></td><td class="c-ok">沃尔核材<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电子</td><td>4.14%</td><td>1.52</td><td>6.53%</td><td>2.38亿</td><td>91</td><td>8.63%</td><td>9.98%</td><td>3.27%</td><td class="c-ok">✅</td><td class="c-ok">13.97%</td></tr><tr><td class="dc">3月17日<span class="dw">周二</span></td><td class="c-fl">合力泰<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">电子</td><td>3.49%</td><td>1.92</td><td>4.79%</td><td>1.35亿</td><td>88</td><td>-0.75%</td><td>-0.37%</td><td>-3.37%</td><td class="c-fl">❌</td><td class="c-ok">10.60%</td></tr><tr><td class="dc">3月18日<span class="dw">周三</span></td><td class="c-fl">通富微电<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>4.75%</td><td>1.48</td><td>5.81%</td><td>5.7亿</td><td>89</td><td>-2.16%</td><td>-0.68%</td><td>-3.06%</td><td class="c-fl">❌</td><td class="c-ok">7.54%</td></tr><tr><td class="dc">3月19日<span class="dw">周四</span></td><td class="c-fl">中国海油<br><span style="font-size:10px;color:#999">81分</span></td><td style="font-size:11px">石油石化</td><td>5.86%</td><td>1.31</td><td>4.56%</td><td>4.76亿</td><td>81</td><td>-4.47%</td><td>0.21%</td><td>-0.78%</td><td class="c-fl">❌</td><td class="c-ok">6.76%</td></tr><tr><td class="dc fri">3月20日<span class="dw">周五</span></td><td class="c-ok">隆基绿能<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电力设备</td><td>2.54%</td><td>1.91</td><td>5.9%</td><td>9.67亿</td><td>89</td><td>0.32%</td><td>2.16%</td><td>-0.95%</td><td class="c-ok">✅</td><td class="c-ok">5.81%</td></tr><tr><td class="dc">3月23日<span class="dw">周一</span></td><td class="c-fl">比亚迪<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.46%</td><td>2.4</td><td>5.11%</td><td>30.45亿</td><td>94</td><td>0.72%</td><td>0.72%</td><td>-0.92%</td><td class="c-fl">❌</td><td class="c-ok">4.89%</td></tr><tr><td class="dc">3月24日<span class="dw">周二</span></td><td class="c-ok">天齐锂业<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">有色金属</td><td>5.37%</td><td>1.57</td><td>3.78%</td><td>2.21亿</td><td>84</td><td>1.99%</td><td>4.55%</td><td>3.54%</td><td class="c-ok">✅</td><td class="c-ok">8.43%</td></tr><tr><td class="dc">3月25日<span class="dw">周三</span></td><td class="c-fl">中天科技<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">通信</td><td>6.02%</td><td>1.57</td><td>5.16%</td><td>2.61亿</td><td>84</td><td>-1.34%</td><td>1.48%</td><td>-3.25%</td><td class="c-fl">❌</td><td class="c-ok">5.18%</td></tr><tr><td class="dc">3月26日<span class="dw">周四</span></td><td class="c-ok">远东股份<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电力设备</td><td>3.02%</td><td>1.81</td><td>5.25%</td><td>1.81亿</td><td>86</td><td>-2.20%</td><td>5.94%</td><td>3.59%</td><td class="c-ok">✅</td><td class="c-ok">8.77%</td></tr><tr><td class="dc fri">3月27日<span class="dw">周五</span></td><td class="c-ok">和邦生物<br><span style="font-size:10px;color:#999">83分</span></td><td style="font-size:11px">基础化工</td><td>4.0%</td><td>1.42</td><td>4.46%</td><td>1.42亿</td><td>83</td><td>-0.35%</td><td>4.20%</td><td>2.80%</td><td class="c-ok">✅</td><td class="c-ok">11.57%</td></tr><tr><td class="dc">3月30日<span class="dw">周一</span></td><td class="c-fl">中孚实业<br><span style="font-size:10px;color:#999">85分</span></td><td style="font-size:11px">有色金属</td><td>5.74%</td><td>1.97</td><td>3.4%</td><td>1.32亿</td><td>85</td><td>1.76%</td><td>1.76%</td><td>-4.61%</td><td class="c-fl">❌</td><td class="c-ok">6.96%</td></tr><tr><td class="dc">3月31日<span class="dw">周二</span></td><td class="c-zz">无候选</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-ok">6.96%</td></tr><tr><td class="dc">4月1日<span class="dw">周三</span></td><td class="c-fl">科伦药业<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">医药生物</td><td>4.32%</td><td>1.68</td><td>2.55%</td><td>1.51亿</td><td>94</td><td>-0.92%</td><td>1.99%</td><td>0.45%</td><td class="c-fl">❌</td><td class="c-ok">7.41%</td></tr><tr><td class="dc">4月2日<span class="dw">周四</span></td><td class="c-ok">福晶科技<br><span style="font-size:10px;color:#999">81分</span></td><td style="font-size:11px">电子</td><td>2.73%</td><td>1.42</td><td>10.03%</td><td>2.67亿</td><td>81</td><td>2.49%</td><td>10.00%</td><td>10.00%</td><td class="c-ok">✅</td><td class="c-ok">17.41%</td></tr><tr><td class="dc fri">4月3日<span class="dw">周五</span></td><td class="c-ok">光迅科技<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">通信</td><td>7.74%</td><td>1.78</td><td>10.78%</td><td>10.66亿</td><td>86</td><td>1.78%</td><td>8.20%</td><td>2.18%</td><td class="c-ok">✅</td><td class="c-ok">19.59%</td></tr><tr><td class="dc">4月7日<span class="dw">周二</span></td><td class="c-ok">北方稀土<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">有色金属</td><td>4.79%</td><td>1.67</td><td>2.59%</td><td>7.59亿</td><td>86</td><td>1.85%</td><td>3.86%</td><td>3.64%</td><td class="c-ok">✅</td><td class="c-ok">23.23%</td></tr><tr><td class="dc">4月8日<span class="dw">周三</span></td><td class="c-fl">山子高科<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">汽车</td><td>4.91%</td><td>1.61</td><td>4.12%</td><td>2.38亿</td><td>94</td><td>-1.87%</td><td>-1.87%</td><td>-3.04%</td><td class="c-fl">❌</td><td class="c-ok">20.19%</td></tr><tr><td class="dc">4月9日<span class="dw">周四</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>4.47%</td><td>3.21</td><td>4.56%</td><td>8.59亿</td><td>94</td><td>-0.17%</td><td>1.72%</td><td>0.65%</td><td class="c-fl">❌</td><td class="c-ok">20.84%</td></tr><tr><td class="dc fri">4月10日<span class="dw">周五</span></td><td class="c-ok">浪潮信息<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>3.73%</td><td>2.01</td><td>8.0%</td><td>10.33亿</td><td>94</td><td>-2.22%</td><td>3.99%</td><td>1.25%</td><td class="c-ok">✅</td><td class="c-ok">22.09%</td></tr><tr><td class="dc">4月13日<span class="dw">周一</span></td><td class="c-fl">紫光股份<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">计算机</td><td>4.25%</td><td>1.68</td><td>7.6%</td><td>6.69亿</td><td>89</td><td>-0.53%</td><td>-0.21%</td><td>-1.35%</td><td class="c-fl">❌</td><td class="c-ok">20.74%</td></tr><tr><td class="dc">4月14日<span class="dw">周二</span></td><td class="c-fl">南山铝业<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">有色金属</td><td>3.57%</td><td>1.72</td><td>2.91%</td><td>2.84亿</td><td>94</td><td>0.00%</td><td>0.32%</td><td>-2.88%</td><td class="c-fl">❌</td><td class="c-ok">17.86%</td></tr><tr><td class="dc">4月15日<span class="dw">周三</span></td><td class="c-ok">大华股份<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">计算机</td><td>3.4%</td><td>2.32</td><td>3.57%</td><td>1.83亿</td><td>89</td><td>-0.76%</td><td>2.81%</td><td>1.68%</td><td class="c-ok">✅</td><td class="c-ok">19.54%</td></tr><tr><td class="dc">4月16日<span class="dw">周四</span></td><td class="c-fl">中国铀业<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">有色金属</td><td>3.45%</td><td>1.88</td><td>9.72%</td><td>2.36亿</td><td>91</td><td>-0.20%</td><td>0.99%</td><td>-0.87%</td><td class="c-fl">❌</td><td class="c-ok">18.67%</td></tr><tr><td class="dc fri">4月17日<span class="dw">周五</span></td><td class="c-fl">景旺电子<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电子</td><td>4.5%</td><td>1.68</td><td>5.2%</td><td>4.61亿</td><td>94</td><td>-1.22%</td><td>0.49%</td><td>-2.25%</td><td class="c-fl">❌</td><td class="c-ok">16.42%</td></tr><tr><td class="dc">4月20日<span class="dw">周一</span></td><td class="c-fl">歌尔股份<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>2.85%</td><td>1.72</td><td>3.39%</td><td>2.73亿</td><td>89</td><td>-0.81%</td><td>-0.61%</td><td>-1.26%</td><td class="c-fl">❌</td><td class="c-ok">15.16%</td></tr><tr><td class="dc">4月21日<span class="dw">周二</span></td><td class="c-ok">江特电机<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>4.37%</td><td>1.58</td><td>11.67%</td><td>2.81亿</td><td>91</td><td>-1.79%</td><td>8.63%</td><td>5.81%</td><td class="c-ok">✅</td><td class="c-ok">20.97%</td></tr><tr><td class="dc">4月22日<span class="dw">周三</span></td><td class="c-fl">岩山科技<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>2.74%</td><td>1.6</td><td>5.2%</td><td>3.66亿</td><td>94</td><td>0.75%</td><td>0.75%</td><td>-2.99%</td><td class="c-fl">❌</td><td class="c-ok">17.98%</td></tr><tr><td class="dc">4月23日<span class="dw">周四</span></td><td class="c-ok">中国长城<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>3.72%</td><td>3.12</td><td>7.62%</td><td>5.36亿</td><td>94</td><td>7.23%</td><td>9.02%</td><td>1.61%</td><td class="c-ok">✅</td><td class="c-ok">19.59%</td></tr><tr><td class="dc fri">4月24日<span class="dw">周五</span></td><td class="c-fl">川能动力<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">公用事业</td><td>5.5%</td><td>1.65</td><td>6.95%</td><td>3.36亿</td><td>88</td><td>0.00%</td><td>1.93%</td><td>1.30%</td><td class="c-fl">❌</td><td class="c-ok">20.89%</td></tr><tr><td class="dc">4月27日<span class="dw">周一</span></td><td class="c-fl">格林美<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>5.81%</td><td>2.25</td><td>6.84%</td><td>3.93亿</td><td>91</td><td>0.00%</td><td>1.12%</td><td>0.11%</td><td class="c-fl">❌</td><td class="c-ok">21.00%</td></tr><tr><td class="dc">4月28日<span class="dw">周二</span></td><td class="c-ok">恒逸石化<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">基础化工</td><td>3.13%</td><td>2.1</td><td>2.86%</td><td>2.8亿</td><td>86</td><td>0.06%</td><td>9.63%</td><td>8.62%</td><td class="c-ok">✅</td><td class="c-ok">29.62%</td></tr><tr><td class="dc">4月29日<span class="dw">周三</span></td><td class="c-fl">大唐发电<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">公用事业</td><td>6.19%</td><td>1.9</td><td>2.92%</td><td>2.33亿</td><td>91</td><td>-1.17%</td><td>-0.93%</td><td>-3.03%</td><td class="c-fl">❌</td><td class="c-ok">26.59%</td></tr><tr><td class="dc">4月30日<span class="dw">周四</span></td><td class="c-ok">拓普集团<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">汽车</td><td>4.45%</td><td>1.76</td><td>2.88%</td><td>2.61亿</td><td>89</td><td>0.91%</td><td>4.58%</td><td>3.19%</td><td class="c-ok">✅</td><td class="c-ok">29.78%</td></tr><tr><td class="dc">5月6日<span class="dw">周三</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>4.22%</td><td>1.87</td><td>5.38%</td><td>11.74亿</td><td>94</td><td>0.92%</td><td>1.80%</td><td>1.70%</td><td class="c-fl">❌</td><td class="c-ok">31.48%</td></tr><tr><td class="dc">5月7日<span class="dw">周四</span></td><td class="c-fl">神州数码<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">计算机</td><td>5.0%</td><td>1.81</td><td>10.32%</td><td>3.48亿</td><td>91</td><td>-0.97%</td><td>-0.85%</td><td>-3.34%</td><td class="c-fl">❌</td><td class="c-ok">28.14%</td></tr><tr><td class="dc fri">5月8日<span class="dw">周五</span></td><td class="c-ok">浪潮信息<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">计算机</td><td>4.42%</td><td>1.58</td><td>8.53%</td><td>13.61亿</td><td>94</td><td>0.81%</td><td>2.30%</td><td>-0.63%</td><td class="c-ok">✅</td><td class="c-ok">27.51%</td></tr><tr><td class="dc">5月11日<span class="dw">周一</span></td><td class="c-ok">中国西电<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">电力设备</td><td>5.29%</td><td>1.85</td><td>6.22%</td><td>7.49亿</td><td>91</td><td>0.00%</td><td>7.24%</td><td>6.08%</td><td class="c-ok">✅</td><td class="c-ok">33.59%</td></tr><tr><td class="dc">5月12日<span class="dw">周二</span></td><td class="c-ok">中国西电<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电力设备</td><td>6.08%</td><td>2.18</td><td>8.83%</td><td>7.1亿</td><td>86</td><td>0.57%</td><td>3.59%</td><td>-0.94%</td><td class="c-ok">✅</td><td class="c-ok">32.65%</td></tr><tr><td class="dc">5月13日<span class="dw">周三</span></td><td class="c-ok">驰宏锌锗<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">有色金属</td><td>4.51%</td><td>1.32</td><td>5.63%</td><td>3.76亿</td><td>89</td><td>0.47%</td><td>6.70%</td><td>1.98%</td><td class="c-ok">✅</td><td class="c-ok">34.63%</td></tr><tr><td class="dc">5月14日<span class="dw">周四</span></td><td class="c-ok">凯美特气<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">环保</td><td>5.68%</td><td>2.24</td><td>12.98%</td><td>3.19亿</td><td>88</td><td>-2.82%</td><td>3.88%</td><td>0.25%</td><td class="c-ok">✅</td><td class="c-ok">34.88%</td></tr><tr><td class="dc fri">5月15日<span class="dw">周五</span></td><td class="c-ok">三花智控<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">家用电器</td><td>5.32%</td><td>1.63</td><td>7.83%</td><td>20.86亿</td><td>91</td><td>-0.12%</td><td>3.40%</td><td>1.65%</td><td class="c-ok">✅</td><td class="c-ok">36.53%</td></tr><tr><td class="dc">5月18日<span class="dw">周一</span></td><td class="c-ok">万向钱潮<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">汽车</td><td>3.89%</td><td>1.74</td><td>6.13%</td><td>3.21亿</td><td>89</td><td>-0.95%</td><td>2.34%</td><td>0.78%</td><td class="c-ok">✅</td><td class="c-ok">37.31%</td></tr><tr><td class="dc">5月19日<span class="dw">周二</span></td><td class="c-fl">神州数码<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">计算机</td><td>4.45%</td><td>1.79</td><td>8.34%</td><td>2.82亿</td><td>91</td><td>0.00%</td><td>1.23%</td><td>-2.49%</td><td class="c-fl">❌</td><td class="c-ok">34.82%</td></tr><tr><td class="dc">5月20日<span class="dw">周三</span></td><td class="c-ok">思源电气<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电力设备</td><td>5.29%</td><td>1.54</td><td>3.15%</td><td>4.28亿</td><td>86</td><td>0.00%</td><td>2.09%</td><td>-3.16%</td><td class="c-ok">✅</td><td class="c-ok">31.66%</td></tr><tr><td class="dc">5月21日<span class="dw">周四</span></td><td class="c-fl">卧龙电驱<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">电力设备</td><td>2.62%</td><td>1.61</td><td>6.28%</td><td>5.25亿</td><td>94</td><td>0.34%</td><td>1.50%</td><td>1.06%</td><td class="c-fl">❌</td><td class="c-ok">32.72%</td></tr><tr><td class="dc fri">5月22日<span class="dw">周五</span></td><td class="c-fl">德赛西威<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">汽车</td><td>4.13%</td><td>2.06</td><td>5.73%</td><td>1.91亿</td><td>84</td><td>-3.88%</td><td>0.45%</td><td>-1.97%</td><td class="c-fl">❌</td><td class="c-ok">30.75%</td></tr><tr><td class="dc">5月25日<span class="dw">周一</span></td><td class="c-ok">中国东航<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">交通运输</td><td>6.28%</td><td>1.89</td><td>2.26%</td><td>1.53亿</td><td>86</td><td>-0.91%</td><td>2.50%</td><td>0.91%</td><td class="c-ok">✅</td><td class="c-ok">31.66%</td></tr><tr><td class="dc">5月26日<span class="dw">周二</span></td><td class="c-ok">TCL科技<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>4.73%</td><td>1.28</td><td>8.76%</td><td>9.7亿</td><td>89</td><td>0.22%</td><td>6.14%</td><td>0.66%</td><td class="c-ok">✅</td><td class="c-ok">32.32%</td></tr><tr><td class="dc">5月27日<span class="dw">周三</span></td><td class="c-fl">紫光国微<br><span style="font-size:10px;color:#999">89分</span></td><td style="font-size:11px">电子</td><td>2.54%</td><td>1.72</td><td>9.74%</td><td>6.18亿</td><td>89</td><td>-0.65%</td><td>1.96%</td><td>1.46%</td><td class="c-fl">❌</td><td class="c-ok">33.78%</td></tr><tr><td class="dc">5月28日<span class="dw">周四</span></td><td class="c-ok">华电新能<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">公用事业</td><td>4.07%</td><td>2.72</td><td>9.57%</td><td>2.82亿</td><td>91</td><td>-0.47%</td><td>2.50%</td><td>0.47%</td><td class="c-ok">✅</td><td class="c-ok">34.25%</td></tr><tr><td class="dc fri">5月29日<span class="dw">周五</span></td><td class="c-ok">永泰能源<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">公用事业</td><td>2.82%</td><td>2.07</td><td>6.7%</td><td>5.9亿</td><td>94</td><td>1.10%</td><td>3.85%</td><td>2.75%</td><td class="c-ok">✅</td><td class="c-ok">37.00%</td></tr><tr><td class="dc">6月1日<span class="dw">周一</span></td><td class="c-fl">中国西电<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">电力设备</td><td>2.6%</td><td>1.29</td><td>3.58%</td><td>3.15亿</td><td>84</td><td>0.06%</td><td>0.06%</td><td>-2.71%</td><td class="c-fl">❌</td><td class="c-ok">34.29%</td></tr><tr><td class="dc">6月2日<span class="dw">周二</span></td><td class="c-ok">巨化股份<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">基础化工</td><td>5.26%</td><td>2.04</td><td>4.68%</td><td>3.38亿</td><td>84</td><td>-0.18%</td><td>4.68%</td><td>1.48%</td><td class="c-ok">✅</td><td class="c-ok">35.77%</td></tr><tr><td class="dc">6月3日<span class="dw">周三</span></td><td class="c-fl">永太科技<br><span style="font-size:10px;color:#999">91分</span></td><td style="font-size:11px">基础化工</td><td>4.92%</td><td>1.87</td><td>6.07%</td><td>2.32亿</td><td>91</td><td>-0.18%</td><td>1.55%</td><td>0.00%</td><td class="c-fl">❌</td><td class="c-ok">35.77%</td></tr><tr><td class="dc">6月4日<span class="dw">周四</span></td><td class="c-ok">TCL科技<br><span style="font-size:10px;color:#999">87分</span></td><td style="font-size:11px">电子</td><td>3.8%</td><td>1.69</td><td>11.14%</td><td>7.68亿</td><td>87</td><td>-0.62%</td><td>4.76%</td><td>-0.62%</td><td class="c-ok">✅</td><td class="c-ok">35.15%</td></tr><tr><td class="dc fri">6月5日<span class="dw">周五</span></td><td class="c-fl">中兴通讯<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">通信</td><td>3.68%</td><td>2.12</td><td>11.51%</td><td>27.08亿</td><td>94</td><td>-2.84%</td><td>-0.33%</td><td>-5.93%</td><td class="c-fl">❌</td><td class="c-ok">29.22%</td></tr><tr><td class="dc">6月8日<span class="dw">周一</span></td><td class="c-ok">宁波华翔<br><span style="font-size:10px;color:#999">71分</span></td><td style="font-size:11px">汽车</td><td>2.86%</td><td>1.33</td><td>3.95%</td><td>0.64亿</td><td>71</td><td>0.26%</td><td>10.00%</td><td>10.00%</td><td class="c-ok">✅</td><td class="c-ok">39.22%</td></tr><tr><td class="dc">6月9日<span class="dw">周二</span></td><td class="c-zz">无候选</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-zz">—</td><td class="c-ok">39.22%</td></tr><tr><td class="dc">6月10日<span class="dw">周三</span></td><td class="c-ok">景旺电子<br><span style="font-size:10px;color:#999">84分</span></td><td style="font-size:11px">电子</td><td>4.33%</td><td>1.59</td><td>5.73%</td><td>2.64亿</td><td>84</td><td>-0.12%</td><td>4.19%</td><td>0.61%</td><td class="c-ok">✅</td><td class="c-ok">39.83%</td></tr><tr><td class="dc">6月11日<span class="dw">周四</span></td><td class="c-ok">彤程新材<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">基础化工</td><td>7.58%</td><td>2.66</td><td>8.97%</td><td>6.37亿</td><td>86</td><td>2.01%</td><td>3.89%</td><td>-7.57%</td><td class="c-ok">✅</td><td class="c-ok">32.26%</td></tr><tr><td class="dc fri">6月12日<span class="dw">周五</span></td><td class="c-ok">招商南油<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">交通运输</td><td>5.58%</td><td>1.56</td><td>7.46%</td><td>1.93亿</td><td>88</td><td>10.10%</td><td>10.10%</td><td>10.10%</td><td class="c-ok">✅</td><td class="c-ok">42.36%</td></tr><tr><td class="dc">6月15日<span class="dw">周一</span></td><td class="c-fl">中国东航<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">交通运输</td><td>5.64%</td><td>1.72</td><td>2.45%</td><td>1.83亿</td><td>86</td><td>-0.24%</td><td>0.00%</td><td>-2.18%</td><td class="c-fl">❌</td><td class="c-ok">40.18%</td></tr><tr><td class="dc">6月16日<span class="dw">周二</span></td><td class="c-ok">中稀有色<br><span style="font-size:10px;color:#999">88分</span></td><td style="font-size:11px">有色金属</td><td>6.25%</td><td>1.55</td><td>8.71%</td><td>3.85亿</td><td>88</td><td>-0.13%</td><td>4.68%</td><td>-0.41%</td><td class="c-ok">✅</td><td class="c-ok">39.77%</td></tr><tr><td class="dc">6月17日<span class="dw">周三</span></td><td class="c-ok">华勤技术<br><span style="font-size:10px;color:#999">86分</span></td><td style="font-size:11px">电子</td><td>6.17%</td><td>1.58</td><td>3.04%</td><td>2.06亿</td><td>86</td><td>-0.62%</td><td>3.13%</td><td>1.18%</td><td class="c-ok">✅</td><td class="c-ok">40.95%</td></tr><tr><td class="dc">6月18日<span class="dw">周四</span></td><td class="c-ok">药明康德<br><span style="font-size:10px;color:#999">94分</span></td><td style="font-size:11px">医药生物</td><td>4.6%</td><td>1.54</td><td>2.3%</td><td>8.05亿</td><td>94</td><td>0.43%</td><td>4.14%</td><td>4.00%</td><td class="c-ok">✅</td><td class="c-ok">44.95%</td></tr><tr><td class="dc">6月22日<span class="dw">周一</span></td><td class="c-fl">北方稀土<br><span style="font-size:10px;color:#999">95分</span></td><td style="font-size:11px">有色金属</td><td>5.35%</td><td>1.55</td><td>6.816%</td><td>19.29亿</td><td>95</td><td>-1.00%</td><td>-1.00%</td><td>-7.76%</td><td class="c-fl">❌</td><td class="c-ok">37.19%</td></tr><tr><td class="dc">6月23日<span class="dw">周二</span><span class="pend-marker">⚠两线分歧</span></td><td class="c-ok">深天马A<br><span style="font-size:10px;color:#999">59分</span></td><td style="font-size:11px">电子</td><td>7.54%</td><td>1.75</td><td>5.96%</td><td>1.56亿</td><td>59</td><td>-2.10%</td><td>10.01%</td><td>7.31%</td><td class="c-ok">✅</td><td class="c-ok">44.50%</td></tr><tr><td class="dc">6月24日<span class="dw">周三</span></td><td class="c-ok">龙旗科技<br><span style="font-size:10px;color:#999">83分</span></td><td style="font-size:11px">电子</td><td>5.48%</td><td>2.27</td><td>8.56%</td><td>1.99亿</td><td>83</td><td>-0.81%</td><td>5.05%</td><td>3.28%</td><td class="c-ok">✅</td><td class="c-ok">47.78%</td></tr><tr><td class="dc">6月25日<span class="dw">周四</span><span class="pend-marker" style="color:#e67e22;border-color:#e67e22">⏱盘中vs盘后</span></td><td class="c-pd">中国东航<br><span style="font-size:10px;color:#999">73分</span></td><td style="font-size:11px">交通运输</td><td>6.96%</td><td>1.955</td><td>2.74%</td><td>3.94亿</td><td>73</td><td class="c-pd">?</td><td class="c-pd">?</td><td class="c-pd">?</td><td class="c-pd">⌛</td><td class="c-ok">47.78%</td></tr></tbody></table></div></div>
+  <div class="page" id="pageCompare"><div class="sm">
+  <div class="sc up"><div class="l">GTHT 达标</div><div class="v">51/113</div><div class="s">45%</div></div>
+  <div class="sc blue"><div class="l">问财 达标</div><div class="v">60/113</div><div class="s">53%</div></div>
+  <div class="sc green"><div class="l">同日双✅</div><div class="v">34</div><div class="s">共113天</div></div>
+</div>
+<div class="w">
+<table>
+<thead>
+<tr><th style="min-width:55px;background:#e8ecf3;border-right:2px solid #dee2e6">日期</th>
+  <th class="grp" colspan="2" style="color:#e74c3c">国泰海通</th>
+  <th class="grp" colspan="2" style="color:#2980b9">问财</th></tr>
+<tr><th style="border-right:2px solid #dee2e6"></th><th>首推</th><th>判定</th><th>首推</th><th>判定</th></tr>
+</thead>
+<tbody>
+<tr>
+      <td class="dc">1月5日</td>
+      <td class="c-fl">梦网科技</td>
+      <td class="c-fl">❌</td>
+      <td>移远通信</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月6日</td>
+      <td class="c-fl">京东方A</td>
+      <td class="c-fl">❌</td>
+      <td>赛力斯</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月7日</td>
+      <td class="c-fl">北方华创</td>
+      <td class="c-fl">❌</td>
+      <td>北方稀土</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月8日</td>
+      <td class="c-ok">国新健康</td>
+      <td class="c-ok">✅</td>
+      <td>杉杉股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月9日</td>
+      <td class="c-ok">科大讯飞</td>
+      <td class="c-ok">✅</td>
+      <td>北汽蓝谷</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月12日</td>
+      <td class="c-fl">常山北明</td>
+      <td class="c-fl">❌</td>
+      <td>包钢股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月13日</td>
+      <td class="c-fl">盐湖股份</td>
+      <td class="c-fl">❌</td>
+      <td>赣锋锂业</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月14日</td>
+      <td class="c-fl">中国长城</td>
+      <td class="c-fl">❌</td>
+      <td>卫星化学</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月15日</td>
+      <td class="c-ok">深科技</td>
+      <td class="c-ok">✅</td>
+      <td>深科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月16日</td>
+      <td class="c-ok">风华高科</td>
+      <td class="c-ok">✅</td>
+      <td>露笑科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月19日</td>
+      <td class="c-fl">江淮汽车</td>
+      <td class="c-fl">❌</td>
+      <td>江淮汽车</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月20日</td>
+      <td class="c-fl">中泰化学</td>
+      <td class="c-fl">❌</td>
+      <td>海螺水泥</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月21日</td>
+      <td class="c-fl">万科A</td>
+      <td class="c-fl">❌</td>
+      <td>大华股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月22日</td>
+      <td class="c-fl">融发核电</td>
+      <td class="c-fl">❌</td>
+      <td>北新建材</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月23日</td>
+      <td class="c-ok">有研新材</td>
+      <td class="c-ok">✅</td>
+      <td>甘李药业</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月26日</td>
+      <td class="c-fl">特发信息</td>
+      <td class="c-fl">❌</td>
+      <td>德业股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月27日</td>
+      <td class="c-ok">士兰微</td>
+      <td class="c-ok">✅</td>
+      <td>士兰微</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月28日</td>
+      <td class="c-ok">大北农</td>
+      <td class="c-ok">✅</td>
+      <td>大北农</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">1月29日</td>
+      <td class="c-fl">北新建材</td>
+      <td class="c-fl">❌</td>
+      <td>TCL中环</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">1月30日</td>
+      <td class="c-ok">天顺风能</td>
+      <td class="c-ok">✅</td>
+      <td>深圳华强</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月2日</td>
+      <td class="c-ok">鹏鼎控股</td>
+      <td class="c-ok">✅</td>
+      <td>海翔药业</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月3日</td>
+      <td class="c-fl">光迅科技</td>
+      <td class="c-fl">❌</td>
+      <td>东方电子</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月4日</td>
+      <td class="c-fl">山子高科</td>
+      <td class="c-fl">❌</td>
+      <td>通威股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月5日</td>
+      <td class="c-fl">银轮股份</td>
+      <td class="c-fl">❌</td>
+      <td>银轮股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月6日</td>
+      <td class="c-fl">多氟多</td>
+      <td class="c-fl">❌</td>
+      <td>沪电股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月9日</td>
+      <td class="c-fl">隆基绿能</td>
+      <td class="c-fl">❌</td>
+      <td>隆基绿能</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月10日</td>
+      <td class="c-ok">包钢股份</td>
+      <td class="c-ok">✅</td>
+      <td>包钢股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月11日</td>
+      <td class="c-fl">多氟多</td>
+      <td class="c-fl">❌</td>
+      <td>北方稀土</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月12日</td>
+      <td class="c-fl">浪潮信息</td>
+      <td class="c-fl">❌</td>
+      <td>中国长城</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月13日</td>
+      <td class="c-fl">先导基电</td>
+      <td class="c-fl">❌</td>
+      <td>先导基电</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月24日</td>
+      <td class="c-ok">山子高科</td>
+      <td class="c-ok">✅</td>
+      <td>山子高科</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月25日</td>
+      <td class="c-fl">多氟多</td>
+      <td class="c-fl">❌</td>
+      <td>永泰能源</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">2月26日</td>
+      <td class="c-fl">光迅科技</td>
+      <td class="c-fl">❌</td>
+      <td>光迅科技</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">2月27日</td>
+      <td class="c-fl">神州数码</td>
+      <td class="c-fl">❌</td>
+      <td>京东方A</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月2日</td>
+      <td class="c-ok">南山铝业</td>
+      <td class="c-ok">✅</td>
+      <td>胜利精密</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月3日</td>
+      <td class="c-ok">爱旭股份</td>
+      <td class="c-ok">✅</td>
+      <td>爱旭股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月4日</td>
+      <td class="c-fl">大北农</td>
+      <td class="c-fl">❌</td>
+      <td>南山铝业</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月5日</td>
+      <td class="c-ok">中国电建</td>
+      <td class="c-ok">✅</td>
+      <td>京东方A</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月6日</td>
+      <td class="c-fl">中国电建</td>
+      <td class="c-fl">❌</td>
+      <td>科华数据</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月9日</td>
+      <td class="c-ok">三六零</td>
+      <td class="c-ok">✅</td>
+      <td>三六零</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月10日</td>
+      <td class="c-ok">天赐材料</td>
+      <td class="c-ok">✅</td>
+      <td>天赐材料</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月11日</td>
+      <td class="c-ok">三安光电</td>
+      <td class="c-ok">✅</td>
+      <td>多氟多</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月12日</td>
+      <td class="c-fl">晶澳科技</td>
+      <td class="c-fl">❌</td>
+      <td>晶澳科技</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月13日</td>
+      <td class="c-ok">沪电股份</td>
+      <td class="c-ok">✅</td>
+      <td>沪电股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月16日</td>
+      <td class="c-fl">比亚迪</td>
+      <td class="c-fl">❌</td>
+      <td>沃尔核材</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月17日</td>
+      <td class="c-ok">福斯特</td>
+      <td class="c-ok">✅</td>
+      <td>合力泰</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月18日</td>
+      <td class="c-fl">济民健康</td>
+      <td class="c-fl">❌</td>
+      <td>通富微电</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月19日</td>
+      <td class="c-ok">新天然气</td>
+      <td class="c-ok">✅</td>
+      <td>中国海油</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月20日</td>
+      <td class="c-ok">隆基绿能</td>
+      <td class="c-ok">✅</td>
+      <td>隆基绿能</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月23日</td>
+      <td class="c-fl">比亚迪</td>
+      <td class="c-fl">❌</td>
+      <td>比亚迪</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月24日</td>
+      <td class="c-ok">爱旭股份</td>
+      <td class="c-ok">✅</td>
+      <td>天齐锂业</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月25日</td>
+      <td class="c-fl">华勤技术</td>
+      <td class="c-fl">❌</td>
+      <td>中天科技</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月26日</td>
+      <td class="c-ok">远东股份</td>
+      <td class="c-ok">✅</td>
+      <td>远东股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月27日</td>
+      <td class="c-fl">科力远</td>
+      <td class="c-fl">❌</td>
+      <td>和邦生物</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">3月30日</td>
+      <td class="c-ok">航天机电</td>
+      <td class="c-ok">✅</td>
+      <td>中孚实业</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">3月31日</td>
+      <td class="c-fl">None</td>
+      <td class="c-fl">⏳</td>
+      <td>None</td>
+      <td class="c-fl">⏳</td>
+    </tr>
+<tr>
+      <td class="dc">4月1日</td>
+      <td class="c-ok">宇通客车</td>
+      <td class="c-ok">✅</td>
+      <td>科伦药业</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月2日</td>
+      <td class="c-ok">福晶科技</td>
+      <td class="c-ok">✅</td>
+      <td>福晶科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月3日</td>
+      <td class="c-fl">紫光股份</td>
+      <td class="c-fl">❌</td>
+      <td>光迅科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月7日</td>
+      <td class="c-ok">中国稀土</td>
+      <td class="c-ok">✅</td>
+      <td>北方稀土</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月8日</td>
+      <td class="c-fl">沃尔核材</td>
+      <td class="c-fl">❌</td>
+      <td>山子高科</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月9日</td>
+      <td class="c-fl">中兴通讯</td>
+      <td class="c-fl">❌</td>
+      <td>中兴通讯</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月10日</td>
+      <td class="c-ok">浪潮信息</td>
+      <td class="c-ok">✅</td>
+      <td>浪潮信息</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月13日</td>
+      <td class="c-fl">紫光股份</td>
+      <td class="c-fl">❌</td>
+      <td>紫光股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月14日</td>
+      <td class="c-ok">鹏鼎控股</td>
+      <td class="c-ok">✅</td>
+      <td>南山铝业</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月15日</td>
+      <td class="c-fl">彩虹股份</td>
+      <td class="c-fl">❌</td>
+      <td>大华股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月16日</td>
+      <td class="c-fl">中国铀业</td>
+      <td class="c-fl">❌</td>
+      <td>中国铀业</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月17日</td>
+      <td class="c-ok">深圳华强</td>
+      <td class="c-ok">✅</td>
+      <td>景旺电子</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月20日</td>
+      <td class="c-fl">深圳华强</td>
+      <td class="c-fl">❌</td>
+      <td>歌尔股份</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月21日</td>
+      <td class="c-ok">江特电机</td>
+      <td class="c-ok">✅</td>
+      <td>江特电机</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月22日</td>
+      <td class="c-fl">中兴通讯</td>
+      <td class="c-fl">❌</td>
+      <td>岩山科技</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月23日</td>
+      <td class="c-ok">中国长城</td>
+      <td class="c-ok">✅</td>
+      <td>中国长城</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月24日</td>
+      <td class="c-fl">神州数码</td>
+      <td class="c-fl">❌</td>
+      <td>川能动力</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月27日</td>
+      <td class="c-ok">恒逸石化</td>
+      <td class="c-ok">✅</td>
+      <td>格林美</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月28日</td>
+      <td class="c-fl">吉林敖东</td>
+      <td class="c-fl">❌</td>
+      <td>恒逸石化</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">4月29日</td>
+      <td class="c-fl">中国宝安</td>
+      <td class="c-fl">❌</td>
+      <td>大唐发电</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">4月30日</td>
+      <td class="c-ok">模塑科技</td>
+      <td class="c-ok">✅</td>
+      <td>拓普集团</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月6日</td>
+      <td class="c-fl">钒钛股份</td>
+      <td class="c-fl">❌</td>
+      <td>中兴通讯</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月7日</td>
+      <td class="c-fl">神州数码</td>
+      <td class="c-fl">❌</td>
+      <td>神州数码</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月8日</td>
+      <td class="c-ok">万向钱潮</td>
+      <td class="c-ok">✅</td>
+      <td>浪潮信息</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月11日</td>
+      <td class="c-fl">深科技</td>
+      <td class="c-fl">❌</td>
+      <td>中国西电</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月12日</td>
+      <td class="c-fl">风华高科</td>
+      <td class="c-fl">❌</td>
+      <td>中国西电</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月13日</td>
+      <td class="c-ok">深科技</td>
+      <td class="c-ok">✅</td>
+      <td>驰宏锌锗</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月14日</td>
+      <td class="c-ok">山子高科</td>
+      <td class="c-ok">✅</td>
+      <td>凯美特气</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月15日</td>
+      <td class="c-ok">中鼎股份</td>
+      <td class="c-ok">✅</td>
+      <td>三花智控</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月18日</td>
+      <td class="c-fl">汇绿生态</td>
+      <td class="c-fl">❌</td>
+      <td>万向钱潮</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月19日</td>
+      <td class="c-fl">东山精密</td>
+      <td class="c-fl">❌</td>
+      <td>神州数码</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月20日</td>
+      <td class="c-ok">豪鹏科技</td>
+      <td class="c-ok">✅</td>
+      <td>思源电气</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月21日</td>
+      <td class="c-ok">中钨高新</td>
+      <td class="c-ok">✅</td>
+      <td>卧龙电驱</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月22日</td>
+      <td class="c-fl">钒钛股份</td>
+      <td class="c-fl">❌</td>
+      <td>德赛西威</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月25日</td>
+      <td class="c-fl">东方电子</td>
+      <td class="c-fl">❌</td>
+      <td>中国东航</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月26日</td>
+      <td class="c-fl">中金岭南</td>
+      <td class="c-fl">❌</td>
+      <td>TCL科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月27日</td>
+      <td class="c-ok">安泰科技</td>
+      <td class="c-ok">✅</td>
+      <td>紫光国微</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">5月28日</td>
+      <td class="c-ok">深圳能源</td>
+      <td class="c-ok">✅</td>
+      <td>华电新能</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">5月29日</td>
+      <td class="c-fl">None</td>
+      <td class="c-fl">⏳</td>
+      <td>永泰能源</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月1日</td>
+      <td class="c-ok">山西焦煤</td>
+      <td class="c-ok">✅</td>
+      <td>中国西电</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">6月2日</td>
+      <td class="c-fl">科华数据</td>
+      <td class="c-fl">❌</td>
+      <td>巨化股份</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月3日</td>
+      <td class="c-fl">中南文化</td>
+      <td class="c-fl">❌</td>
+      <td>永太科技</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">6月4日</td>
+      <td class="c-ok">TCL科技</td>
+      <td class="c-ok">✅</td>
+      <td>TCL科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月5日</td>
+      <td class="c-fl">中兴通讯</td>
+      <td class="c-fl">❌</td>
+      <td>中兴通讯</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">6月8日</td>
+      <td class="c-ok">永太科技</td>
+      <td class="c-ok">✅</td>
+      <td>宁波华翔</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月9日</td>
+      <td class="c-ok">中国稀土</td>
+      <td class="c-ok">✅</td>
+      <td>None</td>
+      <td class="c-fl">⏳</td>
+    </tr>
+<tr>
+      <td class="dc">6月10日</td>
+      <td class="c-ok">景旺电子</td>
+      <td class="c-ok">✅</td>
+      <td>景旺电子</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月11日</td>
+      <td class="c-ok">盛和资源</td>
+      <td class="c-ok">✅</td>
+      <td>彤程新材</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月12日</td>
+      <td class="c-ok">招商南油</td>
+      <td class="c-ok">✅</td>
+      <td>招商南油</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月15日</td>
+      <td class="c-fl">长江证券</td>
+      <td class="c-fl">❌</td>
+      <td>中国东航</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">6月16日</td>
+      <td class="c-fl">中国稀土</td>
+      <td class="c-fl">❌</td>
+      <td>中稀有色</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月17日</td>
+      <td class="c-ok">华天科技</td>
+      <td class="c-ok">✅</td>
+      <td>华勤技术</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月18日</td>
+      <td class="c-fl">领益智造</td>
+      <td class="c-fl">❌</td>
+      <td>药明康德</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月22日</td>
+      <td class="c-fl">北方稀土</td>
+      <td class="c-fl">❌</td>
+      <td>北方稀土</td>
+      <td class="c-fl">❌</td>
+    </tr>
+<tr>
+      <td class="dc">6月23日</td>
+      <td class="c-fl">星光股份</td>
+      <td class="c-fl">❌</td>
+      <td>深天马A</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月24日</td>
+      <td class="c-ok">龙旗科技</td>
+      <td class="c-ok">✅</td>
+      <td>龙旗科技</td>
+      <td class="c-ok">✅</td>
+    </tr>
+<tr>
+      <td class="dc">6月25日</td>
+      <td class="c-fl">浪潮信息</td>
+      <td class="c-fl">⏳</td>
+      <td>中国东航</td>
+      <td class="c-fl">⏳</td>
+    </tr>
+</tbody>
+</table>
+</div></div>
+  <div class="page" id="pageFenqi"><div style="background:#e67e22;color:#fff;text-align:center;padding:8px;font-size:14px;font-weight:600">⚠ 分歧记录</div>
+<div style="display:flex;gap:8px;margin-bottom:12px;padding:12px 12px 4px">
+  <button class="fq-btn active" onclick="switchFenqi(0)" id="fqBtn0">6/23 已验证</button>
+  <button class="fq-btn" onclick="switchFenqi(1)" id="fqBtn1">6/25 待验证</button>
+</div>
+<div class="fq-page active" id="fqPage0"><div class="top-bar">⚠ 分歧记录 · 持续更新</div>
+
+<!-- ═══════════ 6/23 ═══════════ -->
+
+<div class="panel">
+  <div class="ph warn">6/23 双管线分歧 · 已验证</div>
+  <div class="body">
+    <div class="row">
+      <div class="col">
+        <div class="nm">📉 GTHT · 星光股份</div>
+        <div style="font-size:10px;color:#999">002076.SZ</div>
+        <div class="tag fl">❌失败 -8.21%</div>
+        <div style="margin-top:4px;font-size:11px">评分51 · 净流入0.56亿</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="col">
+        <div class="nm">📈 问财 · 深天马A</div>
+        <div style="font-size:10px;color:#999">000050.SZ</div>
+        <div class="tag ok">✅达标 +7.31%</div>
+        <div style="margin-top:4px;font-size:11px">评分59 · 净流入1.56亿</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#666;text-align:center;border-top:1px solid #eef0f4;padding-top:6px">
+      差异15.52% | 评分差8分，净流入差3倍
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 6/25 ═══════════ -->
+
+<div class="panel">
+  <div class="ph orange">6/25 问财盘中vs盘后 · 待验证</div>
+  <div class="body">
+    <div class="row">
+      <div class="col" style="border-left:3px solid #ff9800">
+        <div class="nm">🕐 盘中首推</div>
+        <div><b>中国东航</b><br><span style="font-size:10px;color:#999">600115.SH · 交通运输</span></div>
+        <div class="tag pd">⏳待验证</div>
+        <div style="margin-top:4px">评分73 · 净流入3.94亿 · 占比20.4%</div>
+        <div style="font-size:11px;color:#666">板块3只合力 → 优先</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="col" style="border-left:3px solid #2196f3">
+        <div class="nm">🕒 盘后首选</div>
+        <div><b>紫光国微</b><br><span style="font-size:10px;color:#999">002049.SZ · 电子</span></div>
+        <div class="tag pd">⏳待验证</div>
+        <div style="margin-top:4px">评分90 · 净流入6.92亿 · 占比12.2%</div>
+        <div style="font-size:11px;color:#666">评分更高，板块2只</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:#666;text-align:center;border-top:1px solid #eef0f4;padding-top:6px">
+      核心对比：板块合力(3只) vs 评分(90分) — 6/28周一验证
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 总览对比 ═══════════ -->
+
+<div class="panel">
+  <div class="ph info">分歧总览</div>
+  <div class="body">
+    <table class="tbl">
+      <tr><td>日期</td><td>分歧类型</td><td>差异</td><td>状态</td></tr>
+      <tr>
+        <td>6/23</td>
+        <td>GTHT vs 问财</td>
+        <td>15.52%</td>
+        <td class="c-ok">✅已验证</td>
+      </tr>
+      <tr>
+        <td>6/25</td>
+        <td>问财 盘中vs盘后</td>
+        <td>板块合力 vs 评分</td>
+        <td class="c-pd">⏳待验证</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="ft">
+更新于 2026-06-25 · 每次分歧日追加记录<br>
+盘中数据是决策依据，记录就用盘中版本
+</div></div>
+<div class="fq-page" id="fqPage1"><div class="top-bar">⏱ 6/25 问财盘中vs盘后 · 记录为准</div>
+
+<!-- 决策说明 -->
+<div class="panel">
+  <div class="ph info">为什么会有差异</div>
+  <div class="body" style="font-size:12px;line-height:1.8">
+    <p>问财API在收盘前后5分钟返回动态聚合数据。盘中跑的是实时数据（14:54），收盘后跑的是最终稳定数据（15:00+）。</p>
+    <p style="margin-top:6px;color:#e67e22;font-weight:600">⚠ 原则：盘中数据是决策依据，记录就用盘中版本。</p>
+  </div>
+</div>
+
+<!-- 首推对比 -->
+<div class="panel">
+  <div class="ph warn">6/25 问财候选对比</div>
+  <div class="body">
+    <div class="row">
+      <div class="col" style="border-left:3px solid #ff9800">
+        <div class="nm">🕐 盘中首推</div>
+        <div><b>中国东航</b><br><span style="font-size:10px;color:#999">600115.SH · 交通运输</span></div>
+        <div class="tag pd">⏳待验证</div>
+        <div style="margin-top:4px">评分 73 · 涨幅 6.96%</div>
+        <div>量比 1.955 · 换手 2.74%</div>
+        <div>净流入 3.94亿 · 占比 20.4%</div>
+        <div style="margin-top:4px;font-size:11px;color:#666">板块3只合力 → 优先</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="col" style="border-left:3px solid #2196f3">
+        <div class="nm">🕒 盘后首选</div>
+        <div><b>紫光国微</b><br><span style="font-size:10px;color:#999">002049.SZ · 电子</span></div>
+        <div class="tag pd">⏳待验证</div>
+        <div style="margin-top:4px">评分 90 · 涨幅 4.62%</div>
+        <div>量比 1.646 · 换手 7.80%</div>
+        <div>净流入 6.92亿 · 占比 12.2%</div>
+        <div style="margin-top:4px;font-size:11px;color:#666">板块2只合力，评分更高</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 关键差异 -->
+<div class="panel">
+  <div class="ph info">核⼼差异分析</div>
+  <div class="body">
+    <div class="dl">
+      <div class="kv"><span class="k">选择逻辑</span><span class="v">板块合力(3只) vs 评分(90分)</span></div>
+      <div class="kv"><span class="k">净流入</span><span class="v">3.94亿 vs 6.92亿 = 1.76倍</span></div>
+      <div class="kv"><span class="k">占⽐</span><span class="v">20.4% vs 12.2% = 1.67倍</span></div>
+      <div class="kv"><span class="k">量比</span><span class="v">1.955 vs 1.646</span></div>
+      <div class="kv"><span class="k">换手</span><span class="v">2.74% vs 7.80%</span></div>
+      <div class="kv"><span class="k">涨幅</span><span class="v">6.96% vs 4.62%</span></div>
+      <div class="kv"><span class="k">板块强度</span><span class="v">交通运输3只 vs 电子2只</span></div>
+      <div class="kv"><span class="k">GTHT同线</span><span class="v">无重合（浪潮信息·计算机）</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 验证对比 -->
+<div class="panel">
+  <div class="ph info">6/28（周一）双验证</div>
+  <div class="body">
+    <div class="tbl">
+      <table class="tbl">
+        <tr><td>管线</td><td>首推</td><td>盘中选</td><td>盘后选</td></tr>
+        <tr><td>GTHT</td><td>浪潮信息 000977.SZ<br>评分90 · 净流入7.65亿</td><td colspan="2" style="text-align:center">一致 ✅</td></tr>
+        <tr><td>问财</td><td>中国东航 600115.SH<br>评分73 · 净流入3.94亿</td><td class="c-ok">✅ 东航</td><td class="c-fl">紫光国微</td></tr>
+        <tr>
+          <td colspan="4" style="text-align:center;background:#fff8e1;font-weight:600">
+            6/28收盘验证：板块合力(3只) vs 评分(90) 哪个更准？
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 启示 -->
+<div class="panel">
+  <div class="ph info">经验教训</div>
+  <div class="body">
+    <div class="ep">
+      <p>1️⃣ <b>盘中记录最重</b>：收盘后的数据变化不覆盖决策记录</p>
+      <p>2️⃣ <b>问财API有差异</b>：14:55 vs 15:00+ 查询返回不同聚合结果</p>
+      <p>3️⃣ <b>板块合力 vs 评分</b>：东航(板块3只·73分) vs 紫光国微(板块2只·90分) — 周一验证哪种逻辑更优</p>
+      <p>4️⃣ <b>GTHT不受影响</b>：ranklist盘后和盘中一致</p>
+    </div>
+  </div>
+</div>
+
+<div class="ft">
+盘中首推：中国东航 600115.SH (交通3只合力) · 盘后首选：紫光国微 002049.SZ (评分90)<br>
+6/28周一收盘后一并验证
+</div></div>
+<style>
+#pageFenqi .fq-btn{flex:1;text-align:center;padding:8px 4px;border-radius:8px;font-size:12px;font-weight:600;border:none;cursor:pointer;background:#fff;color:#888;border:1px solid #e5e7eb}
+#pageFenqi .fq-btn.active{background:#e67e22;color:#fff;border-color:#e67e22}
+#pageFenqi .fq-page{display:none}
+#pageFenqi .fq-page.active{display:block}
+</style>
+<script>
+function switchFenqi(n) {
+  document.querySelectorAll("#pageFenqi .fq-page").forEach(function(el) { el.classList.remove("active"); });
+  document.querySelectorAll("#pageFenqi .fq-btn").forEach(function(el) { el.classList.remove("active"); });
+  document.getElementById("fqPage" + n).classList.add("active");
+  document.getElementById("fqBtn" + n).classList.add("active");
+}
+</script></div>
+</div>
+<script>
+var L1="checkin", L2="gtht";
+function switchL1(n){
+  L1=n;
+  document.querySelectorAll(".tab-l1").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-l1")[n==="checkin"?0:1].classList.add("active");
+  document.getElementById("tabBarL2").classList.toggle("show",n==="invest");
+  showPage(n==="checkin"?"checkin":L2);
+}
+function switchL2(n){
+  L2=n;
+  document.querySelectorAll(".tab-l2").forEach(function(t){t.classList.remove("active");});
+  var m={gtht:0,wencai:1,compare:2,fenqi:3};
+  document.querySelectorAll(".tab-l2")[m[n]].classList.add("active");
+  showPage(n);
+}
+function showPage(n){
+  var p={checkin:"pageCheckin",gtht:"pageGtht",wencai:"pageWencai",compare:"pageCompare",fenqi:"pageFenqi"};
+  document.querySelectorAll(".page").forEach(function(el){el.classList.remove("active");});
+  document.getElementById(p[n]).classList.add("active");
+}
+(function(){
+  var d=new Date(),w=["日","一","二","三","四","五","六"];
+  document.getElementById("dateDisplay").textContent=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日 周"+w[d.getDay()];
+})();
+</script>
+</body>
+</html>
