@@ -1567,191 +1567,301 @@ showWelcome();
 </tbody>
 </table>
 </div></div>
-  <div class="page" id="pageFenqi"><div style="background:#e67e22;color:#fff;text-align:center;padding:8px;font-size:14px;font-weight:600">⚠ 分歧记录</div>
-<div style="display:flex;gap:8px;margin-bottom:12px;padding:12px 12px 4px">
-  <button class="fq-btn active" onclick="switchFenqi(0)" id="fqBtn0">6/23 已验证</button>
-  <button class="fq-btn" onclick="switchFenqi(1)" id="fqBtn1">6/25 待验证</button>
+<!---- ═══ 分歧页面 ═══ --->
+  <div class="page" id="pageFenqi">
+
+<!-- ═══ 页面标题 ═══ -->
+<div style="background:linear-gradient(135deg,#e67e22,#d35400);color:#fff;text-align:center;padding:14px 12px;font-size:16px;font-weight:700;letter-spacing:1px">
+  ⚠ 双管线分歧档案
+  <div style="font-size:11px;font-weight:400;margin-top:4px;opacity:.8">每次分歧都是迭代模型的机会</div>
 </div>
-<div class="fq-page active" id="fqPage0"><div class="top-bar">⚠ 分歧记录 · 持续更新</div>
 
-<!-- ═══════════ 6/23 ═══════════ -->
+<!-- ═══ 切换标签 ═══ -->
+<div style="display:flex;gap:8px;padding:12px;background:#f0f0ec">
+  <button class="fq-btn active" onclick="switchFenqi(0)" id="fqBtn0">
+    <span style="display:block;font-size:16px;margin-bottom:1px">📅</span>
+    6/23 已验证
+  </button>
+  <button class="fq-btn" onclick="switchFenqi(1)" id="fqBtn1">
+    <span style="display:block;font-size:16px;margin-bottom:1px">📅</span>
+    6/25 已双败
+  </button>
+</div>
 
-<div class="panel">
-  <div class="ph warn">6/23 双管线分歧 · 已验证</div>
-  <div class="body">
-    <div class="row">
-      <div class="col">
-        <div class="nm">📉 GTHT · 星光股份</div>
-        <div style="font-size:10px;color:#999">002076.SZ</div>
-        <div class="tag fl">❌失败 -8.21%</div>
-        <div style="margin-top:4px;font-size:11px">评分51 · 净流入0.56亿</div>
-      </div>
-      <div class="vs">VS</div>
-      <div class="col">
-        <div class="nm">📈 问财 · 深天马A</div>
-        <div style="font-size:10px;color:#999">000050.SZ</div>
-        <div class="tag ok">✅达标 +7.31%</div>
-        <div style="margin-top:4px;font-size:11px">评分59 · 净流入1.56亿</div>
-      </div>
-    </div>
-    <div style="margin-top:8px;font-size:11px;color:#666;text-align:center;border-top:1px solid #eef0f4;padding-top:6px">
-      差异15.52% | 评分差8分，净流入差3倍
-    </div>
+<!-- ============================================================ -->
+<!-- 分歧1：6/23 GTHT vs 问财                                       -->
+<!-- ============================================================ -->
+<div class="fq-page active" id="fqPage0" style="padding:0 12px 20px">
+
+<div class="fq-card">
+  <div class="fq-card-hdr warn">
+    <span>📌 6/23（周二）双管线分歧</span>
+    <span class="fq-badge ok-badge">✅ 已验证</span>
   </div>
-</div>
+  <div class="fq-card-body">
 
-<!-- ═══════════ 6/25 ═══════════ -->
-
-<div class="panel">
-  <div class="ph orange">6/25 问财盘中vs盘后 · 待验证</div>
-  <div class="body">
-    <div class="row">
-      <div class="col" style="border-left:3px solid #ff9800">
-        <div class="nm">🕐 盘中首推</div>
-        <div><b>中国东航</b><br><span style="font-size:10px;color:#999">600115.SH · 交通运输</span></div>
-        <div class="tag pd">⏳待验证</div>
-        <div style="margin-top:4px">评分73 · 净流入3.94亿 · 占比20.4%</div>
-        <div style="font-size:11px;color:#666">板块3只合力 → 优先</div>
+    <!-- 对战 -->
+    <div class="fq-duel">
+      <div class="fq-side lose">
+        <div class="fq-side-top">
+          <div class="fq-pipe">📈 GTHT</div>
+          <div class="fq-code">002076.SZ</div>
+        </div>
+        <div class="fq-stock-name">星光股份</div>
+        <div class="fq-tag-row"><span class="fq-tag bad">❌ -8.21%</span></div>
+        <div class="fq-stats">
+          <div>评分 <b>51</b></div>
+          <div>净流入 <b>0.56亿</b></div>
+          <div>涨幅 <b>5.51%</b></div>
+        </div>
       </div>
-      <div class="vs">VS</div>
-      <div class="col" style="border-left:3px solid #2196f3">
-        <div class="nm">🕒 盘后首选</div>
-        <div><b>紫光国微</b><br><span style="font-size:10px;color:#999">002049.SZ · 电子</span></div>
-        <div class="tag pd">⏳待验证</div>
-        <div style="margin-top:4px">评分90 · 净流入6.92亿 · 占比12.2%</div>
-        <div style="font-size:11px;color:#666">评分更高，板块2只</div>
-      </div>
-    </div>
-    <div style="margin-top:8px;font-size:11px;color:#666;text-align:center;border-top:1px solid #eef0f4;padding-top:6px">
-      核心对比：板块合力(3只) vs 评分(90分) — 6/28周一验证
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ 总览对比 ═══════════ -->
-
-<div class="panel">
-  <div class="ph info">分歧总览</div>
-  <div class="body">
-    <table class="tbl">
-      <tr><td>日期</td><td>分歧类型</td><td>差异</td><td>状态</td></tr>
-      <tr>
-        <td>6/23</td>
-        <td>GTHT vs 问财</td>
-        <td>15.52%</td>
-        <td class="c-ok">✅已验证</td>
-      </tr>
-      <tr>
-        <td>6/25</td>
-        <td>问财 盘中vs盘后</td>
-        <td>板块合力 vs 评分</td>
-        <td class="c-pd">⏳待验证</td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<div class="ft">
-更新于 2026-06-25 · 每次分歧日追加记录<br>
-盘中数据是决策依据，记录就用盘中版本
-</div></div>
-<div class="fq-page" id="fqPage1"><div class="top-bar">⏱ 6/25 问财盘中vs盘后 · 记录为准</div>
-
-<!-- 决策说明 -->
-<div class="panel">
-  <div class="ph info">为什么会有差异</div>
-  <div class="body" style="font-size:12px;line-height:1.8">
-    <p>问财API在收盘前后5分钟返回动态聚合数据。盘中跑的是实时数据（14:54），收盘后跑的是最终稳定数据（15:00+）。</p>
-    <p style="margin-top:6px;color:#e67e22;font-weight:600">⚠ 原则：盘中数据是决策依据，记录就用盘中版本。</p>
-  </div>
-</div>
-
-<!-- 首推对比 -->
-<div class="panel">
-  <div class="ph warn">6/25 问财候选对比</div>
-  <div class="body">
-    <div class="row">
-      <div class="col" style="border-left:3px solid #ff9800">
-        <div class="nm">🕐 盘中首推</div>
-        <div><b>中国东航</b><br><span style="font-size:10px;color:#999">600115.SH · 交通运输</span></div>
-        <div class="tag pd">⏳待验证</div>
-        <div style="margin-top:4px">评分 73 · 涨幅 6.96%</div>
-        <div>量比 1.955 · 换手 2.74%</div>
-        <div>净流入 3.94亿 · 占比 20.4%</div>
-        <div style="margin-top:4px;font-size:11px;color:#666">板块3只合力 → 优先</div>
-      </div>
-      <div class="vs">VS</div>
-      <div class="col" style="border-left:3px solid #2196f3">
-        <div class="nm">🕒 盘后首选</div>
-        <div><b>紫光国微</b><br><span style="font-size:10px;color:#999">002049.SZ · 电子</span></div>
-        <div class="tag pd">⏳待验证</div>
-        <div style="margin-top:4px">评分 90 · 涨幅 4.62%</div>
-        <div>量比 1.646 · 换手 7.80%</div>
-        <div>净流入 6.92亿 · 占比 12.2%</div>
-        <div style="margin-top:4px;font-size:11px;color:#666">板块2只合力，评分更高</div>
+      <div class="fq-vs-badge">VS</div>
+      <div class="fq-side win">
+        <div class="fq-side-top">
+          <div class="fq-pipe">📊 问财</div>
+          <div class="fq-code">000050.SZ</div>
+        </div>
+        <div class="fq-stock-name">深天马A</div>
+        <div class="fq-tag-row"><span class="fq-tag good">✅ +7.31%</span></div>
+        <div class="fq-stats">
+          <div>评分 <b>59</b></div>
+          <div>净流入 <b>1.56亿</b></div>
+          <div>涨幅 <b>7.54%</b></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- 关键差异 -->
-<div class="panel">
-  <div class="ph info">核⼼差异分析</div>
-  <div class="body">
-    <div class="dl">
-      <div class="kv"><span class="k">选择逻辑</span><span class="v">板块合力(3只) vs 评分(90分)</span></div>
-      <div class="kv"><span class="k">净流入</span><span class="v">3.94亿 vs 6.92亿 = 1.76倍</span></div>
-      <div class="kv"><span class="k">占⽐</span><span class="v">20.4% vs 12.2% = 1.67倍</span></div>
-      <div class="kv"><span class="k">量比</span><span class="v">1.955 vs 1.646</span></div>
-      <div class="kv"><span class="k">换手</span><span class="v">2.74% vs 7.80%</span></div>
-      <div class="kv"><span class="k">涨幅</span><span class="v">6.96% vs 4.62%</span></div>
-      <div class="kv"><span class="k">板块强度</span><span class="v">交通运输3只 vs 电子2只</span></div>
-      <div class="kv"><span class="k">GTHT同线</span><span class="v">无重合（浪潮信息·计算机）</span></div>
+    <div class="fq-diff-bar">
+      差异 <b>15.52%</b> · 评分差8分 · 净流入差3倍
     </div>
-  </div>
-</div>
 
-<!-- 验证对比 -->
-<div class="panel">
-  <div class="ph info">6/28（周一）双验证</div>
-  <div class="body">
-    <div class="tbl">
-      <table class="tbl">
-        <tr><td>管线</td><td>首推</td><td>盘中选</td><td>盘后选</td></tr>
-        <tr><td>GTHT</td><td>浪潮信息 000977.SZ<br>评分90 · 净流入7.65亿</td><td colspan="2" style="text-align:center">一致 ✅</td></tr>
-        <tr><td>问财</td><td>中国东航 600115.SH<br>评分73 · 净流入3.94亿</td><td class="c-ok">✅ 东航</td><td class="c-fl">紫光国微</td></tr>
-        <tr>
-          <td colspan="4" style="text-align:center;background:#fff8e1;font-weight:600">
-            6/28收盘验证：板块合力(3只) vs 评分(90) 哪个更准？
-          </td>
-        </tr>
-      </table>
+    <!-- 🔍 原因 -->
+    <div class="fq-section">
+      <div class="fq-section-title">🔍 分歧原因</div>
+      <div class="fq-section-body">
+        <p><b>数据源差异：</b>GTHT ranklist以资金流向为主排序，问财以多因子聚合评分排序。两台引擎对同一只票的筛选优先级不同。</p>
+        <p style="margin-top:4px"><b>具体差异点：</b>星光净流入仅0.56亿（在ranklist排名靠后），但量比2.3/换手9.09%数据好——GTHT看重涨幅+换手把它放入候选。深天马A净流入1.56亿且流入占比高，问财的评分机制更偏好它。</p>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- 启示 -->
-<div class="panel">
-  <div class="ph info">经验教训</div>
-  <div class="body">
-    <div class="ep">
-      <p>1️⃣ <b>盘中记录最重</b>：收盘后的数据变化不覆盖决策记录</p>
-      <p>2️⃣ <b>问财API有差异</b>：14:55 vs 15:00+ 查询返回不同聚合结果</p>
-      <p>3️⃣ <b>板块合力 vs 评分</b>：东航(板块3只·73分) vs 紫光国微(板块2只·90分) — 周一验证哪种逻辑更优</p>
-      <p>4️⃣ <b>GTHT不受影响</b>：ranklist盘后和盘中一致</p>
+    <!-- ✅ 验证 -->
+    <div class="fq-section">
+      <div class="fq-section-title">✅ 验证结果（6/24验证）</div>
+      <div class="fq-section-body">
+        <p><span class="fq-tag bad">❌ 星光股份 -8.21%</span> 低开低走，全日无反弹，主力出货明显</p>
+        <p><span class="fq-tag good">✅ 深天马A +7.31%</span> 高开高走，盘中触及涨停(+10.01%)</p>
+        <p style="margin-top:6px;font-weight:600;color:#e67e22">结论：问财胜出。低评分(59)反而跑赢高评分(51) → 净流入量级（1.56亿 vs 0.56亿）比评分更关键</p>
+      </div>
     </div>
+
+    <!-- 💡 启示 -->
+    <div class="fq-section">
+      <div class="fq-section-title">💡 启示</div>
+      <div class="fq-section-body">
+        <div class="fq-tip">
+          <span class="fq-num">1</span>
+          <span><b>净流入是核心硬指标</b>：当天净流入差3倍 → 次日表现差15%</span>
+        </div>
+        <div class="fq-tip">
+          <span class="fq-num">2</span>
+          <span><b>GTHT评分权重需调整</b>：仅看涨幅+换手会漏掉资金质量维度</span>
+        </div>
+        <div class="fq-tip">
+          <span class="fq-num">3</span>
+          <span><b>净流入占比>3%的票才是真主力</b>：星光净流入绝对量太低(0.56亿)不足以支撑次日溢价</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="ft">
-盘中首推：中国东航 600115.SH (交通3只合力) · 盘后首选：紫光国微 002049.SZ (评分90)<br>
-6/28周一收盘后一并验证
-</div></div>
+<div style="font-size:10px;color:#aaa;text-align:center;padding:10px;border-top:1px dashed #ddd;margin-top:12px">
+更新于 2026-06-26 · 分歧数据自动记录于meta
+</div>
+
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 分歧2：6/25 问财盘中vs盘后                                      -->
+<!-- ============================================================ -->
+<div class="fq-page" id="fqPage1" style="padding:0 12px 20px">
+
+<div class="fq-card">
+  <div class="fq-card-hdr warn">
+    <span>📌 6/25（周四）问财盘中vs盘后分歧</span>
+    <span class="fq-badge fail-badge">❌ 双败</span>
+  </div>
+  <div class="fq-card-body">
+
+    <!-- 对战 -->
+    <div class="fq-duel">
+      <div class="fq-side lose">
+        <div class="fq-side-top">
+          <div class="fq-pipe">🕐 盘中首推</div>
+          <div class="fq-code">600115.SH</div>
+        </div>
+        <div class="fq-stock-name" style="color:#e67e22">中国东航</div>
+        <div class="fq-tag-row"><span class="fq-tag bad">❌ -2.41%</span></div>
+        <div class="fq-stats">
+          <div>评分 <b>73</b> · 净流入 <b>3.94亿</b> · 占比 <b>20.4%</b></div>
+          <div>板块 <b>交通3只</b></div>
+        </div>
+        <div class="fq-ohlc">开-1.45% · 高-0.24% · 收-2.41%</div>
+      </div>
+      <div class="fq-vs-badge">VS</div>
+      <div class="fq-side lose">
+        <div class="fq-side-top">
+          <div class="fq-pipe">🕒 盘后首选</div>
+          <div class="fq-code">002049.SZ</div>
+        </div>
+        <div class="fq-stock-name" style="color:#1976d2">紫光国微</div>
+        <div class="fq-tag-row"><span class="fq-tag bad">❌ -4.02%</span></div>
+        <div class="fq-stats">
+          <div>评分 <b>90</b> · 净流入 <b>6.92亿</b> · 占比 <b>12.2%</b></div>
+          <div>板块 <b>电子2只</b></div>
+        </div>
+        <div class="fq-ohlc">开-1.70% · 高+0.16% · 收-4.02%</div>
+      </div>
+    </div>
+
+    <div class="fq-diff-bar" style="background:#fff3e0;color:#e67e22">
+      双败 · 板块合力(3只) vs 评分(90) 都输了
+    </div>
+
+    <!-- 🔍 原因 -->
+    <div class="fq-section">
+      <div class="fq-section-title">🔍 分歧原因</div>
+      <div class="fq-section-body">
+        <p><b>问财API收盘前波动：</b>14:55和15:00+两次查询返回不同聚合排名。盘中东航(交通3只合力)优先，盘后紫光国微(评分90)反超。</p>
+        <p style="margin-top:4px"><b>本质冲突：</b>板块合力（3只交通）vs 评分权重（90分的紫光国微）——选股逻辑的优先级之争。</p>
+      </div>
+    </div>
+
+    <!-- ✅ 验证 -->
+    <div class="fq-section">
+      <div class="fq-section-title">✅ 验证结果（6/26验证）</div>
+      <div class="fq-section-body">
+        <div class="fq-tbl-wrap">
+          <table class="fq-compare-table">
+            <tr><th></th><th>中国东航</th><th>紫光国微</th></tr>
+            <tr><td>开盘</td><td class="bad">-1.45%</td><td class="bad">-1.70%</td></tr>
+            <tr><td>最高</td><td class="bad">-0.24%</td><td class="mid">+0.16%</td></tr>
+            <tr><td>收盘</td><td class="bad">-2.41%</td><td class="bad">-4.02%</td></tr>
+            <tr><td>判定</td><td class="bad">❌ 失败</td><td class="bad">❌ 失败</td></tr>
+          </table>
+        </div>
+        <p style="margin-top:6px;font-weight:600;color:#e67e22">结论：双败。全天大盘调整，两只票低开后持续走低。盘中选的东航反而少跌了1.61%——但也只是"少亏"。</p>
+      </div>
+    </div>
+
+    <!-- 💡 启示 -->
+    <div class="fq-section">
+      <div class="fq-section-title">💡 启示</div>
+      <div class="fq-section-body">
+        <div class="fq-tip">
+          <span class="fq-num">1</span>
+          <span><b>问财API盘后数据不可覆盖盘中记录</b>：盘中数据是决策依据，盘后变化只表明聚合波动</span>
+        </div>
+        <div class="fq-tip">
+          <span class="fq-num">2</span>
+          <span><b>板块合力3只仍然跑输</b>——弱市行情下板块合力不是保险</span>
+        </div>
+        <div class="fq-tip">
+          <span class="fq-num">3</span>
+          <span><b>6/25双败的真正原因</b>：大盘当日调整，东航和紫光国微都是高位追涨票 → 筛选模型缺乏"大盘状态"维度</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="font-size:10px;color:#aaa;text-align:center;padding:10px;border-top:1px dashed #ddd;margin-top:12px">
+6/26验证完毕 · 分歧票已纳入双管线meta
+</div>
+
+</div>
+
+<!-- ===== 全局面板样式 ===== -->
 <style>
-#pageFenqi .fq-btn{flex:1;text-align:center;padding:8px 4px;border-radius:8px;font-size:12px;font-weight:600;border:none;cursor:pointer;background:#fff;color:#888;border:1px solid #e5e7eb}
-#pageFenqi .fq-btn.active{background:#e67e22;color:#fff;border-color:#e67e22}
-#pageFenqi .fq-page{display:none}
-#pageFenqi .fq-page.active{display:block}
+/* ─── 分歧页面专用样式 ─── */
+#pageFenqi * {box-sizing:border-box;margin:0;padding:0}
+#pageFenqi {font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background:#f0f0ec;color:#333;min-height:100vh}
+
+/* 切换标签 */
+#pageFenqi .fq-btn {
+  flex:1; text-align:center; padding:10px 6px; border-radius:10px; font-size:12px; font-weight:600;
+  border:none; cursor:pointer; background:#fff; color:#888;
+  border:1px solid #e5e7eb; box-shadow:0 1px 3px rgba(0,0,0,.06); transition:all .15s
+}
+#pageFenqi .fq-btn.active {
+  background:linear-gradient(135deg,#e67e22,#d35400); color:#fff;
+  border-color:#d35400; box-shadow:0 2px 6px rgba(230,126,34,.3)
+}
+
+/* 分歧卡片 */
+#pageFenqi .fq-card {background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.1); margin-top:12px}
+#pageFenqi .fq-card-hdr {
+  padding:12px 14px; font-size:13px; font-weight:600;
+  display:flex; align-items:center; justify-content:space-between
+}
+#pageFenqi .fq-card-hdr.warn {background:linear-gradient(135deg,#fff3e0,#ffe0b2)}
+#pageFenqi .fq-card-body {padding:14px}
+
+/* Badge */
+.fq-badge {display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700}
+.fq-badge.ok-badge {background:#e8f5e9; color:#2e7d32}
+.fq-badge.fail-badge {background:#ffebee; color:#c62828}
+
+/* 对战布局 */
+.fq-duel {display:flex; gap:8px; align-items:stretch; margin-bottom:8px}
+.fq-side {flex:1; border-radius:10px; padding:10px; text-align:center}
+.fq-side.win {background:#e8f5e9; border:1px solid #a5d6a7}
+.fq-side.lose {background:#ffebee; border:1px solid #ef9a9a}
+.fq-vs-badge {
+  display:flex; align-items:center; justify-content:center;
+  background:#fff; border:2px solid #e67e22; color:#e67e22;
+  border-radius:50%; width:32px; min-width:32px; height:32px;
+  font-size:11px; font-weight:800; margin-top:20px
+}
+.fq-side-top {display:flex; justify-content:space-between; align-items:center; margin-bottom:4px}
+.fq-pipe {font-size:11px; color:#666}
+.fq-code {font-size:10px; color:#999}
+.fq-stock-name {font-size:15px; font-weight:700; margin-bottom:6px}
+.fq-tag-row {margin-bottom:6px}
+.fq-tag {display:inline-block; padding:2px 10px; border-radius:6px; font-size:12px; font-weight:700}
+.fq-tag.good {background:#c8e6c9; color:#2e7d32}
+.fq-tag.bad {background:#ffcdd2; color:#c62828}
+.fq-tag.mid {background:#fff9c4; color:#f57f17}
+.fq-stats {font-size:11px; color:#555; line-height:1.7}
+.fq-ohlc {font-size:10px; color:#888; margin-top:6px; border-top:1px solid #f0f0f0; padding-top:4px}
+.fq-diff-bar {background:#f5f5f5; border-radius:6px; padding:6px 10px; text-align:center; font-size:11px; color:#666; margin-bottom:10px}
+
+/* 区块 */
+.fq-section {margin-bottom:10px}
+.fq-section:last-child {margin-bottom:0}
+.fq-section-title {font-size:12px; font-weight:700; color:#333; padding:6px 0; border-bottom:1px solid #eee; margin-bottom:6px}
+.fq-section-body {font-size:12px; line-height:1.7; color:#444}
+
+/* Tips */
+.fq-tip {display:flex; gap:8px; margin-bottom:6px; align-items:flex-start}
+.fq-tip:last-child {margin-bottom:0}
+.fq-num {background:#e67e22; color:#fff; border-radius:50%; min-width:18px; height:18px; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px}
+
+/* 对比表格 */
+.fq-tbl-wrap {overflow-x:auto; margin-bottom:6px}
+.fq-compare-table {width:100%; border-collapse:collapse; font-size:12px}
+.fq-compare-table th {background:#f5f5f5; padding:6px 10px; border:1px solid #e0e0e0; font-weight:600; text-align:center}
+.fq-compare-table td {padding:5px 10px; border:1px solid #e0e0e0; text-align:center}
+.fq-compare-table td.bad {color:#c62828; font-weight:600}
+.fq-compare-table td.mid {color:#e65100; font-weight:600}
+.fq-compare-table td.good {color:#2e7d32; font-weight:600}
+
+/* 分页 */
+.fq-page {display:none}
+.fq-page.active {display:block}
 </style>
 <script>
 function switchFenqi(n) {
@@ -1760,7 +1870,9 @@ function switchFenqi(n) {
   document.getElementById("fqPage" + n).classList.add("active");
   document.getElementById("fqBtn" + n).classList.add("active");
 }
-</script></div>
+</script>
+
+</div>
 </div>
 <script>
 var L1="checkin", L2="gtht";
