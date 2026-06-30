@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>中级经济师 · 打卡备考</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f0f0ec;color:#2c2c2c;padding:0 0 20px;min-height:100vh}
+.container{max-width:500px;margin:0 auto;padding:0 14px}
+h1{font-size:20px;font-weight:700;background:linear-gradient(135deg,#8b5cf6,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px}
+.top h1{margin:0}.top .sub{font-size:11px;color:#999}
+.btn-sm{background:none;border:1px solid #ddd;border-radius:6px;padding:4px 10px;font-size:11px;color:#999;cursor:pointer}
+.btn-sm:hover{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+
+/* countdown */
+.cd-bar{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.cd-bar .cd-label{font-size:11px;color:#a5b4fc;text-transform:uppercase;letter-spacing:.5px}
+.cd-bar .cd-num{font-size:32px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.cd-bar .cd-unit{font-size:11px;color:#a5b4fc;margin-left:2px}
+.cd-bar .cd-r{text-align:right}
+.cd-bar .cd-sub{font-size:10px;color:#6366f1;margin-top:2px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap: 8px;margin-bottom:12px}
+.sc{background:#fff;border-radius:10px;padding:12px 8px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.06);border:1px solid #e5e7eb}
+.sc .n{font-size:22px;font-weight:700;color:#8b5cf6}
+.sc .l{font-size:11px;color:#999;margin-top:2px}
+
+/* progress */
+.pb{background:#fff;border-radius:10px;padding:14px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.06);border:1px solid #e5e7eb}
+.pb-h{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;color:#555}
+.pb-bar{height:8px;border-radius:4px;background:#e5e7eb;overflow:hidden}
+.pb-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#8b5cf6,#7c3aed);transition:width .3s}
+
+/* today card */
+.today-card{background:#fff;border-radius:12px;padding:16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #ede9fe}
+.today-card .day{font-size:12px;color:#999}
+.today-card .sec{font-size:15px;font-weight:600;margin-top:4px}
+.today-card .sub{font-size:12px;color:#999;margin-top:2px}
+.check-btn{width:100%;padding:12px;border-radius:10px;border:none;font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:10px}
+.check-btn.pending{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff}
+.check-btn.done{background:#d1fae5;color:#059669}
+.check-btn.complete{background:#e5e7eb;color:#9ca3af}
+
+/* filters */
+.filters{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.fb{padding:6px 12px;border-radius:16px;border:1px solid #e5e7eb;background:#fff;font-size:12px;cursor:pointer;transition:all .15s}
+.fb.active{background:#ede9fe;border-color:#8b5cf6;color:#8b5cf6;font-weight:600}
+
+/* week nav */
+.week-nav{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.week-nav .wl{font-size:13px;font-weight:600;flex:1;text-align:center;color:#555}
+.week-nav button{width:30px;height:30px;border-radius:15px;border:1px solid #e5e7eb;background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* week calendar strip */
+.wk-strip{display:flex;gap:4px;overflow-x:auto;padding:4px 0;margin-bottom:14px}
+.wk-d{min-width:38px;text-align:center;padding:8px 4px;border-radius:8px;background:#fff;border:1px solid #e5e7eb;font-size:11px}
+.wk-d.today{background:#ede9fe;border-color:#8b5cf6}
+.wk-d.done{background:#d1fae5;border-color:#10b981}
+.wk-d .dd{font-weight:700;font-size:15px}
+.wk-d .dl{font-size:9px;color:#999;margin-top:2px}
+
+/* section list */
+.sl{display:flex;flex-direction:column;gap:6px}
+.si{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;transition:all .15s}
+.si.done{border-color:#d1fae5;background:#f8fcf9}
+.si .idx{width:26px;height:26px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:#f3f4f6;color:#6b7280;flex-shrink:0}
+.si.done .idx{background:#10b981;color:#fff}
+.si .cinfo{flex:1;min-width:0}
+.si .ctitle{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.si .csec{font-size:11px;color:#999;margin-top:2px}
+.si .csubj{font-size:10px;padding:2px 6px;border-radius:8px;font-weight:600;flex-shrink:0}
+.si .经济基础{background:#ede9fe;color:#7c3aed}
+.si .财政税收{background:#fce7f3;color:#be185d}
+.si .复习{background:#dbeafe;color:#2563eb}
+.si .休息{background:#fef3c7;color:#d97706}
+
+/* empty */
+.empty{text-align:center;padding:30px 20px;color:#999}
+.empty .emoji{font-size:36px;margin-bottom:8px}
+
+/* toast */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+
+/* modal */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:999;align-items:center;justify-content:center}
+.mo.show{display:flex}
+.mo .mc{background:#fff;border-radius:16px;padding:24px;width:85%;max-width:360px;text-align:center}
+.mo h3{font-size:16px;margin-bottom:8px}
+.mo p{font-size:13px;color:#666;margin-bottom:16px;line-height:1.5}
+.mo .ma{display:flex;gap:8px;justify-content:center}
+.mo .ma button{padding:10px 24px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer}
+.mo .ma .cancel{background:#f3f4f6;color:#555}
+.mo .ma .confirm{background:#8b5cf6;color:#fff}
+.mo .ma .danger{background:#ef4444;color:#fff}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="top">
+<div><h1>中级经济师</h1><div class="sub">每天一节 · 打卡备考</div></div>
+<button class="btn-sm" onclick="showReset()">🔄 重置</button>
+</div>
+
+<div class="cd-bar" id="countdownBar">
+<div><div class="cd-label">📅 距离考试</div></div>
+<div class="cd-r">
+<span class="cd-num" id="cdDays">--</span><span class="cd-unit">天</span>
+<div class="cd-sub" id="cdDate">预计 2026年11月7-8日</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="sc"><div class="n" id="statDone">0</div><div class="l">✅ 已完成</div></div>
+<div class="sc"><div class="n" id="statStreak">0</div><div class="l">🔥 连续天数</div></div>
+<div class="sc"><div class="n" id="statTotal">120</div><div class="l">📖 总章节</div></div>
+</div>
+
+<div class="pb"><div class="pb-h"><span>学习进度</span><span><span id="progressLabel">0%</span> · <span id="progressCount">0/120</span></span></div><div class="pb-bar"><div class="pb-fill" id="progressFill" style="width:0%"></div></div></div>
+
+<div class="today-card" id="todayCard">
+<div class="day" id="todayLabel">-</div>
+<div class="sec" id="todaySection">加载中...</div>
+<div class="sub" id="todaySections"></div>
+<button class="check-btn pending" id="checkBtn" onclick="doCheckin()">📌 打卡</button>
+</div>
+
+<button class="btn-sm" style="margin-bottom:12px" onclick="scrollToToday()">📍 跳到今天</button>
+
+<div class="filters" id="filterBar"></div>
+
+<div class="week-nav"><button onclick="prevWeek()">◀</button><span class="wl" id="weekLabel">本周</span><button onclick="nextWeek()">▶</button></div>
+<div class="wk-strip" id="weekCalendar"></div>
+
+<div class="empty" id="emptyState" style="display:none"><div class="emoji">🎉</div><div>全部完成！🏆</div></div>
+<div class="sl" id="sectionList"></div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<div class="mo" id="resetModal"><div class="mc"><h3 id="modalTitle">确认重置</h3><p id="modalMsg"></p><div class="ma"><button class="cancel" onclick="hideModal()">取消</button><button class="confirm" id="modalBtn">确认</button></div></div></div>
+
+<script>
+// ==================== CHAPTERS DATA ====================
+const CHAPTERS = [
+  { subject: "经济基础", chapter: "第1章 社会主义基本经济制度", sections: "第1-4节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第2章 市场需求供给与均衡价格", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第3章 生产及成本理论", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第4章 市场结构理论", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第5章 生产要素市场理论", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第6章 市场失灵和政府干预", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第7章 国民收入核算和宏观经济模型", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第8章 经济增长和经济发展理论", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第9章 价格总水平和就业失业", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第10章 国际贸易理论和政策", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "经济学基础·阶段复习", sections: "第1-10章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "回顾错题+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第11章 公共物品与财政职能", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第12章 财政支出", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第13章 财政收入", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第14章 税收制度", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第15章 政府预算", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第16章 财政管理体制", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第17章 财政政策", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "财政部分·阶段复习", sections: "第11-17章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "经济基础", chapter: "第18章 货币供求与货币均衡", sections: "第1-4节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第19章 中央银行与货币政策", sections: "第1-2节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第20章 商业银行与金融市场", sections: "第1-2节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第21章 金融风险与金融监管", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第22章 对外金融关系与政策", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "货币金融·阶段复习", sections: "第18-22章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日①", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第23章 统计与统计数据", sections: "第1-5节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第24章 描述统计", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第25章 抽样调查", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第26章 回归分析", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第27章 时间序列分析", sections: "第1-5节全章 🔴", sessions: 1 },
+  { subject: "复习", chapter: "统计部分·阶段复习", sections: "第23-27章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "休息+错题回顾", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日②", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "经济基础", chapter: "第28章 会计概论", sections: "第1-7节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第29章 会计循环", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第30章 会计报表", sections: "第1-5节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第31章 财务报表分析", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "经济基础", chapter: "第32章 政府会计", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "复习", chapter: "会计部分·阶段复习", sections: "第28-32章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 经济基础·中期复盘", sections: "前半本薄弱点标记+补强", sessions: 1 },
+  { subject: "经济基础", chapter: "第33章 法律对经济关系的调整", sections: "第1-3节全章 🟢", sessions: 1 },
+  { subject: "经济基础", chapter: "第34章 物权法律制度", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第35章 合同法律制度", sections: "第1-6节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第36章 公司法律制度", sections: "第1-8节全章 🟡", sessions: 1 },
+  { subject: "经济基础", chapter: "第37章 其他法律制度", sections: "第1-6节全章 🟡", sessions: 1 },
+  { subject: "复习", chapter: "法律部分·阶段复习", sections: "第33-37章重点回顾+刷题", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "查漏补缺+休息", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·全科目摸底", sections: "自测摸底卷+分数评估", sessions: 1 },
+  { subject: "休息", chapter: "📅 经济基础·全书总复盘", sections: "37章错题全量回顾+薄弱再补强", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日③", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "财政税收", chapter: "第1章 公共财政与财政职能", sections: "第1-2节全章 🟢", sessions: 1 },
+  { subject: "财政税收", chapter: "第2章 财政支出理论与内容", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第3章 税收理论", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度①", sections: "第1节 增值税(上)—基本原理+税率 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度②", sections: "第1节 增值税(下)—进销项计算 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第4章 货物和劳务税制度③", sections: "第2-3节 消费税制+关税制 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度①", sections: "第1节 企业所得税(上)—收入+扣除 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度②", sections: "第1节 企业所得税(下)—优惠+应纳税额 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第5章 所得税制度③", sections: "第2节 个人所得税—综合+分类计算 🔴🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第6章 财产和行为税制度①", sections: "第1-3节 房产+城镇土地+土地增值税+契税 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第6章 财产和行为税制度②", sections: "第4-5节 印花税+城建税教育费+车船车辆购置税+环保资源烟叶税 🔴", sessions: 1 },
+  { subject: "财政税收", chapter: "第7章 税务管理", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第8章 纳税检查", sections: "第1-4节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第9章 公债", sections: "第1-3节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第10章 政府预算理论与管理制度", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第11章 政府间财政关系", sections: "第1-5节全章 🟡", sessions: 1 },
+  { subject: "财政税收", chapter: "第12章 财政平衡与财政政策", sections: "第1-3节全章 🔴", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息复盘日", sections: "财政税收前半本回顾", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·综合复习①", sections: "第1-6章重点+计算题专项训练", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·综合复习②", sections: "第7-12章重点+综合案例", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·真题模拟①", sections: "真题模拟卷一+判卷分析", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日④", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "复习", chapter: "财政税收·真题模拟②", sections: "真题模拟卷二+查漏补缺", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·真题模拟①", sections: "真题模拟卷一+判卷分析错题", sessions: 1 },
+  { subject: "复习", chapter: "经济基础·真题模拟②", sections: "真题模拟卷二+查漏补缺", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第1套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第2套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "复习", chapter: "整卷模拟·第3套", sections: "经济基础+财政税收合卷计时模拟", sessions: 1 },
+  { subject: "休息", chapter: "📅 休息调整日", sections: "休息+错题整理归类", sessions: 1 },
+  { subject: "复习", chapter: "错题回顾·经济基础全科", sections: "第1-37章所有标记错题重做", sessions: 1 },
+  { subject: "复习", chapter: "错题回顾·财政税收全科", sections: "第1-12章所有标记错题重做", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·经济基础①", sections: "经济学基础+财政部分高频考点背诵", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·经济基础②", sections: "货币金融+统计会计+法律高频考点背诵", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·财政税收①", sections: "第1-6章税率表+计算公式记忆", sessions: 1 },
+  { subject: "复习", chapter: "重点背诵·财政税收②", sections: "第7-12章管理流程+政策工具记忆", sessions: 1 },
+  { subject: "复习", chapter: "考前冲刺·经济基础押题", sections: "高频考点+易错点最后过一遍", sessions: 1 },
+  { subject: "复习", chapter: "考前冲刺·财政税收押题", sections: "增值税+企业所得税核心计算过一遍", sessions: 1 },
+  { subject: "复习", chapter: "考前最后查漏补缺", sections: "全书快速浏览+心态调整", sessions: 1 },
+  { subject: "休息", chapter: "📅 考前一天休息", sections: "轻松心态+文具准备+早睡早起", sessions: 1 },
+  { subject: "复习", chapter: "机动调整日①", sections: "补进度+额外刷题+查漏", sessions: 1 },
+  { subject: "复习", chapter: "机动调整日②", sections: "补进度+额外刷题+查漏", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性休息日⑤", sections: "弹性补进度+休息", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 1", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 2", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 3", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 4", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 5", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 6", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 7", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 8", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 9", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 10", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 11", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 12", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 13", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 14", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 15", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 16", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 17", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 18", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 19", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 20", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 21", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 22", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 23", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 24", sections: "弹性补进度+休息+复盘", sessions: 1 },
+];
+
+// ==================== CORE LOGIC ====================
+const STORAGE_KEY = 'jjjs_checkin_v1';
+const TOTAL_SECTIONS = 120;
+
+// State
+let state = {
+  startDate: '2026-07-01',
+  checkedIn: {},       // { "dayIndex": "ISO-date" }
+  filterSubject: '全部',
+  currentWeek: null,      // null = auto-calculate from today
+  firstVisit: true,
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state = { ...state, ...parsed };
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) { toast('⚠️ 存储空间不足，请清理浏览器缓存'); }
+}
+
+// Compute sections array from CHAPTERS
+function getSections() {
+  const result = [];
+  CHAPTERS.forEach((ch, ci) => {
+    for (let i = 0; i < ch.sessions; i++) {
+      result.push({
+        chapterIndex: ci,
+        id: result.length + 1,
+        label: ch.chapter,
+        sections: ch.sections,
+        subject: ch.subject,
+      });
+    }
+  });
+  return result;
+}
+
+const allSections = getSections();
+
+// Get today's date string (YYYY-MM-DD)
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+// Date math helpers
+function parseDate(s) {
+  const [y,m,d] = s.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function dateStr(date) {
+  return date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
+}
+function addDays(s, n) {
+  const d = parseDate(s);
+  d.setDate(d.getDate() + n);
+  return dateStr(d);
+}
+function dayDiff(a, b) {
+  const da = parseDate(a);
+  const db = parseDate(b);
+  return Math.floor((db - da) / (1000*60*60*24));
+}
+
+// Get today's day index
+function todayDayIndex() {
+  return dayDiff(state.startDate, todayStr());
+}
+
+// Get checked status for a day index
+function isChecked(dayIndex) {
+  return state.checkedIn[String(dayIndex)] || false;
+}
+
+// Check in / cancel for any day index (0-based)
+function toggleCheckin(idx) {
+  if (idx < 0 || idx >= TOTAL_SECTIONS) {
+    toast('不在备考计划范围内');
+    return;
+  }
+  if (isChecked(idx)) {
+    // Cancel: require confirmation
+    const sec = allSections[idx];
+    document.getElementById('modalTitle').textContent = '取消打卡？';
+    document.getElementById('modalMsg').textContent = `确定要取消「${sec.label}」的打卡记录吗？`;
+    const btn = document.getElementById('modalBtn');
+    btn.textContent = '确认取消';
+    btn.className = 'confirm danger';
+    btn.onclick = () => {
+      delete state.checkedIn[String(idx)];
+      saveState();
+      renderAll();
+      hideModal();
+      toast('已取消打卡');
+    };
+    document.getElementById('resetModal').classList.add('show');
+  } else {
+    // Check in: directly
+    const dateStr = addDays(state.startDate, idx);
+    state.checkedIn[String(idx)] = dateStr;
+    saveState();
+    renderAll();
+    toast('✅ 打卡成功！');
+  }
+}
+
+// Check in today (via button)
+function doCheckin() {
+  toggleCheckin(todayDayIndex());
+}
+
+function showReset() {
+  const btn = document.getElementById('modalBtn');
+  if (Object.keys(state.checkedIn).length === 0) {
+    toast('没有打卡记录');
+    return;
+  }
+  document.getElementById('modalTitle').textContent = '⚠️ 确认重置';
+  document.getElementById('modalMsg').textContent = '这将清空所有打卡记录，此操作不可撤销。';
+  btn.textContent = '确认重置';
+  btn.className = 'confirm danger';
+  btn.onclick = doReset;
+  document.getElementById('resetModal').classList.add('show');
+}
+
+function doReset() {
+  state.checkedIn = {};
+  state.firstVisit = false;
+  saveState();
+  renderAll();
+  hideModal();
+  toast('已清空全部记录');
+}
+
+function hideModal() {
+  document.getElementById('resetModal').classList.remove('show');
+}
+
+function showWelcome() {
+  if (!state.firstVisit) return;
+  state.firstVisit = false;
+  saveState();
+  document.getElementById('modalTitle').textContent = '📚 欢迎！';
+  document.getElementById('modalMsg').innerHTML = `
+    <strong>中级经济师（财政税收）</strong><br>
+    经济基础知识37章 + 财政税收实务12章<br><br>
+    备考计划共 <strong>120天</strong>，每天一节。<br>
+    从 <strong>2026-07-01</strong> 开始计算进度。<br><br>
+    打卡后数据自动保存在浏览器中，不会丢失。
+  `;
+  const btn = document.getElementById('modalBtn');
+  btn.textContent = '开始打卡 🚀';
+  btn.className = 'confirm';
+  btn.onclick = () => {
+    hideModal();
+  };
+  document.getElementById('resetModal').classList.add('show');
+}
+
+// Toast
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._timeout);
+  el._timeout = setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+// Filter
+function setFilter(subj) {
+  state.filterSubject = subj;
+  renderAll();
+}
+
+// Week navigation
+function currentWeekStart() {
+  if (state.currentWeek !== null) return state.currentWeek;
+  const today = todayStr();
+  const d = parseDate(today);
+  const dayOfWeek = d.getDay();
+  const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const mon = new Date(d);
+  mon.setDate(d.getDate() + diff);
+  return dateStr(mon);
+}
+function setWeekStart(s) {
+  state.currentWeek = s;
+  renderAll();
+}
+function prevWeek() {
+  setWeekStart(addDays(currentWeekStart(), -7));
+}
+function nextWeek() {
+  setWeekStart(addDays(currentWeekStart(), 7));
+}
+function resetWeek() {
+  state.currentWeek = null;
+  renderAll();
+}
+
+function getWeekRange(monStr) {
+  const mon = parseDate(monStr);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  return { mon: monStr, sun: dateStr(sun), label: `${mon.getMonth()+1}/${mon.getDate()} - ${sun.getMonth()+1}/${sun.getDate()}` };
+}
+
+// Scroll to today
+function scrollToToday() {
+  resetWeek();
+  const el = document.getElementById('sectionList');
+  const todayIdx = todayDayIndex();
+  if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+    const child = document.getElementById('si-' + (todayIdx + 1));
+    if (child) {
+      child.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      child.style.outline = '3px solid #8b5cf6';
+      child.style.outlineOffset = '-2px';
+      setTimeout(() => { child.style.outline = ''; }, 2000);
+    }
+  }
+}
+
+// ==================== RENDER ====================
+function renderAll() {
+  // Countdown to exam
+  const examDate = new Date(2026, 10, 7); // Nov 7, 2026
+  const now = new Date();
+  const daysLeft = Math.ceil((examDate - now) / (1000*60*60*24));
+  document.getElementById('cdDays').textContent = Math.max(0, daysLeft);
+  document.getElementById('cdDate').textContent = daysLeft <= 0 ? '🏆 考试已到来！' : '预计 2026年11月7-8日';
+
+  const todayIdx = todayDayIndex();
+  const doneCount = Object.keys(state.checkedIn).length;
+  const todayStrVal = todayStr();
+
+  // Calculate streak
+  let streak = 0;
+  for (let i = todayIdx; i >= 0; i--) {
+    if (isChecked(i)) streak++;
+    else break;
+  }
+
+  // Stats
+  document.getElementById('statDone').textContent = doneCount;
+  document.getElementById('statStreak').textContent = streak;
+  document.getElementById('statTotal').textContent = TOTAL_SECTIONS;
+  const pct = Math.round((doneCount / TOTAL_SECTIONS) * 100);
+  document.getElementById('progressLabel').textContent = `进度 ${pct}%`;
+  document.getElementById('progressCount').textContent = `${doneCount} / ${TOTAL_SECTIONS}`;
+  document.getElementById('progressFill').style.width = `${pct}%`;
+
+  // Today card
+  const weekDayNames = ['日','一','二','三','四','五','六'];
+  const d = new Date();
+  document.getElementById('todayLabel').textContent = `${todayStrVal} 周${weekDayNames[d.getDay()]}`;
+
+  if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+    const sec = allSections[todayIdx];
+    document.getElementById('todaySection').textContent = sec.label;
+    document.getElementById('todaySections').textContent = sec.sections;
+  } else {
+    document.getElementById('todaySection').textContent = '🎉 全部完成！';
+    document.getElementById('todaySections').textContent = '';
+  }
+
+  const btn = document.getElementById('checkBtn');
+  if (todayIdx < 0 || todayIdx >= TOTAL_SECTIONS) {
+    btn.textContent = '🏆 完成';
+    btn.className = 'check-btn complete';
+  } else if (isChecked(todayIdx)) {
+    btn.textContent = '✅ 已打卡';
+    btn.className = 'check-btn done';
+  } else {
+    btn.textContent = '📌 打卡';
+    btn.className = 'check-btn pending';
+  }
+
+  // Filters
+  const subjects = ['全部', '经济基础', '财政税收', '复习'];
+  document.getElementById('filterBar').innerHTML = subjects.map(s =>
+    `<span class="fb${state.filterSubject === s ? ' active' : ''}" onclick="setFilter('${s}')">${s}</span>`
+  ).join('');
+
+  // Week calendar
+  const mon = currentWeekStart();
+  const weekInfo = getWeekRange(mon);
+  document.getElementById('weekLabel').textContent = weekInfo.label;
+
+  let calHtml = '';
+  for (let i = 0; i < 7; i++) {
+    const date = addDays(mon, i);
+    const idx = dayDiff(state.startDate, date);
+    const dd = parseDate(date);
+    const cls = date === todayStrVal ? ' today' : '';
+    const doneCls = isChecked(idx) ? ' done' : '';
+    calHtml += `<div class="wk-d${cls}${doneCls}" onclick="toggleCheckin(${idx})">
+      <div class="dd">${dd.getDate()}</div>
+      <div class="dl">周${weekDayNames[dd.getDay()]}</div>
+    </div>`;
+  }
+  document.getElementById('weekCalendar').innerHTML = calHtml;
+
+  // Section list
+  const listEl = document.getElementById('sectionList');
+  const emptyEl = document.getElementById('emptyState');
+  let filtered = allSections;
+  if (state.filterSubject !== '全部') {
+    filtered = filtered.filter(s => s.subject === state.filterSubject);
+  }
+  if (filtered.length === 0) {
+    emptyEl.style.display = 'block';
+    listEl.innerHTML = '';
+  } else {
+    emptyEl.style.display = 'none';
+    listEl.innerHTML = filtered.map(s => {
+      const checked = isChecked(s.id - 1);
+      return `<div class="si${checked ? ' done' : ''}" id="si-${s.id}" onclick="toggleCheckin(${s.id - 1})" style="cursor:pointer">
+        <div class="idx">${checked ? '✓' : s.id}</div>
+        <div class="cinfo">
+          <div class="ctitle">${s.label}</div>
+          <div class="csec">${s.sections}</div>
+        </div>
+        <div class="csubj ${s.subject}">${s.subject}</div>
+      </div>`;
+    }).join('');
+
+    // Highlight today
+    if (todayIdx >= 0 && todayIdx < TOTAL_SECTIONS) {
+      const todayEl = document.getElementById('si-' + (todayIdx + 1));
+      if (todayEl) {
+        todayEl.style.background = '#f5f3ff';
+        todayEl.style.borderColor = '#8b5cf6';
+      }
+    }
+  }
+}
+
+// Init
+loadState();
+renderAll();
+showWelcome();
+</script>
+</body>
+</html>
