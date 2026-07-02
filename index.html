@@ -262,6 +262,7 @@ function showPage(n){
   document.getElementById(p[n]).classList.add("active");
 }
 // ==================== CHAPTERS DATA ====================
+const CHAPTERS = [
   { subject: "经济基础", chapter: "第1章 社会主义基本经济制度", sections: "第1-4节", sessions: 1 },
   { subject: "经济基础", chapter: "第2章 市场需求供给与均衡价格", sections: "第1-4节", sessions: 1 },
   { subject: "经济基础", chapter: "第3章 生产及成本理论", sections: "第1-3节", sessions: 1 },
@@ -376,7 +377,8 @@ function showPage(n){
   { subject: "休息", chapter: "📅 弹性缓冲日 21", sections: "弹性补进度+休息+复盘", sessions: 1 },
   { subject: "休息", chapter: "📅 弹性缓冲日 22", sections: "弹性补进度+休息+复盘", sessions: 1 },
   { subject: "休息", chapter: "📅 弹性缓冲日 23", sections: "弹性补进度+休息+复盘", sessions: 1 },
-  { subject: "休息", chapter: "📅 弹性缓冲日 24", sections: "弹性补进度+休息+复盘", sessions: 1 },
+  { subject: "休息", chapter: "📅 弹性缓冲日 24", sections: "弹性补进度+休息+复盘", sessions: 1 }
+];
 // Compute sections array from CHAPTERS
 function getSections() {
   const result = [];
@@ -395,6 +397,7 @@ function getSections() {
 }
 
 const allSections = getSections();
+const TOTAL_SECTIONS = allSections.length;
 
 // Get today's date string (YYYY-MM-DD)
 function todayStr() {
