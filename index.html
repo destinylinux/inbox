@@ -240,6 +240,27 @@ body{font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;background
 <div class="mo" id="resetModal"><div class="mc"><h3 id="modalTitle">确认重置</h3><p id="modalMsg"></p><div class="ma"><button class="cancel" onclick="hideModal()">取消</button><button class="confirm" id="modalBtn">确认</button></div></div></div>
 
 <script>
+// ==================== NAVIGATION ====================
+var L1='checkin',L2='gtht';
+function switchL1(n){
+  L1=n;
+  document.querySelectorAll(".tab-l1").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-l1")[n==="checkin"?0:1].classList.add("active");
+  document.getElementById("tabBarL2").classList.toggle("show",n==="invest");
+  showPage(n==="checkin"?"checkin":L2);
+}
+function switchL2(n){
+  L2=n;
+  document.querySelectorAll(".tab-l2").forEach(function(t){t.classList.remove("active");});
+  var m={gtht:0,wencai:1,compare:2,fenqi:3};
+  document.querySelectorAll(".tab-l2")[m[n]].classList.add("active");
+  showPage(n);
+}
+function showPage(n){
+  var p={checkin:"pageCheckin",gtht:"pageGtht",wencai:"pageWencai",compare:"pageCompare",fenqi:"pageFenqi"};
+  document.querySelectorAll(".page").forEach(function(el){el.classList.remove("active");});
+  document.getElementById(p[n]).classList.add("active");
+}
 // ==================== CHAPTERS DATA ====================
   { subject: "经济基础", chapter: "第1章 社会主义基本经济制度", sections: "第1-4节", sessions: 1 },
   { subject: "经济基础", chapter: "第2章 市场需求供给与均衡价格", sections: "第1-4节", sessions: 1 },
@@ -1978,7 +1999,8 @@ showWelcome();
 <td class="c-pd" style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">⌛</td>
 </tr>
 </tbody></table>
-</div><div class="page" id="pageFenqi">
+</div>
+</div></div><div class="page" id="pageFenqi">
 <div style="display:flex;gap:8px;padding:12px;background:#f0f0ec">
   <button class="fq-btn active" onclick="switchFenqi(0)" id="fqBtn0">
     <span style="display:block;font-size:16px;margin-bottom:1px">📅</span>
@@ -2183,6 +2205,8 @@ showWelcome();
       7/1 两线分歧：GTHT万泽股份(000534.SZ)评分86 vs 问财正泰电源(002150.SZ)评分65
     </div>
   </div>
+</div>
+</div>
 </div>
 </div>
 </body>
