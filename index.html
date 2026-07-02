@@ -399,6 +399,32 @@ function getSections() {
 const allSections = getSections();
 const TOTAL_SECTIONS = allSections.length;
 
+// State management
+const STORAGE_KEY = 'jjjs_checkin_v1';
+let state = {
+  startDate: '2026-07-01',
+  checkedIn: {},
+  filterSubject: '全部',
+  currentWeek: null,
+  firstVisit: true,
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state = { ...state, ...parsed };
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch(e) { toast('⚠️ 存储空间不足，请清理浏览器缓存'); }
+}
+
 // Get today's date string (YYYY-MM-DD)
 function todayStr() {
   const d = new Date();
