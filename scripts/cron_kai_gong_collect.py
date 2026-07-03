@@ -14,6 +14,22 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE))
 
+# V7评分算法
+from scripts.v7_backtest_gtht import v7_score as _v7_score
+
+def _calc_v7_score(c):
+    """将流水线候选字段映射为v7_score所需字段"""
+    mapped = {
+        'change_pct': c['zdf'],
+        'flow': c['jlr'] * 1e8,       # pipeline存亿 → v7_score期望元
+        'flow_ratio': c['jlr_ratio'],
+        'turnover': c.get('hs', 0),
+        'vol_ratio': c.get('lb', 0),
+        'sector_count': 0,             # 流水线无板块数信息
+    }
+    score, _ = _v7_score(mapped)
+    return score
+
 # ---------- trading day check ----------
 HOLIDAYS_2026 = {
     date(2026,1,1),date(2026,1,2),date(2026,1,3),
@@ -61,7 +77,7 @@ def query_gtht():
         candidates.append({'code':code,'name':name,'zdf':round(zdf,2),'lb':round(float(lb),2),
             'hs':round(hs,2),'jlr':round(jlr/1e8,2),'jlr_ratio':round(jlr/cje*100,2) if cje>0 else 0})
     if not candidates: return []
-    return sorted(candidates, key=lambda c: c['zdf']*0.3 + c['jlr']*0.3 + c['jlr_ratio']*0.2 + min(c['lb'],5)*0.2, reverse=True)
+    return sorted(candidates, key=_calc_v7_score, reverse=True)
 
 # ====== 问财 ======
 def query_wencai():
@@ -94,7 +110,7 @@ def query_wencai():
         candidates.append({'code':code,'name':name,'zdf':round(zdf,2),'lb':round(lb,2),
             'hs':round(hs,2),'jlr':round(jlr/1e8,2),'jlr_ratio':round(jlr/cje*100,2) if cje>0 else 0})
     if not candidates: return []
-    return sorted(candidates, key=lambda c: c['zdf']*0.3 + c['jlr']*0.3 + c['jlr_ratio']*0.2 + min(c['lb'],5)*0.2, reverse=True)
+    return sorted(candidates, key=_calc_v7_score, reverse=True)
 
 # ====== Sina close data ======
 def fetch_sina(code):
@@ -353,7 +369,7 @@ def main():
             'sector': '?',  # would need industry query
             'zdf': top_pick['zdf'], 'lb': top_pick['lb'], 'hs': top_pick['hs'],
             'flow': top_pick['jlr'], 'ratio': top_pick['jlr_ratio'],
-            'score': int(top_pick['zdf']*0.3 + top_pick['jlr']*0.3 + top_pick['jlr_ratio']*0.2 + min(top_pick['lb'],5)*0.2),
+            'score': _calc_v7_score(top_pick),
             'judge': '待验证',
             'next_open': None, 'next_high': None, 'next_close': None,
             'day_pnl': 0, 'running_cum': round(last_cum, 2)
