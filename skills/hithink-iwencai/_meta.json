@@ -1,0 +1,61 @@
+{
+  "name": "hithink-wencai-suite",
+  "version": "3.0.0",
+  "description": "同花顺问财金融技能套件，包含10个专业金融子技能",
+  "author": "同花顺问财团队",
+  "skills": [
+    {
+      "name": "announcement-search",
+      "version": "1.0.0",
+      "function": "金融公告搜索"
+    },
+    {
+      "name": "hithink-astock-selector",
+      "version": "1.0.0",
+      "function": "A股智能选股"
+    },
+    {
+      "name": "hithink-finance-query",
+      "version": "1.0.0",
+      "function": "财务数据查询"
+    },
+    {
+      "name": "hithink-fund-query",
+      "version": "1.0.0",
+      "function": "基金理财查询"
+    },
+    {
+      "name": "hithink-futures-selector",
+      "version": "1.0.0",
+      "function": "期货期权筛选"
+    },
+    {
+      "name": "hithink-macro-query",
+      "version": "1.0.0",
+      "function": "宏观数据查询"
+    },
+    {
+      "name": "hithink-market-query",
+      "version": "1.0.0",
+      "function": "行情数据查询"
+    },
+    {
+      "name": "hithink-zhishu-query",
+      "version": "1.0.0",
+      "function": "指数数据查询"
+    },
+    {
+      "name": "news-search",
+      "version": "1.0.0",
+      "function": "财经资讯搜索"
+    },
+    {
+      "name": "report-search",
+      "version": "1.0.0",
+      "function": "研报搜索"
+    }
+  ],
+  "created_at": "2026-05-11",
+  "api_endpoint": "https://openapi.iwencai.com",
+  "api_key_env": "IWENCAI_API_KEY"
+}

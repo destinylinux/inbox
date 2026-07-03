@@ -1,0 +1,74 @@
+MIT License
+
+Copyright (c) 2026 同花顺问财团队 (Tonghuashun Wencai Team)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+Included Skills and Their Original Components:
+
+1. announcement-search (v1.0.0)
+   - Original: announcement-search/SKILL.md
+   - Script: announcement-search/scripts/__main__.py
+
+2. hithink-astock-selector (v1.0.0)
+   - Original: hithink-astock-selector/SKILL.md
+   - Original: hithink-astock-selector/LICENSE.txt
+   - Script: hithink-astock-selector/scripts/cli.py
+
+3. hithink-finance-query (v1.0.0)
+   - Original: hithink-finance-query/SKILL.md
+   - Original: hithink-finance-query/LICENSE.txt
+   - Script: hithink-finance-query/scripts/cli.py
+
+4. hithink-fund-query (v1.0.0)
+   - Original: hithink-fund-query/SKILL.md
+   - Original: hithink-fund-query/LICENSE.txt
+   - Script: hithink-fund-query/scripts/cli.py
+
+5. hithink-futures-selector (v1.0.0)
+   - Original: hithink-futures-selector/SKILL.md
+   - Original: hithink-futures-selector/LICENSE.txt
+   - Script: hithink-futures-selector/scripts/cli.py
+
+6. hithink-macro-query (v1.0.0)
+   - Original: hithink-macro-query/SKILL.md
+   - Original: hithink-macro-query/LICENSE.txt
+   - Script: hithink-macro-query/scripts/cli.py
+
+7. hithink-market-query (v1.0.0)
+   - Original: hithink-market-query/SKILL.md
+   - Original: hithink-market-query/LICENSE.txt
+   - Script: hithink-market-query/scripts/cli.py
+
+8. hithink-zhishu-query (v1.0.0)
+   - Original: hithink-zhishu-query/SKILL.md
+   - Original: hithink-zhishu-query/LICENSE.txt
+   - Script: hithink-zhishu-query/scripts/cli.py
+
+9. news-search (v1.0.0)
+   - Original: news-search/SKILL.md
+   - Script: news-search/scripts/__main__.py
+
+10. report-search (v2.0.0)
+    - Original: report-search/SKILL.md
+    - Script: report-search/scripts/research_report_search.py
+
+All skills are based on the 同花顺问财 (Tonghuashun Wencai) OpenAPI platform.
