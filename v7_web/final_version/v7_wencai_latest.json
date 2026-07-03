@@ -1,10 +1,10 @@
 {
   "stats": {
-    "v7_cum": 30.99,
-    "wins": 61,
+    "v7_cum": 31.78,
+    "wins": 60,
     "verified": 118,
     "pd": 0,
-    "rate": 52,
+    "rate": 51,
     "v7_count": 116,
     "ok_count": 116
   },
@@ -2476,9 +2476,32 @@
       "flow": 0.58,
       "ratio": 23.3,
       "score": 58,
-      "running_cum": 30.99,
+      "running_cum": 31.78,
+      "judge": "❌失败",
+      "day_pnl": 0.79,
+      "next_open": -0.9,
+      "next_high": 1.02,
+      "next_close": 0.79
+    },
+    {
+      "date": "2026-07-03",
+      "weekday": "五",
+      "status": "OK",
+      "code": "600761.SH",
+      "name": "安徽合力",
+      "sector": "机械设备",
+      "zdf": 6.72,
+      "lb": 2.29,
+      "hs": 2.97,
+      "flow": 1.53,
+      "ratio": 33.9,
+      "score": 59,
       "judge": "待验证",
-      "day_pnl": 0
+      "next_open": null,
+      "next_high": null,
+      "next_close": null,
+      "day_pnl": 0,
+      "running_cum": 31.78
     }
   ],
   "trades": [],
