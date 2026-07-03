@@ -2459,12 +2459,32 @@
       "flow": 13.92,
       "ratio": 18.0,
       "score": 68,
+      "judge": "✅达标",
+      "next_open": 1.74,
+      "next_high": 5.63,
+      "next_close": 1.34,
+      "day_pnl": 1.34,
+      "running_cum": 26.75
+    },
+    {
+      "date": "2026-07-03",
+      "weekday": "五",
+      "status": "OK",
+      "code": "SH603809",
+      "name": "豪能股份",
+      "sector": "汽车",
+      "zdf": 7.79,
+      "lb": 3.65,
+      "hs": 4.41,
+      "flow": 0.87,
+      "ratio": 21.89,
+      "score": 63,
       "judge": "待验证",
       "next_open": null,
       "next_high": null,
       "next_close": null,
       "day_pnl": 0,
-      "running_cum": 25.41
+      "running_cum": 26.75
     }
   ],
   "trades": [
@@ -2597,7 +2617,7 @@
     }
   ],
   "stats": {
-    "v7_cum": 25.41,
+    "v7_cum": 26.75,
     "wins": 54,
     "verified": 118,
     "pd": 0,
