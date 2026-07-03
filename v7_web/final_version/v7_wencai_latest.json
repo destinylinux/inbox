@@ -5,8 +5,8 @@
     "verified": 118,
     "pd": 0,
     "rate": 51,
-    "v7_count": 116,
-    "ok_count": 116
+    "v7_count": 117,
+    "ok_count": 117
   },
   "v7_rows": [
     {
@@ -2479,7 +2479,7 @@
       "running_cum": 31.78,
       "judge": "❌失败",
       "day_pnl": 0.79,
-      "next_open": -0.9,
+      "next_open": -0.53,
       "next_high": 1.02,
       "next_close": 0.79
     },
@@ -2492,10 +2492,10 @@
       "sector": "机械设备",
       "zdf": 6.72,
       "lb": 2.29,
-      "hs": 2.97,
+      "hs": 0,
       "flow": 1.53,
-      "ratio": 33.9,
-      "score": 59,
+      "ratio": 0,
+      "score": 2,
       "judge": "待验证",
       "next_open": null,
       "next_high": null,
