@@ -1,0 +1,4193 @@
+[
+  {
+    "pick_date": "2026-01-05",
+    "buy_date": "2026-01-06",
+    "sell_date": "2026-01-07",
+    "picks": [
+      {
+        "name": "华工科技",
+        "code": "000988",
+        "score": 100,
+        "buy_price": 81.252,
+        "sell_price": 79.952,
+        "chg": -1.6
+      },
+      {
+        "name": "尤洛卡",
+        "code": "300099",
+        "score": 98,
+        "buy_price": 7.56,
+        "sell_price": 8.02,
+        "chg": 6.08
+      },
+      {
+        "name": "兰石重装",
+        "code": "603169",
+        "score": 93,
+        "buy_price": 10.9,
+        "sell_price": 11.08,
+        "chg": 1.65
+      }
+    ],
+    "avg_chg": 2.04,
+    "cumulative": 102.04
+  },
+  {
+    "pick_date": "2026-01-06",
+    "buy_date": "2026-01-07",
+    "sell_date": "2026-01-08",
+    "picks": [
+      {
+        "name": "梅安森",
+        "code": "300275",
+        "score": 98,
+        "buy_price": 13.565,
+        "sell_price": 13.295,
+        "chg": -1.99
+      },
+      {
+        "name": "天地在线",
+        "code": "002995",
+        "score": 93,
+        "buy_price": 17.7,
+        "sell_price": 17.21,
+        "chg": -2.77
+      },
+      {
+        "name": "沃华医药",
+        "code": "002107",
+        "score": 93,
+        "buy_price": 6.604,
+        "sell_price": 6.634,
+        "chg": 0.45
+      }
+    ],
+    "avg_chg": -1.44,
+    "cumulative": 100.57
+  },
+  {
+    "pick_date": "2026-01-07",
+    "buy_date": "2026-01-08",
+    "sell_date": "2026-01-09",
+    "picks": [
+      {
+        "name": "焦作万方",
+        "code": "000612",
+        "score": 98,
+        "buy_price": 11.595,
+        "sell_price": 11.275,
+        "chg": -2.76
+      },
+      {
+        "name": "云南锗业",
+        "code": "002428",
+        "score": 93,
+        "buy_price": 33.49,
+        "sell_price": 35.41,
+        "chg": 5.73
+      },
+      {
+        "name": "华友钴业",
+        "code": "603799",
+        "score": 93,
+        "buy_price": 76.12,
+        "sell_price": 74.0,
+        "chg": -2.79
+      }
+    ],
+    "avg_chg": 0.06,
+    "cumulative": 100.63
+  },
+  {
+    "pick_date": "2026-01-08",
+    "buy_date": "2026-01-09",
+    "sell_date": "2026-01-12",
+    "picks": [
+      {
+        "name": "宁波精达",
+        "code": "603088",
+        "score": 98,
+        "buy_price": 10.82,
+        "sell_price": 10.93,
+        "chg": 1.02
+      },
+      {
+        "name": "大西洋",
+        "code": "600558",
+        "score": 93,
+        "buy_price": 6.35,
+        "sell_price": 6.79,
+        "chg": 6.93
+      },
+      {
+        "name": "光环新网",
+        "code": "300383",
+        "score": 93,
+        "buy_price": 14.56,
+        "sell_price": 15.64,
+        "chg": 7.42
+      }
+    ],
+    "avg_chg": 5.12,
+    "cumulative": 105.78
+  },
+  {
+    "pick_date": "2026-01-09",
+    "buy_date": "2026-01-12",
+    "sell_date": "2026-01-13",
+    "picks": [
+      {
+        "name": "凯盛科技",
+        "code": "600552",
+        "score": 93,
+        "buy_price": 14.45,
+        "sell_price": 15.63,
+        "chg": 8.17
+      },
+      {
+        "name": "抚顺特钢",
+        "code": "600399",
+        "score": 93,
+        "buy_price": 6.7,
+        "sell_price": 7.1,
+        "chg": 5.97
+      },
+      {
+        "name": "光威复材",
+        "code": "300699",
+        "score": 93,
+        "buy_price": 43.804,
+        "sell_price": 44.414,
+        "chg": 1.39
+      }
+    ],
+    "avg_chg": 5.18,
+    "cumulative": 111.26
+  },
+  {
+    "pick_date": "2026-01-12",
+    "buy_date": "2026-01-13",
+    "sell_date": "2026-01-14",
+    "picks": [
+      {
+        "name": "电科数字",
+        "code": "600850",
+        "score": 93,
+        "buy_price": 29.017,
+        "sell_price": 26.517,
+        "chg": -8.62
+      },
+      {
+        "name": "七一二",
+        "code": "603712",
+        "score": 93,
+        "buy_price": 23.5,
+        "sell_price": 22.48,
+        "chg": -4.34
+      },
+      {
+        "name": "兆龙互连",
+        "code": "300913",
+        "score": 93,
+        "buy_price": 56.64,
+        "sell_price": 53.33,
+        "chg": -5.84
+      }
+    ],
+    "avg_chg": -6.27,
+    "cumulative": 104.29
+  },
+  {
+    "pick_date": "2026-01-13",
+    "buy_date": "2026-01-14",
+    "sell_date": "2026-01-15",
+    "picks": [
+      {
+        "name": "鹏欣资源",
+        "code": "600490",
+        "score": 98,
+        "buy_price": 8.419,
+        "sell_price": 8.189,
+        "chg": -2.73
+      },
+      {
+        "name": "名雕股份",
+        "code": "002830",
+        "score": 98,
+        "buy_price": 14.376,
+        "sell_price": 14.255,
+        "chg": -0.84
+      },
+      {
+        "name": "英特集团",
+        "code": "000411",
+        "score": 98,
+        "buy_price": 13.11,
+        "sell_price": 13.5,
+        "chg": 2.97
+      }
+    ],
+    "avg_chg": -0.2,
+    "cumulative": 104.08
+  },
+  {
+    "pick_date": "2026-01-14",
+    "buy_date": "2026-01-15",
+    "sell_date": "2026-01-16",
+    "picks": [
+      {
+        "name": "东方财富",
+        "code": "300059",
+        "score": 98,
+        "buy_price": 24.11,
+        "sell_price": 24.19,
+        "chg": 0.33
+      },
+      {
+        "name": "宇瞳光学",
+        "code": "300790",
+        "score": 98,
+        "buy_price": 22.113,
+        "sell_price": 22.6,
+        "chg": 2.2
+      },
+      {
+        "name": "协鑫集成",
+        "code": "002506",
+        "score": 98,
+        "buy_price": 2.94,
+        "sell_price": 2.93,
+        "chg": -0.34
+      }
+    ],
+    "avg_chg": 0.73,
+    "cumulative": 104.84
+  },
+  {
+    "pick_date": "2026-01-15",
+    "buy_date": "2026-01-16",
+    "sell_date": "2026-01-19",
+    "picks": [
+      {
+        "name": "中色股份",
+        "code": "000758",
+        "score": 98,
+        "buy_price": 7.015,
+        "sell_price": 7.025,
+        "chg": 0.14
+      },
+      {
+        "name": "中达安",
+        "code": "300635",
+        "score": 98,
+        "buy_price": 17.28,
+        "sell_price": 17.1,
+        "chg": -1.04
+      },
+      {
+        "name": "山东威达",
+        "code": "002026",
+        "score": 93,
+        "buy_price": 15.32,
+        "sell_price": 15.88,
+        "chg": 3.66
+      }
+    ],
+    "avg_chg": 0.92,
+    "cumulative": 105.8
+  },
+  {
+    "pick_date": "2026-01-16",
+    "buy_date": "2026-01-19",
+    "sell_date": "2026-01-20",
+    "picks": [
+      {
+        "name": "华邦健康",
+        "code": "002004",
+        "score": 98,
+        "buy_price": 5.131,
+        "sell_price": 5.261,
+        "chg": 2.53
+      },
+      {
+        "name": "格林美",
+        "code": "002340",
+        "score": 98,
+        "buy_price": 9.055,
+        "sell_price": 9.055,
+        "chg": 0.0
+      },
+      {
+        "name": "中电电机",
+        "code": "603988",
+        "score": 98,
+        "buy_price": 29.135,
+        "sell_price": 28.495,
+        "chg": -2.2
+      }
+    ],
+    "avg_chg": 0.11,
+    "cumulative": 105.92
+  },
+  {
+    "pick_date": "2026-01-19",
+    "buy_date": "2026-01-20",
+    "sell_date": "2026-01-21",
+    "picks": [
+      {
+        "name": "三超新材",
+        "code": "300554",
+        "score": 93,
+        "buy_price": 25.42,
+        "sell_price": 24.99,
+        "chg": -1.69
+      },
+      {
+        "name": "沃格光电",
+        "code": "603773",
+        "score": 93,
+        "buy_price": 37.2,
+        "sell_price": 35.87,
+        "chg": -3.58
+      },
+      {
+        "name": "热威股份",
+        "code": "603075",
+        "score": 93,
+        "buy_price": 23.65,
+        "sell_price": 23.73,
+        "chg": 0.34
+      }
+    ],
+    "avg_chg": -1.64,
+    "cumulative": 104.18
+  },
+  {
+    "pick_date": "2026-01-20",
+    "buy_date": "2026-01-21",
+    "sell_date": "2026-01-22",
+    "picks": [
+      {
+        "name": "英杰电气",
+        "code": "300820",
+        "score": 98,
+        "buy_price": 57.253,
+        "sell_price": 58.833,
+        "chg": 2.76
+      },
+      {
+        "name": "宝武镁业",
+        "code": "002182",
+        "score": 98,
+        "buy_price": 18.57,
+        "sell_price": 19.23,
+        "chg": 3.55
+      },
+      {
+        "name": "柏诚股份",
+        "code": "601133",
+        "score": 98,
+        "buy_price": 18.33,
+        "sell_price": 18.13,
+        "chg": -1.09
+      }
+    ],
+    "avg_chg": 1.74,
+    "cumulative": 105.99
+  },
+  {
+    "pick_date": "2026-01-21",
+    "buy_date": "2026-01-22",
+    "sell_date": "2026-01-23",
+    "picks": [
+      {
+        "name": "北化股份",
+        "code": "002246",
+        "score": 98,
+        "buy_price": 21.41,
+        "sell_price": 22.24,
+        "chg": 3.88
+      },
+      {
+        "name": "新华百货",
+        "code": "600785",
+        "score": 93,
+        "buy_price": 14.929,
+        "sell_price": 15.829,
+        "chg": 6.03
+      },
+      {
+        "name": "华阳智能",
+        "code": "301502",
+        "score": 93,
+        "buy_price": 47.81,
+        "sell_price": 47.96,
+        "chg": 0.31
+      }
+    ],
+    "avg_chg": 3.41,
+    "cumulative": 109.61
+  },
+  {
+    "pick_date": "2026-01-22",
+    "buy_date": "2026-01-23",
+    "sell_date": "2026-01-26",
+    "picks": [
+      {
+        "name": "锐奇股份",
+        "code": "300126",
+        "score": 98,
+        "buy_price": 9.61,
+        "sell_price": 9.31,
+        "chg": -3.12
+      },
+      {
+        "name": "金发科技",
+        "code": "600143",
+        "score": 98,
+        "buy_price": 21.02,
+        "sell_price": 21.04,
+        "chg": 0.1
+      },
+      {
+        "name": "瑜欣电子",
+        "code": "301107",
+        "score": 94,
+        "buy_price": 22.679,
+        "sell_price": 22.079,
+        "chg": -2.65
+      }
+    ],
+    "avg_chg": -1.89,
+    "cumulative": 107.54
+  },
+  {
+    "pick_date": "2026-01-23",
+    "buy_date": "2026-01-26",
+    "sell_date": "2026-01-27",
+    "picks": [
+      {
+        "name": "金牛化工",
+        "code": "600722",
+        "score": 98,
+        "buy_price": 7.14,
+        "sell_price": 7.3,
+        "chg": 2.24
+      },
+      {
+        "name": "潜能恒信",
+        "code": "300191",
+        "score": 98,
+        "buy_price": 23.71,
+        "sell_price": 24.62,
+        "chg": 3.84
+      },
+      {
+        "name": "明泰铝业",
+        "code": "601677",
+        "score": 93,
+        "buy_price": 16.765,
+        "sell_price": 16.785,
+        "chg": 0.12
+      }
+    ],
+    "avg_chg": 2.07,
+    "cumulative": 109.76
+  },
+  {
+    "pick_date": "2026-01-26",
+    "buy_date": "2026-01-27",
+    "sell_date": "2026-01-28",
+    "picks": [
+      {
+        "name": "京城股份",
+        "code": "600860",
+        "score": 98,
+        "buy_price": 13.7,
+        "sell_price": 14.16,
+        "chg": 3.36
+      },
+      {
+        "name": "四会富仕",
+        "code": "300852",
+        "score": 98,
+        "buy_price": 44.31,
+        "sell_price": 47.02,
+        "chg": 6.12
+      },
+      {
+        "name": "爱克股份",
+        "code": "300889",
+        "score": 98,
+        "buy_price": 23.21,
+        "sell_price": 23.97,
+        "chg": 3.27
+      }
+    ],
+    "avg_chg": 4.25,
+    "cumulative": 114.43
+  },
+  {
+    "pick_date": "2026-01-27",
+    "buy_date": "2026-01-28",
+    "sell_date": "2026-01-29",
+    "picks": [
+      {
+        "name": "深圳瑞捷",
+        "code": "300977",
+        "score": 98,
+        "buy_price": 24.85,
+        "sell_price": 23.31,
+        "chg": -6.2
+      },
+      {
+        "name": "东方电热",
+        "code": "300217",
+        "score": 93,
+        "buy_price": 5.624,
+        "sell_price": 5.454,
+        "chg": -3.02
+      },
+      {
+        "name": "康惠股份",
+        "code": "603139",
+        "score": 93,
+        "buy_price": 24.43,
+        "sell_price": 23.98,
+        "chg": -1.84
+      }
+    ],
+    "avg_chg": -3.69,
+    "cumulative": 110.21
+  },
+  {
+    "pick_date": "2026-01-28",
+    "buy_date": "2026-01-29",
+    "sell_date": "2026-01-30",
+    "picks": [
+      {
+        "name": "远 望 谷",
+        "code": "002161",
+        "score": 93,
+        "buy_price": 8.7,
+        "sell_price": 8.3,
+        "chg": -4.6
+      },
+      {
+        "name": "超越科技",
+        "code": "301049",
+        "score": 93,
+        "buy_price": 24.7,
+        "sell_price": 23.63,
+        "chg": -4.33
+      },
+      {
+        "name": "飞荣达",
+        "code": "300602",
+        "score": 93,
+        "buy_price": 35.83,
+        "sell_price": 32.84,
+        "chg": -8.34
+      }
+    ],
+    "avg_chg": -5.76,
+    "cumulative": 103.86
+  },
+  {
+    "pick_date": "2026-01-29",
+    "buy_date": "2026-01-30",
+    "sell_date": "2026-02-02",
+    "picks": [
+      {
+        "name": "华培动力",
+        "code": "603121",
+        "score": 98,
+        "buy_price": 24.74,
+        "sell_price": 24.0,
+        "chg": -2.99
+      },
+      {
+        "name": "同为股份",
+        "code": "002835",
+        "score": 98,
+        "buy_price": 17.151,
+        "sell_price": 17.011,
+        "chg": -0.82
+      },
+      {
+        "name": "一彬科技",
+        "code": "001278",
+        "score": 98,
+        "buy_price": 22.21,
+        "sell_price": 21.8,
+        "chg": -1.85
+      }
+    ],
+    "avg_chg": -1.89,
+    "cumulative": 101.9
+  },
+  {
+    "pick_date": "2026-01-30",
+    "buy_date": "2026-02-02",
+    "sell_date": "2026-02-03",
+    "picks": [
+      {
+        "name": "安诺其",
+        "code": "300067",
+        "score": 98,
+        "buy_price": 5.2,
+        "sell_price": 5.03,
+        "chg": -3.27
+      },
+      {
+        "name": "钧崴电子",
+        "code": "301458",
+        "score": 98,
+        "buy_price": 36.53,
+        "sell_price": 35.33,
+        "chg": -3.28
+      },
+      {
+        "name": "坚朗五金",
+        "code": "002791",
+        "score": 98,
+        "buy_price": 24.35,
+        "sell_price": 23.48,
+        "chg": -3.57
+      }
+    ],
+    "avg_chg": -3.37,
+    "cumulative": 98.46
+  },
+  {
+    "pick_date": "2026-02-02",
+    "buy_date": "2026-02-03",
+    "sell_date": "2026-02-04",
+    "picks": [
+      {
+        "name": "天府文旅",
+        "code": "000558",
+        "score": 98,
+        "buy_price": 5.38,
+        "sell_price": 5.46,
+        "chg": 1.49
+      },
+      {
+        "name": "北摩高科",
+        "code": "002985",
+        "score": 93,
+        "buy_price": 41.9,
+        "sell_price": 41.47,
+        "chg": -1.03
+      },
+      {
+        "name": "宁波富邦",
+        "code": "600768",
+        "score": 93,
+        "buy_price": 18.31,
+        "sell_price": 17.89,
+        "chg": -2.29
+      }
+    ],
+    "avg_chg": -0.61,
+    "cumulative": 97.86
+  },
+  {
+    "pick_date": "2026-02-03",
+    "buy_date": "2026-02-04",
+    "sell_date": "2026-02-05",
+    "picks": [
+      {
+        "name": "长高电气",
+        "code": "002452",
+        "score": 93,
+        "buy_price": 10.41,
+        "sell_price": 10.53,
+        "chg": 1.15
+      },
+      {
+        "name": "瑞晨环保",
+        "code": "301273",
+        "score": 91,
+        "buy_price": 21.921,
+        "sell_price": 21.95,
+        "chg": 0.13
+      },
+      {
+        "name": "城地香江",
+        "code": "603887",
+        "score": 88,
+        "buy_price": 15.82,
+        "sell_price": 15.0,
+        "chg": -5.18
+      }
+    ],
+    "avg_chg": -1.3,
+    "cumulative": 96.59
+  },
+  {
+    "pick_date": "2026-02-04",
+    "buy_date": "2026-02-05",
+    "sell_date": "2026-02-06",
+    "picks": [
+      {
+        "name": "科瑞思",
+        "code": "301314",
+        "score": 93,
+        "buy_price": 48.11,
+        "sell_price": 46.02,
+        "chg": -4.34
+      },
+      {
+        "name": "索通发展",
+        "code": "603612",
+        "score": 93,
+        "buy_price": 30.65,
+        "sell_price": 30.39,
+        "chg": -0.85
+      },
+      {
+        "name": "联环药业",
+        "code": "600513",
+        "score": 93,
+        "buy_price": 20.66,
+        "sell_price": 20.61,
+        "chg": -0.24
+      }
+    ],
+    "avg_chg": -1.81,
+    "cumulative": 94.84
+  },
+  {
+    "pick_date": "2026-02-05",
+    "buy_date": "2026-02-06",
+    "sell_date": "2026-02-09",
+    "picks": [
+      {
+        "name": "凯旺科技",
+        "code": "301182",
+        "score": 93,
+        "buy_price": 51.59,
+        "sell_price": 54.28,
+        "chg": 5.21
+      },
+      {
+        "name": "洪都航空",
+        "code": "600316",
+        "score": 91,
+        "buy_price": 45.383,
+        "sell_price": 45.193,
+        "chg": -0.42
+      },
+      {
+        "name": "多利科技",
+        "code": "001311",
+        "score": 88,
+        "buy_price": 34.231,
+        "sell_price": 33.585,
+        "chg": -1.89
+      }
+    ],
+    "avg_chg": 0.97,
+    "cumulative": 95.76
+  },
+  {
+    "pick_date": "2026-02-06",
+    "buy_date": "2026-02-09",
+    "sell_date": "2026-02-10",
+    "picks": [
+      {
+        "name": "致远新能",
+        "code": "300985",
+        "score": 98,
+        "buy_price": 23.98,
+        "sell_price": 24.65,
+        "chg": 2.79
+      },
+      {
+        "name": "儒意电影",
+        "code": "002739",
+        "score": 93,
+        "buy_price": 12.69,
+        "sell_price": 12.65,
+        "chg": -0.32
+      },
+      {
+        "name": "欣灵电气",
+        "code": "301388",
+        "score": 93,
+        "buy_price": 35.02,
+        "sell_price": 34.79,
+        "chg": -0.66
+      }
+    ],
+    "avg_chg": 0.6,
+    "cumulative": 96.33
+  },
+  {
+    "pick_date": "2026-02-09",
+    "buy_date": "2026-02-10",
+    "sell_date": "2026-02-11",
+    "picks": [
+      {
+        "name": "明阳电路",
+        "code": "300739",
+        "score": 98,
+        "buy_price": 20.35,
+        "sell_price": 20.5,
+        "chg": 0.74
+      },
+      {
+        "name": "美新科技",
+        "code": "301588",
+        "score": 93,
+        "buy_price": 24.88,
+        "sell_price": 25.81,
+        "chg": 3.74
+      },
+      {
+        "name": "绿茵生态",
+        "code": "002887",
+        "score": 93,
+        "buy_price": 10.29,
+        "sell_price": 10.38,
+        "chg": 0.87
+      }
+    ],
+    "avg_chg": 1.78,
+    "cumulative": 98.05
+  },
+  {
+    "pick_date": "2026-02-10",
+    "buy_date": "2026-02-11",
+    "sell_date": "2026-02-12",
+    "picks": [
+      {
+        "name": "天目药业",
+        "code": "600671",
+        "score": 98,
+        "buy_price": 20.28,
+        "sell_price": 20.52,
+        "chg": 1.18
+      },
+      {
+        "name": "采纳股份",
+        "code": "301122",
+        "score": 92,
+        "buy_price": 31.94,
+        "sell_price": 31.44,
+        "chg": -1.57
+      },
+      {
+        "name": "芒果超媒",
+        "code": "300413",
+        "score": 92,
+        "buy_price": 28.0,
+        "sell_price": 26.7,
+        "chg": -4.64
+      }
+    ],
+    "avg_chg": -1.68,
+    "cumulative": 96.4
+  },
+  {
+    "pick_date": "2026-02-11",
+    "buy_date": "2026-02-12",
+    "sell_date": "2026-02-13",
+    "picks": [
+      {
+        "name": "盛和资源",
+        "code": "600392",
+        "score": 93,
+        "buy_price": 28.74,
+        "sell_price": 30.18,
+        "chg": 5.01
+      },
+      {
+        "name": "恒达新材",
+        "code": "301469",
+        "score": 93,
+        "buy_price": 34.509,
+        "sell_price": 34.919,
+        "chg": 1.19
+      },
+      {
+        "name": "中国科传",
+        "code": "601858",
+        "score": 91,
+        "buy_price": 22.26,
+        "sell_price": 21.94,
+        "chg": -1.44
+      }
+    ],
+    "avg_chg": 1.59,
+    "cumulative": 97.93
+  },
+  {
+    "pick_date": "2026-02-12",
+    "buy_date": "2026-02-13",
+    "sell_date": "2026-02-24",
+    "picks": [
+      {
+        "name": "恒润股份",
+        "code": "603985",
+        "score": 98,
+        "buy_price": 17.25,
+        "sell_price": 17.61,
+        "chg": 2.09
+      },
+      {
+        "name": "福鞍股份",
+        "code": "603315",
+        "score": 98,
+        "buy_price": 16.19,
+        "sell_price": 16.07,
+        "chg": -0.74
+      },
+      {
+        "name": "恒达新材",
+        "code": "301469",
+        "score": 93,
+        "buy_price": 34.919,
+        "sell_price": 36.619,
+        "chg": 4.87
+      }
+    ],
+    "avg_chg": 2.07,
+    "cumulative": 99.96
+  },
+  {
+    "pick_date": "2026-02-13",
+    "buy_date": "2026-02-24",
+    "sell_date": "2026-02-25",
+    "picks": [
+      {
+        "name": "南华仪器",
+        "code": "300417",
+        "score": 93,
+        "buy_price": 14.46,
+        "sell_price": 14.66,
+        "chg": 1.38
+      },
+      {
+        "name": "朗威股份",
+        "code": "301202",
+        "score": 92,
+        "buy_price": 45.2,
+        "sell_price": 43.58,
+        "chg": -3.58
+      },
+      {
+        "name": "中新赛克",
+        "code": "002912",
+        "score": 92,
+        "buy_price": 33.8,
+        "sell_price": 32.72,
+        "chg": -3.2
+      }
+    ],
+    "avg_chg": -1.8,
+    "cumulative": 98.16
+  },
+  {
+    "pick_date": "2026-02-24",
+    "buy_date": "2026-02-25",
+    "sell_date": "2026-02-26",
+    "picks": [
+      {
+        "name": "唯科科技",
+        "code": "301196",
+        "score": 93,
+        "buy_price": 67.162,
+        "sell_price": 69.123,
+        "chg": 2.92
+      },
+      {
+        "name": "菲菱科思",
+        "code": "301191",
+        "score": 93,
+        "buy_price": 86.463,
+        "sell_price": 86.513,
+        "chg": 0.06
+      },
+      {
+        "name": "万隆光电",
+        "code": "300710",
+        "score": 93,
+        "buy_price": 33.63,
+        "sell_price": 32.86,
+        "chg": -2.29
+      }
+    ],
+    "avg_chg": 0.23,
+    "cumulative": 98.39
+  },
+  {
+    "pick_date": "2026-02-25",
+    "buy_date": "2026-02-26",
+    "sell_date": "2026-02-27",
+    "picks": [
+      {
+        "name": "唯科科技",
+        "code": "301196",
+        "score": 98,
+        "buy_price": 69.123,
+        "sell_price": 69.554,
+        "chg": 0.62
+      },
+      {
+        "name": "博迁新材",
+        "code": "605376",
+        "score": 98,
+        "buy_price": 118.84,
+        "sell_price": 113.7,
+        "chg": -4.33
+      },
+      {
+        "name": "云煤能源",
+        "code": "600792",
+        "score": 93,
+        "buy_price": 4.88,
+        "sell_price": 4.83,
+        "chg": -1.02
+      }
+    ],
+    "avg_chg": -1.58,
+    "cumulative": 96.83
+  },
+  {
+    "pick_date": "2026-02-26",
+    "buy_date": "2026-02-27",
+    "sell_date": "2026-03-02",
+    "picks": [
+      {
+        "name": "长飞光纤",
+        "code": "601869",
+        "score": 98,
+        "buy_price": 223.09,
+        "sell_price": 227.62,
+        "chg": 2.03
+      },
+      {
+        "name": "保变电气",
+        "code": "600550",
+        "score": 98,
+        "buy_price": 17.4,
+        "sell_price": 17.0,
+        "chg": -2.3
+      },
+      {
+        "name": "华工科技",
+        "code": "000988",
+        "score": 98,
+        "buy_price": 86.572,
+        "sell_price": 89.602,
+        "chg": 3.5
+      }
+    ],
+    "avg_chg": 1.08,
+    "cumulative": 97.88
+  },
+  {
+    "pick_date": "2026-02-27",
+    "buy_date": "2026-03-02",
+    "sell_date": "2026-03-03",
+    "picks": [
+      {
+        "name": "理工光科",
+        "code": "300557",
+        "score": 98,
+        "buy_price": 30.615,
+        "sell_price": 33.992,
+        "chg": 11.03
+      },
+      {
+        "name": "广和通",
+        "code": "300638",
+        "score": 93,
+        "buy_price": 29.377,
+        "sell_price": 28.697,
+        "chg": -2.31
+      },
+      {
+        "name": "安车检测",
+        "code": "300572",
+        "score": 91,
+        "buy_price": 28.56,
+        "sell_price": 28.15,
+        "chg": -1.44
+      }
+    ],
+    "avg_chg": 2.43,
+    "cumulative": 100.26
+  },
+  {
+    "pick_date": "2026-03-02",
+    "buy_date": "2026-03-03",
+    "sell_date": "2026-03-04",
+    "picks": [
+      {
+        "name": "焦作万方",
+        "code": "000612",
+        "score": 98,
+        "buy_price": 14.595,
+        "sell_price": 14.255,
+        "chg": -2.33
+      },
+      {
+        "name": "西昌电力",
+        "code": "600505",
+        "score": 98,
+        "buy_price": 15.08,
+        "sell_price": 14.66,
+        "chg": -2.79
+      },
+      {
+        "name": "厦门钨业",
+        "code": "600549",
+        "score": 93,
+        "buy_price": 73.63,
+        "sell_price": 69.7,
+        "chg": -5.34
+      }
+    ],
+    "avg_chg": -3.49,
+    "cumulative": 96.76
+  },
+  {
+    "pick_date": "2026-03-03",
+    "buy_date": "2026-03-04",
+    "sell_date": "2026-03-05",
+    "picks": [
+      {
+        "name": "西部黄金",
+        "code": "601069",
+        "score": 98,
+        "buy_price": 36.754,
+        "sell_price": 38.504,
+        "chg": 4.76
+      },
+      {
+        "name": "厦门钨业",
+        "code": "600549",
+        "score": 93,
+        "buy_price": 69.7,
+        "sell_price": 80.56,
+        "chg": 15.58
+      },
+      {
+        "name": "九安医疗",
+        "code": "002432",
+        "score": 93,
+        "buy_price": 48.765,
+        "sell_price": 50.145,
+        "chg": 2.83
+      }
+    ],
+    "avg_chg": 7.72,
+    "cumulative": 104.23
+  },
+  {
+    "pick_date": "2026-03-04",
+    "buy_date": "2026-03-05",
+    "sell_date": "2026-03-06",
+    "picks": [
+      {
+        "name": "万邦达",
+        "code": "300055",
+        "score": 93,
+        "buy_price": 9.985,
+        "sell_price": 10.135,
+        "chg": 1.5
+      },
+      {
+        "name": "焦作万方",
+        "code": "000612",
+        "score": 93,
+        "buy_price": 15.035,
+        "sell_price": 14.575,
+        "chg": -3.06
+      },
+      {
+        "name": "中远海能",
+        "code": "600026",
+        "score": 90,
+        "buy_price": 23.07,
+        "sell_price": 24.49,
+        "chg": 6.16
+      }
+    ],
+    "avg_chg": 1.53,
+    "cumulative": 105.82
+  },
+  {
+    "pick_date": "2026-03-05",
+    "buy_date": "2026-03-06",
+    "sell_date": "2026-03-09",
+    "picks": [
+      {
+        "name": "中京电子",
+        "code": "002579",
+        "score": 98,
+        "buy_price": 11.94,
+        "sell_price": 11.81,
+        "chg": -1.09
+      },
+      {
+        "name": "杰美特",
+        "code": "300868",
+        "score": 93,
+        "buy_price": 35.89,
+        "sell_price": 38.97,
+        "chg": 8.58
+      },
+      {
+        "name": "万通智控",
+        "code": "300643",
+        "score": 93,
+        "buy_price": 20.911,
+        "sell_price": 21.381,
+        "chg": 2.25
+      }
+    ],
+    "avg_chg": 3.25,
+    "cumulative": 109.26
+  },
+  {
+    "pick_date": "2026-03-06",
+    "buy_date": "2026-03-09",
+    "sell_date": "2026-03-10",
+    "picks": [
+      {
+        "name": "太阳能",
+        "code": "000591",
+        "score": 98,
+        "buy_price": 6.187,
+        "sell_price": 6.297,
+        "chg": 1.78
+      },
+      {
+        "name": "平高电气",
+        "code": "600312",
+        "score": 98,
+        "buy_price": 24.357,
+        "sell_price": 24.827,
+        "chg": 1.93
+      },
+      {
+        "name": "海川智能",
+        "code": "300720",
+        "score": 98,
+        "buy_price": 38.235,
+        "sell_price": 41.495,
+        "chg": 8.53
+      }
+    ],
+    "avg_chg": 4.08,
+    "cumulative": 113.72
+  },
+  {
+    "pick_date": "2026-03-09",
+    "buy_date": "2026-03-10",
+    "sell_date": "2026-03-11",
+    "picks": [
+      {
+        "name": "新疆众和",
+        "code": "600888",
+        "score": 98,
+        "buy_price": 9.09,
+        "sell_price": 9.02,
+        "chg": -0.77
+      },
+      {
+        "name": "滨海能源",
+        "code": "000695",
+        "score": 93,
+        "buy_price": 13.6,
+        "sell_price": 13.62,
+        "chg": 0.15
+      },
+      {
+        "name": "宁波能源",
+        "code": "600982",
+        "score": 93,
+        "buy_price": 5.1,
+        "sell_price": 5.03,
+        "chg": -1.37
+      }
+    ],
+    "avg_chg": -0.66,
+    "cumulative": 112.97
+  },
+  {
+    "pick_date": "2026-03-10",
+    "buy_date": "2026-03-11",
+    "sell_date": "2026-03-12",
+    "picks": [
+      {
+        "name": "美硕科技",
+        "code": "301295",
+        "score": 98,
+        "buy_price": 35.32,
+        "sell_price": 35.6,
+        "chg": 0.79
+      },
+      {
+        "name": "通裕重工",
+        "code": "300185",
+        "score": 93,
+        "buy_price": 3.368,
+        "sell_price": 3.388,
+        "chg": 0.59
+      },
+      {
+        "name": "天富能源",
+        "code": "600509",
+        "score": 93,
+        "buy_price": 9.186,
+        "sell_price": 9.466,
+        "chg": 3.05
+      }
+    ],
+    "avg_chg": 1.48,
+    "cumulative": 114.64
+  },
+  {
+    "pick_date": "2026-03-11",
+    "buy_date": "2026-03-12",
+    "sell_date": "2026-03-13",
+    "picks": [
+      {
+        "name": "津荣天宇",
+        "code": "300988",
+        "score": 98,
+        "buy_price": 20.546,
+        "sell_price": 20.053,
+        "chg": -2.4
+      },
+      {
+        "name": "同力天启",
+        "code": "605286",
+        "score": 93,
+        "buy_price": 47.94,
+        "sell_price": 48.08,
+        "chg": 0.29
+      },
+      {
+        "name": "弘景光电",
+        "code": "301479",
+        "score": 93,
+        "buy_price": 68.936,
+        "sell_price": 69.293,
+        "chg": 0.52
+      }
+    ],
+    "avg_chg": -0.53,
+    "cumulative": 114.03
+  },
+  {
+    "pick_date": "2026-03-12",
+    "buy_date": "2026-03-13",
+    "sell_date": "2026-03-16",
+    "picks": [
+      {
+        "name": "恒实科技",
+        "code": "300513",
+        "score": 98,
+        "buy_price": 10.15,
+        "sell_price": 9.84,
+        "chg": -3.05
+      },
+      {
+        "name": "中泰化学",
+        "code": "002092",
+        "score": 98,
+        "buy_price": 8.7,
+        "sell_price": 8.69,
+        "chg": -0.11
+      },
+      {
+        "name": "辉丰股份",
+        "code": "002496",
+        "score": 98,
+        "buy_price": 2.17,
+        "sell_price": 2.14,
+        "chg": -1.38
+      }
+    ],
+    "avg_chg": -1.51,
+    "cumulative": 112.31
+  },
+  {
+    "pick_date": "2026-03-13",
+    "buy_date": "2026-03-16",
+    "sell_date": "2026-03-17",
+    "picks": [
+      {
+        "name": "德宏股份",
+        "code": "603701",
+        "score": 98,
+        "buy_price": 23.05,
+        "sell_price": 22.01,
+        "chg": -4.51
+      },
+      {
+        "name": "津荣天宇",
+        "code": "300988",
+        "score": 98,
+        "buy_price": 20.317,
+        "sell_price": 19.931,
+        "chg": -1.9
+      },
+      {
+        "name": "诺德股份",
+        "code": "600110",
+        "score": 98,
+        "buy_price": 8.27,
+        "sell_price": 8.44,
+        "chg": 2.06
+      }
+    ],
+    "avg_chg": -1.45,
+    "cumulative": 110.68
+  },
+  {
+    "pick_date": "2026-03-16",
+    "buy_date": "2026-03-17",
+    "sell_date": "2026-03-18",
+    "picks": [
+      {
+        "name": "华映科技",
+        "code": "000536",
+        "score": 98,
+        "buy_price": 4.99,
+        "sell_price": 4.72,
+        "chg": -5.41
+      },
+      {
+        "name": "赞宇科技",
+        "code": "002637",
+        "score": 88,
+        "buy_price": 14.325,
+        "sell_price": 13.725,
+        "chg": -4.19
+      },
+      {
+        "name": "新赛股份",
+        "code": "600540",
+        "score": 88,
+        "buy_price": 5.42,
+        "sell_price": 5.29,
+        "chg": -2.4
+      }
+    ],
+    "avg_chg": -4.0,
+    "cumulative": 106.26
+  },
+  {
+    "pick_date": "2026-03-17",
+    "buy_date": "2026-03-18",
+    "sell_date": "2026-03-19",
+    "picks": [
+      {
+        "name": "深圳华强",
+        "code": "000062",
+        "score": 98,
+        "buy_price": 26.62,
+        "sell_price": 26.6,
+        "chg": -0.08
+      },
+      {
+        "name": "蓝帆医疗",
+        "code": "002382",
+        "score": 98,
+        "buy_price": 7.84,
+        "sell_price": 8.21,
+        "chg": 4.72
+      },
+      {
+        "name": "海川智能",
+        "code": "300720",
+        "score": 93,
+        "buy_price": 50.425,
+        "sell_price": 51.645,
+        "chg": 2.42
+      }
+    ],
+    "avg_chg": 2.35,
+    "cumulative": 108.75
+  },
+  {
+    "pick_date": "2026-03-18",
+    "buy_date": "2026-03-19",
+    "sell_date": "2026-03-20",
+    "picks": [
+      {
+        "name": "胜宏科技",
+        "code": "300476",
+        "score": 98,
+        "buy_price": 279.006,
+        "sell_price": 279.006,
+        "chg": 0.0
+      },
+      {
+        "name": "北京君正",
+        "code": "300223",
+        "score": 88,
+        "buy_price": 127.83,
+        "sell_price": 121.97,
+        "chg": -4.58
+      },
+      {
+        "name": "麦迪科技",
+        "code": "603990",
+        "score": 88,
+        "buy_price": 15.36,
+        "sell_price": 15.41,
+        "chg": 0.33
+      }
+    ],
+    "avg_chg": -1.42,
+    "cumulative": 107.21
+  },
+  {
+    "pick_date": "2026-03-19",
+    "buy_date": "2026-03-20",
+    "sell_date": "2026-03-23",
+    "picks": [
+      {
+        "name": "新天然气",
+        "code": "603393",
+        "score": 98,
+        "buy_price": 40.0,
+        "sell_price": 42.7,
+        "chg": 6.75
+      },
+      {
+        "name": "大元泵业",
+        "code": "603757",
+        "score": 93,
+        "buy_price": 49.84,
+        "sell_price": 45.94,
+        "chg": -7.83
+      },
+      {
+        "name": "长青集团",
+        "code": "002616",
+        "score": 93,
+        "buy_price": 6.11,
+        "sell_price": 5.88,
+        "chg": -3.76
+      }
+    ],
+    "avg_chg": -1.61,
+    "cumulative": 105.48
+  },
+  {
+    "pick_date": "2026-03-20",
+    "buy_date": "2026-03-23",
+    "sell_date": "2026-03-24",
+    "picks": [
+      {
+        "name": "先导基电",
+        "code": "600641",
+        "score": 98,
+        "buy_price": 19.08,
+        "sell_price": 18.9,
+        "chg": -0.94
+      },
+      {
+        "name": "隆基绿能",
+        "code": "601012",
+        "score": 98,
+        "buy_price": 19.05,
+        "sell_price": 18.94,
+        "chg": -0.58
+      },
+      {
+        "name": "盛视科技",
+        "code": "002990",
+        "score": 93,
+        "buy_price": 28.72,
+        "sell_price": 28.81,
+        "chg": 0.31
+      }
+    ],
+    "avg_chg": -0.4,
+    "cumulative": 105.06
+  },
+  {
+    "pick_date": "2026-03-23",
+    "buy_date": "2026-03-24",
+    "sell_date": "2026-03-25",
+    "picks": [
+      {
+        "name": "亿纬锂能",
+        "code": "300014",
+        "score": 93,
+        "buy_price": 71.316,
+        "sell_price": 70.876,
+        "chg": -0.62
+      },
+      {
+        "name": "德宏股份",
+        "code": "603701",
+        "score": 86,
+        "buy_price": 22.38,
+        "sell_price": 22.71,
+        "chg": 1.47
+      },
+      {
+        "name": "鹏辉能源",
+        "code": "300438",
+        "score": 85,
+        "buy_price": 60.95,
+        "sell_price": 58.54,
+        "chg": -3.95
+      }
+    ],
+    "avg_chg": -1.03,
+    "cumulative": 103.98
+  },
+  {
+    "pick_date": "2026-03-24",
+    "buy_date": "2026-03-25",
+    "sell_date": "2026-03-26",
+    "picks": [
+      {
+        "name": "石大胜华",
+        "code": "603026",
+        "score": 93,
+        "buy_price": 78.35,
+        "sell_price": 76.71,
+        "chg": -2.09
+      },
+      {
+        "name": "怡 亚 通",
+        "code": "002183",
+        "score": 93,
+        "buy_price": 5.42,
+        "sell_price": 5.43,
+        "chg": 0.18
+      },
+      {
+        "name": "恒铭达",
+        "code": "002947",
+        "score": 88,
+        "buy_price": 49.747,
+        "sell_price": 51.577,
+        "chg": 3.68
+      }
+    ],
+    "avg_chg": 0.59,
+    "cumulative": 104.59
+  },
+  {
+    "pick_date": "2026-03-25",
+    "buy_date": "2026-03-26",
+    "sell_date": "2026-03-27",
+    "picks": [
+      {
+        "name": "京运通",
+        "code": "601908",
+        "score": 93,
+        "buy_price": 4.5,
+        "sell_price": 5.03,
+        "chg": 11.78
+      },
+      {
+        "name": "大连热电",
+        "code": "600719",
+        "score": 88,
+        "buy_price": 7.04,
+        "sell_price": 7.42,
+        "chg": 5.4
+      },
+      {
+        "name": "江丰电子",
+        "code": "300666",
+        "score": 86,
+        "buy_price": 136.926,
+        "sell_price": 131.106,
+        "chg": -4.25
+      }
+    ],
+    "avg_chg": 4.31,
+    "cumulative": 109.1
+  },
+  {
+    "pick_date": "2026-03-26",
+    "buy_date": "2026-03-27",
+    "sell_date": "2026-03-30",
+    "picks": [
+      {
+        "name": "唯科科技",
+        "code": "301196",
+        "score": 93,
+        "buy_price": 84.608,
+        "sell_price": 82.539,
+        "chg": -2.45
+      },
+      {
+        "name": "百花医药",
+        "code": "600721",
+        "score": 85,
+        "buy_price": 9.65,
+        "sell_price": 9.81,
+        "chg": 1.66
+      },
+      {
+        "name": "杭州热电",
+        "code": "605011",
+        "score": 85,
+        "buy_price": 21.57,
+        "sell_price": 21.39,
+        "chg": -0.83
+      }
+    ],
+    "avg_chg": -0.54,
+    "cumulative": 108.51
+  },
+  {
+    "pick_date": "2026-03-27",
+    "buy_date": "2026-03-30",
+    "sell_date": "2026-03-31",
+    "picks": [
+      {
+        "name": "沙河股份",
+        "code": "000014",
+        "score": 98,
+        "buy_price": 15.3,
+        "sell_price": 15.12,
+        "chg": -1.18
+      },
+      {
+        "name": "洛凯股份",
+        "code": "603829",
+        "score": 88,
+        "buy_price": 28.56,
+        "sell_price": 29.4,
+        "chg": 2.94
+      },
+      {
+        "name": "申通快递",
+        "code": "002468",
+        "score": 86,
+        "buy_price": 15.0,
+        "sell_price": 14.94,
+        "chg": -0.4
+      }
+    ],
+    "avg_chg": 0.45,
+    "cumulative": 109.0
+  },
+  {
+    "pick_date": "2026-03-30",
+    "buy_date": "2026-03-31",
+    "sell_date": "2026-04-01",
+    "picks": [
+      {
+        "name": "国科天成",
+        "code": "301571",
+        "score": 98,
+        "buy_price": 65.52,
+        "sell_price": 64.02,
+        "chg": -2.29
+      },
+      {
+        "name": "深粮控股",
+        "code": "000019",
+        "score": 93,
+        "buy_price": 7.71,
+        "sell_price": 7.64,
+        "chg": -0.91
+      },
+      {
+        "name": "华自科技",
+        "code": "300490",
+        "score": 86,
+        "buy_price": 16.8,
+        "sell_price": 16.32,
+        "chg": -2.86
+      }
+    ],
+    "avg_chg": -2.02,
+    "cumulative": 106.8
+  },
+  {
+    "pick_date": "2026-03-31",
+    "buy_date": "2026-04-01",
+    "sell_date": "2026-04-02",
+    "picks": [
+      {
+        "name": "盛视科技",
+        "code": "002990",
+        "score": 88,
+        "buy_price": 29.5,
+        "sell_price": 29.91,
+        "chg": 1.39
+      },
+      {
+        "name": "时代万恒",
+        "code": "600241",
+        "score": 88,
+        "buy_price": 9.89,
+        "sell_price": 9.57,
+        "chg": -3.24
+      },
+      {
+        "name": "光智科技",
+        "code": "300489",
+        "score": 88,
+        "buy_price": 48.85,
+        "sell_price": 48.49,
+        "chg": -0.74
+      }
+    ],
+    "avg_chg": -0.86,
+    "cumulative": 105.88
+  },
+  {
+    "pick_date": "2026-04-01",
+    "buy_date": "2026-04-02",
+    "sell_date": "2026-04-03",
+    "picks": [
+      {
+        "name": "昊帆生物",
+        "code": "301393",
+        "score": 92,
+        "buy_price": 53.502,
+        "sell_price": 52.232,
+        "chg": -2.37
+      },
+      {
+        "name": "天山铝业",
+        "code": "002532",
+        "score": 91,
+        "buy_price": 17.952,
+        "sell_price": 17.652,
+        "chg": -1.67
+      },
+      {
+        "name": "兴瑞科技",
+        "code": "002937",
+        "score": 91,
+        "buy_price": 26.902,
+        "sell_price": 26.802,
+        "chg": -0.37
+      }
+    ],
+    "avg_chg": -1.47,
+    "cumulative": 104.32
+  },
+  {
+    "pick_date": "2026-04-02",
+    "buy_date": "2026-04-03",
+    "sell_date": "2026-04-07",
+    "picks": [
+      {
+        "name": "胜蓝股份",
+        "code": "300843",
+        "score": 93,
+        "buy_price": 55.65,
+        "sell_price": 57.38,
+        "chg": 3.11
+      },
+      {
+        "name": "长江通信",
+        "code": "600345",
+        "score": 93,
+        "buy_price": 43.73,
+        "sell_price": 43.33,
+        "chg": -0.91
+      },
+      {
+        "name": "江苏索普",
+        "code": "600746",
+        "score": 88,
+        "buy_price": 10.24,
+        "sell_price": 10.19,
+        "chg": -0.49
+      }
+    ],
+    "avg_chg": 0.57,
+    "cumulative": 104.92
+  },
+  {
+    "pick_date": "2026-04-03",
+    "buy_date": "2026-04-07",
+    "sell_date": "2026-04-08",
+    "picks": [
+      {
+        "name": "卓胜微",
+        "code": "300782",
+        "score": 98,
+        "buy_price": 88.95,
+        "sell_price": 90.0,
+        "chg": 1.18
+      },
+      {
+        "name": "菲菱科思",
+        "code": "301191",
+        "score": 93,
+        "buy_price": 98.407,
+        "sell_price": 106.486,
+        "chg": 8.21
+      },
+      {
+        "name": "柏诚股份",
+        "code": "601133",
+        "score": 93,
+        "buy_price": 19.69,
+        "sell_price": 22.37,
+        "chg": 13.61
+      }
+    ],
+    "avg_chg": 7.67,
+    "cumulative": 112.97
+  },
+  {
+    "pick_date": "2026-04-07",
+    "buy_date": "2026-04-08",
+    "sell_date": "2026-04-09",
+    "picks": [
+      {
+        "name": "赛升药业",
+        "code": "300485",
+        "score": 100,
+        "buy_price": 11.67,
+        "sell_price": 11.39,
+        "chg": -2.4
+      },
+      {
+        "name": "中油工程",
+        "code": "600339",
+        "score": 88,
+        "buy_price": 4.317,
+        "sell_price": 4.597,
+        "chg": 6.49
+      },
+      {
+        "name": "德龙汇能",
+        "code": "000593",
+        "score": 83,
+        "buy_price": 17.19,
+        "sell_price": 18.34,
+        "chg": 6.69
+      }
+    ],
+    "avg_chg": 3.59,
+    "cumulative": 117.02
+  },
+  {
+    "pick_date": "2026-04-08",
+    "buy_date": "2026-04-09",
+    "sell_date": "2026-04-10",
+    "picks": [
+      {
+        "name": "菲菱科思",
+        "code": "301191",
+        "score": 93,
+        "buy_price": 105.649,
+        "sell_price": 105.77,
+        "chg": 0.11
+      },
+      {
+        "name": "捷安高科",
+        "code": "300845",
+        "score": 93,
+        "buy_price": 11.812,
+        "sell_price": 12.452,
+        "chg": 5.42
+      },
+      {
+        "name": "精华制药",
+        "code": "002349",
+        "score": 92,
+        "buy_price": 7.76,
+        "sell_price": 7.59,
+        "chg": -2.19
+      }
+    ],
+    "avg_chg": 1.11,
+    "cumulative": 118.32
+  },
+  {
+    "pick_date": "2026-04-09",
+    "buy_date": "2026-04-10",
+    "sell_date": "2026-04-13",
+    "picks": [
+      {
+        "name": "福达合金",
+        "code": "603045",
+        "score": 93,
+        "buy_price": 31.802,
+        "sell_price": 34.112,
+        "chg": 7.26
+      },
+      {
+        "name": "蔚蓝锂芯",
+        "code": "002245",
+        "score": 93,
+        "buy_price": 12.905,
+        "sell_price": 12.689,
+        "chg": -1.67
+      },
+      {
+        "name": "光力科技",
+        "code": "300480",
+        "score": 93,
+        "buy_price": 33.0,
+        "sell_price": 32.98,
+        "chg": -0.06
+      }
+    ],
+    "avg_chg": 1.84,
+    "cumulative": 120.5
+  },
+  {
+    "pick_date": "2026-04-10",
+    "buy_date": "2026-04-13",
+    "sell_date": "2026-04-14",
+    "picks": [
+      {
+        "name": "闰土股份",
+        "code": "002440",
+        "score": 93,
+        "buy_price": 11.913,
+        "sell_price": 11.863,
+        "chg": -0.42
+      },
+      {
+        "name": "菲利华",
+        "code": "300395",
+        "score": 93,
+        "buy_price": 101.66,
+        "sell_price": 108.6,
+        "chg": 6.83
+      },
+      {
+        "name": "星源材质",
+        "code": "300568",
+        "score": 93,
+        "buy_price": 15.49,
+        "sell_price": 15.84,
+        "chg": 2.26
+      }
+    ],
+    "avg_chg": 2.89,
+    "cumulative": 123.98
+  },
+  {
+    "pick_date": "2026-04-13",
+    "buy_date": "2026-04-14",
+    "sell_date": "2026-04-15",
+    "picks": [
+      {
+        "name": "盈峰环境",
+        "code": "000967",
+        "score": 98,
+        "buy_price": 11.54,
+        "sell_price": 12.18,
+        "chg": 5.55
+      },
+      {
+        "name": "安车检测",
+        "code": "300572",
+        "score": 98,
+        "buy_price": 30.5,
+        "sell_price": 30.32,
+        "chg": -0.59
+      },
+      {
+        "name": "电投水电",
+        "code": "600292",
+        "score": 98,
+        "buy_price": 14.939,
+        "sell_price": 15.189,
+        "chg": 1.67
+      }
+    ],
+    "avg_chg": 2.21,
+    "cumulative": 126.72
+  },
+  {
+    "pick_date": "2026-04-14",
+    "buy_date": "2026-04-15",
+    "sell_date": "2026-04-16",
+    "picks": [
+      {
+        "name": "时代万恒",
+        "code": "600241",
+        "score": 98,
+        "buy_price": 10.14,
+        "sell_price": 9.85,
+        "chg": -2.86
+      },
+      {
+        "name": "飞凯材料",
+        "code": "300398",
+        "score": 93,
+        "buy_price": 28.365,
+        "sell_price": 27.565,
+        "chg": -2.82
+      },
+      {
+        "name": "光环新网",
+        "code": "300383",
+        "score": 93,
+        "buy_price": 18.4,
+        "sell_price": 18.01,
+        "chg": -2.12
+      }
+    ],
+    "avg_chg": -2.6,
+    "cumulative": 123.42
+  },
+  {
+    "pick_date": "2026-04-15",
+    "buy_date": "2026-04-16",
+    "sell_date": "2026-04-17",
+    "picks": [
+      {
+        "name": "石英股份",
+        "code": "603688",
+        "score": 98,
+        "buy_price": 51.654,
+        "sell_price": 52.714,
+        "chg": 2.05
+      },
+      {
+        "name": "长高电气",
+        "code": "002452",
+        "score": 98,
+        "buy_price": 10.88,
+        "sell_price": 10.73,
+        "chg": -1.38
+      },
+      {
+        "name": "中贝通信",
+        "code": "603220",
+        "score": 93,
+        "buy_price": 28.73,
+        "sell_price": 32.56,
+        "chg": 13.33
+      }
+    ],
+    "avg_chg": 4.67,
+    "cumulative": 129.19
+  },
+  {
+    "pick_date": "2026-04-16",
+    "buy_date": "2026-04-17",
+    "sell_date": "2026-04-20",
+    "picks": [
+      {
+        "name": "恒丰纸业",
+        "code": "600356",
+        "score": 93,
+        "buy_price": 9.29,
+        "sell_price": 9.28,
+        "chg": -0.11
+      },
+      {
+        "name": "沧州明珠",
+        "code": "002108",
+        "score": 93,
+        "buy_price": 5.01,
+        "sell_price": 5.66,
+        "chg": 12.97
+      },
+      {
+        "name": "鼎胜新材",
+        "code": "603876",
+        "score": 91,
+        "buy_price": 24.96,
+        "sell_price": 24.71,
+        "chg": -1.0
+      }
+    ],
+    "avg_chg": 3.95,
+    "cumulative": 134.29
+  },
+  {
+    "pick_date": "2026-04-20",
+    "buy_date": "2026-04-21",
+    "sell_date": "2026-04-22",
+    "picks": [
+      {
+        "name": "弘景光电",
+        "code": "301479",
+        "score": 98,
+        "buy_price": 75.886,
+        "sell_price": 76.307,
+        "chg": 0.55
+      },
+      {
+        "name": "美联新材",
+        "code": "300586",
+        "score": 98,
+        "buy_price": 10.86,
+        "sell_price": 10.94,
+        "chg": 0.74
+      },
+      {
+        "name": "达利凯普",
+        "code": "301566",
+        "score": 98,
+        "buy_price": 23.1,
+        "sell_price": 23.9,
+        "chg": 3.46
+      }
+    ],
+    "avg_chg": 1.58,
+    "cumulative": 136.41
+  },
+  {
+    "pick_date": "2026-04-21",
+    "buy_date": "2026-04-22",
+    "sell_date": "2026-04-23",
+    "picks": [
+      {
+        "name": "宏工科技",
+        "code": "301662",
+        "score": 98,
+        "buy_price": 113.069,
+        "sell_price": 112.69,
+        "chg": -0.34
+      },
+      {
+        "name": "三孚股份",
+        "code": "603938",
+        "score": 93,
+        "buy_price": 28.978,
+        "sell_price": 29.978,
+        "chg": 3.45
+      },
+      {
+        "name": "九丰能源",
+        "code": "605090",
+        "score": 93,
+        "buy_price": 46.75,
+        "sell_price": 44.99,
+        "chg": -3.76
+      }
+    ],
+    "avg_chg": -0.22,
+    "cumulative": 136.11
+  },
+  {
+    "pick_date": "2026-04-22",
+    "buy_date": "2026-04-23",
+    "sell_date": "2026-04-24",
+    "picks": [
+      {
+        "name": "横河精密",
+        "code": "300539",
+        "score": 98,
+        "buy_price": 31.21,
+        "sell_price": 29.47,
+        "chg": -5.58
+      },
+      {
+        "name": "华灿光电",
+        "code": "300323",
+        "score": 98,
+        "buy_price": 11.08,
+        "sell_price": 10.52,
+        "chg": -5.05
+      },
+      {
+        "name": "三人行",
+        "code": "605168",
+        "score": 93,
+        "buy_price": 41.13,
+        "sell_price": 40.28,
+        "chg": -2.07
+      }
+    ],
+    "avg_chg": -4.23,
+    "cumulative": 130.36
+  },
+  {
+    "pick_date": "2026-04-23",
+    "buy_date": "2026-04-24",
+    "sell_date": "2026-04-27",
+    "picks": [
+      {
+        "name": "矩阵股份",
+        "code": "301365",
+        "score": 98,
+        "buy_price": 34.35,
+        "sell_price": 32.87,
+        "chg": -4.31
+      },
+      {
+        "name": "芯能科技",
+        "code": "603105",
+        "score": 98,
+        "buy_price": 11.83,
+        "sell_price": 11.15,
+        "chg": -5.75
+      },
+      {
+        "name": "华立股份",
+        "code": "603038",
+        "score": 93,
+        "buy_price": 16.75,
+        "sell_price": 16.69,
+        "chg": -0.36
+      }
+    ],
+    "avg_chg": -3.47,
+    "cumulative": 125.83
+  },
+  {
+    "pick_date": "2026-04-24",
+    "buy_date": "2026-04-27",
+    "sell_date": "2026-04-28",
+    "picks": [
+      {
+        "name": "昭衍新药",
+        "code": "603127",
+        "score": 98,
+        "buy_price": 37.1,
+        "sell_price": 37.67,
+        "chg": 1.54
+      },
+      {
+        "name": "永鼎股份",
+        "code": "600105",
+        "score": 93,
+        "buy_price": 49.895,
+        "sell_price": 48.585,
+        "chg": -2.63
+      },
+      {
+        "name": "中电港",
+        "code": "001287",
+        "score": 93,
+        "buy_price": 27.732,
+        "sell_price": 25.892,
+        "chg": -6.63
+      }
+    ],
+    "avg_chg": -2.57,
+    "cumulative": 122.6
+  },
+  {
+    "pick_date": "2026-04-27",
+    "buy_date": "2026-04-28",
+    "sell_date": "2026-04-29",
+    "picks": [
+      {
+        "name": "昇兴股份",
+        "code": "002752",
+        "score": 98,
+        "buy_price": 7.35,
+        "sell_price": 7.26,
+        "chg": -1.22
+      },
+      {
+        "name": "四会富仕",
+        "code": "300852",
+        "score": 98,
+        "buy_price": 47.16,
+        "sell_price": 44.66,
+        "chg": -5.3
+      },
+      {
+        "name": "三羊马",
+        "code": "001317",
+        "score": 93,
+        "buy_price": 52.58,
+        "sell_price": 51.7,
+        "chg": -1.67
+      }
+    ],
+    "avg_chg": -2.73,
+    "cumulative": 119.25
+  },
+  {
+    "pick_date": "2026-04-28",
+    "buy_date": "2026-04-29",
+    "sell_date": "2026-04-30",
+    "picks": [
+      {
+        "name": "英华特",
+        "code": "301272",
+        "score": 98,
+        "buy_price": 44.312,
+        "sell_price": 44.602,
+        "chg": 0.65
+      },
+      {
+        "name": "丰元股份",
+        "code": "002805",
+        "score": 98,
+        "buy_price": 19.8,
+        "sell_price": 22.68,
+        "chg": 14.55
+      },
+      {
+        "name": "福蓉科技",
+        "code": "603327",
+        "score": 98,
+        "buy_price": 10.64,
+        "sell_price": 10.69,
+        "chg": 0.47
+      }
+    ],
+    "avg_chg": 5.22,
+    "cumulative": 125.48
+  },
+  {
+    "pick_date": "2026-04-29",
+    "buy_date": "2026-04-30",
+    "sell_date": "2026-05-06",
+    "picks": [
+      {
+        "name": "华东重机",
+        "code": "002685",
+        "score": 93,
+        "buy_price": 8.35,
+        "sell_price": 8.98,
+        "chg": 7.54
+      },
+      {
+        "name": "华灿光电",
+        "code": "300323",
+        "score": 93,
+        "buy_price": 11.3,
+        "sell_price": 12.13,
+        "chg": 7.35
+      },
+      {
+        "name": "宁波富邦",
+        "code": "600768",
+        "score": 93,
+        "buy_price": 18.29,
+        "sell_price": 18.95,
+        "chg": 3.61
+      }
+    ],
+    "avg_chg": 6.17,
+    "cumulative": 133.22
+  },
+  {
+    "pick_date": "2026-04-30",
+    "buy_date": "2026-05-06",
+    "sell_date": "2026-05-07",
+    "picks": [
+      {
+        "name": "双象股份",
+        "code": "002395",
+        "score": 98,
+        "buy_price": 19.77,
+        "sell_price": 19.57,
+        "chg": -1.01
+      },
+      {
+        "name": "高乐股份",
+        "code": "002348",
+        "score": 93,
+        "buy_price": 11.13,
+        "sell_price": 12.08,
+        "chg": 8.54
+      },
+      {
+        "name": "三超新材",
+        "code": "300554",
+        "score": 93,
+        "buy_price": 25.6,
+        "sell_price": 25.59,
+        "chg": -0.04
+      }
+    ],
+    "avg_chg": 2.5,
+    "cumulative": 136.55
+  },
+  {
+    "pick_date": "2026-05-06",
+    "buy_date": "2026-05-07",
+    "sell_date": "2026-05-08",
+    "picks": [
+      {
+        "name": "华中数控",
+        "code": "300161",
+        "score": 98,
+        "buy_price": 34.39,
+        "sell_price": 39.28,
+        "chg": 14.22
+      },
+      {
+        "name": "香农芯创",
+        "code": "300475",
+        "score": 95,
+        "buy_price": 194.77,
+        "sell_price": 183.95,
+        "chg": -5.56
+      },
+      {
+        "name": "华斯股份",
+        "code": "002494",
+        "score": 93,
+        "buy_price": 6.25,
+        "sell_price": 6.22,
+        "chg": -0.48
+      }
+    ],
+    "avg_chg": 2.73,
+    "cumulative": 140.28
+  },
+  {
+    "pick_date": "2026-05-07",
+    "buy_date": "2026-05-08",
+    "sell_date": "2026-05-11",
+    "picks": [
+      {
+        "name": "禾盛新材",
+        "code": "002290",
+        "score": 98,
+        "buy_price": 91.78,
+        "sell_price": 94.94,
+        "chg": 3.44
+      },
+      {
+        "name": "日发精机",
+        "code": "002520",
+        "score": 98,
+        "buy_price": 6.17,
+        "sell_price": 6.75,
+        "chg": 9.4
+      },
+      {
+        "name": "科源制药",
+        "code": "301281",
+        "score": 98,
+        "buy_price": 40.08,
+        "sell_price": 40.39,
+        "chg": 0.77
+      }
+    ],
+    "avg_chg": 4.54,
+    "cumulative": 146.64
+  },
+  {
+    "pick_date": "2026-05-08",
+    "buy_date": "2026-05-11",
+    "sell_date": "2026-05-12",
+    "picks": [
+      {
+        "name": "世纪天鸿",
+        "code": "300654",
+        "score": 98,
+        "buy_price": 11.86,
+        "sell_price": 11.6,
+        "chg": -2.19
+      },
+      {
+        "name": "星源材质",
+        "code": "300568",
+        "score": 93,
+        "buy_price": 17.35,
+        "sell_price": 17.45,
+        "chg": 0.58
+      },
+      {
+        "name": "润贝航科",
+        "code": "001316",
+        "score": 93,
+        "buy_price": 43.074,
+        "sell_price": 43.824,
+        "chg": 1.74
+      }
+    ],
+    "avg_chg": 0.04,
+    "cumulative": 146.7
+  },
+  {
+    "pick_date": "2026-05-11",
+    "buy_date": "2026-05-12",
+    "sell_date": "2026-05-13",
+    "picks": [
+      {
+        "name": "哈尔斯",
+        "code": "002615",
+        "score": 100,
+        "buy_price": 8.86,
+        "sell_price": 8.88,
+        "chg": 0.23
+      },
+      {
+        "name": "双成药业",
+        "code": "002693",
+        "score": 98,
+        "buy_price": 10.19,
+        "sell_price": 10.5,
+        "chg": 3.04
+      },
+      {
+        "name": "掌阅科技",
+        "code": "603533",
+        "score": 98,
+        "buy_price": 26.95,
+        "sell_price": 26.18,
+        "chg": -2.86
+      }
+    ],
+    "avg_chg": 0.14,
+    "cumulative": 146.91
+  },
+  {
+    "pick_date": "2026-05-12",
+    "buy_date": "2026-05-13",
+    "sell_date": "2026-05-14",
+    "picks": [
+      {
+        "name": "祥龙电业",
+        "code": "600769",
+        "score": 98,
+        "buy_price": 20.79,
+        "sell_price": 21.63,
+        "chg": 4.04
+      },
+      {
+        "name": "科源制药",
+        "code": "301281",
+        "score": 98,
+        "buy_price": 42.07,
+        "sell_price": 41.45,
+        "chg": -1.47
+      },
+      {
+        "name": "众捷汽车",
+        "code": "301560",
+        "score": 98,
+        "buy_price": 44.99,
+        "sell_price": 45.96,
+        "chg": 2.16
+      }
+    ],
+    "avg_chg": 1.58,
+    "cumulative": 149.23
+  },
+  {
+    "pick_date": "2026-05-13",
+    "buy_date": "2026-05-14",
+    "sell_date": "2026-05-15",
+    "picks": [
+      {
+        "name": "珠海中富",
+        "code": "000659",
+        "score": 98,
+        "buy_price": 4.27,
+        "sell_price": 4.12,
+        "chg": -3.51
+      },
+      {
+        "name": "广安爱众",
+        "code": "600979",
+        "score": 93,
+        "buy_price": 5.24,
+        "sell_price": 5.07,
+        "chg": -3.24
+      },
+      {
+        "name": "天富能源",
+        "code": "600509",
+        "score": 93,
+        "buy_price": 9.406,
+        "sell_price": 10.696,
+        "chg": 13.71
+      }
+    ],
+    "avg_chg": 2.32,
+    "cumulative": 152.69
+  },
+  {
+    "pick_date": "2026-05-14",
+    "buy_date": "2026-05-15",
+    "sell_date": "2026-05-18",
+    "picks": [
+      {
+        "name": "兆日科技",
+        "code": "300333",
+        "score": 98,
+        "buy_price": 11.31,
+        "sell_price": 10.78,
+        "chg": -4.69
+      },
+      {
+        "name": "思泉新材",
+        "code": "301489",
+        "score": 98,
+        "buy_price": 171.343,
+        "sell_price": 168.579,
+        "chg": -1.61
+      },
+      {
+        "name": "新 大 陆",
+        "code": "000997",
+        "score": 98,
+        "buy_price": 22.124,
+        "sell_price": 22.154,
+        "chg": 0.14
+      }
+    ],
+    "avg_chg": -2.05,
+    "cumulative": 149.56
+  },
+  {
+    "pick_date": "2026-05-15",
+    "buy_date": "2026-05-18",
+    "sell_date": "2026-05-19",
+    "picks": [
+      {
+        "name": "海立股份",
+        "code": "600619",
+        "score": 98,
+        "buy_price": 17.972,
+        "sell_price": 18.082,
+        "chg": 0.61
+      },
+      {
+        "name": "精达股份",
+        "code": "600577",
+        "score": 95,
+        "buy_price": 13.9,
+        "sell_price": 14.12,
+        "chg": 1.58
+      },
+      {
+        "name": "南大光电",
+        "code": "300346",
+        "score": 93,
+        "buy_price": 55.47,
+        "sell_price": 55.5,
+        "chg": 0.05
+      }
+    ],
+    "avg_chg": 0.75,
+    "cumulative": 150.68
+  },
+  {
+    "pick_date": "2026-05-18",
+    "buy_date": "2026-05-19",
+    "sell_date": "2026-05-20",
+    "picks": [
+      {
+        "name": "豪尔赛",
+        "code": "002963",
+        "score": 93,
+        "buy_price": 20.11,
+        "sell_price": 20.55,
+        "chg": 2.19
+      },
+      {
+        "name": "华辰装备",
+        "code": "300809",
+        "score": 93,
+        "buy_price": 38.75,
+        "sell_price": 38.43,
+        "chg": -0.83
+      },
+      {
+        "name": "贝隆精密",
+        "code": "301567",
+        "score": 93,
+        "buy_price": 46.87,
+        "sell_price": 47.6,
+        "chg": 1.56
+      }
+    ],
+    "avg_chg": 0.97,
+    "cumulative": 152.15
+  },
+  {
+    "pick_date": "2026-05-19",
+    "buy_date": "2026-05-20",
+    "sell_date": "2026-05-21",
+    "picks": [
+      {
+        "name": "深振业Ａ",
+        "code": "000006",
+        "score": 98,
+        "buy_price": 11.21,
+        "sell_price": 10.86,
+        "chg": -3.12
+      },
+      {
+        "name": "新城市",
+        "code": "300778",
+        "score": 93,
+        "buy_price": 14.57,
+        "sell_price": 13.88,
+        "chg": -4.74
+      },
+      {
+        "name": "新时达",
+        "code": "002527",
+        "score": 93,
+        "buy_price": 14.15,
+        "sell_price": 13.8,
+        "chg": -2.47
+      }
+    ],
+    "avg_chg": -3.44,
+    "cumulative": 146.91
+  },
+  {
+    "pick_date": "2026-05-20",
+    "buy_date": "2026-05-21",
+    "sell_date": "2026-05-22",
+    "picks": [
+      {
+        "name": "能科科技",
+        "code": "603859",
+        "score": 98,
+        "buy_price": 46.26,
+        "sell_price": 44.82,
+        "chg": -3.11
+      },
+      {
+        "name": "弘讯科技",
+        "code": "603015",
+        "score": 98,
+        "buy_price": 13.41,
+        "sell_price": 12.78,
+        "chg": -4.7
+      },
+      {
+        "name": "奇精机械",
+        "code": "603677",
+        "score": 93,
+        "buy_price": 16.89,
+        "sell_price": 17.33,
+        "chg": 2.61
+      }
+    ],
+    "avg_chg": -1.73,
+    "cumulative": 144.37
+  },
+  {
+    "pick_date": "2026-05-21",
+    "buy_date": "2026-05-22",
+    "sell_date": "2026-05-25",
+    "picks": [
+      {
+        "name": "航发科技",
+        "code": "600391",
+        "score": 98,
+        "buy_price": 44.11,
+        "sell_price": 44.01,
+        "chg": -0.23
+      },
+      {
+        "name": "卧龙电驱",
+        "code": "600580",
+        "score": 98,
+        "buy_price": 40.8,
+        "sell_price": 41.17,
+        "chg": 0.91
+      },
+      {
+        "name": "震裕科技",
+        "code": "300953",
+        "score": 98,
+        "buy_price": 180.053,
+        "sell_price": 182.042,
+        "chg": 1.1
+      }
+    ],
+    "avg_chg": 0.59,
+    "cumulative": 145.22
+  },
+  {
+    "pick_date": "2026-05-22",
+    "buy_date": "2026-05-25",
+    "sell_date": "2026-05-26",
+    "picks": [
+      {
+        "name": "麦迪科技",
+        "code": "603990",
+        "score": 93,
+        "buy_price": 17.0,
+        "sell_price": 18.76,
+        "chg": 10.35
+      },
+      {
+        "name": "新国都",
+        "code": "300130",
+        "score": 93,
+        "buy_price": 23.85,
+        "sell_price": 24.4,
+        "chg": 2.31
+      },
+      {
+        "name": "恒而达",
+        "code": "300946",
+        "score": 91,
+        "buy_price": 55.07,
+        "sell_price": 53.66,
+        "chg": -2.56
+      }
+    ],
+    "avg_chg": 3.37,
+    "cumulative": 150.12
+  },
+  {
+    "pick_date": "2026-05-25",
+    "buy_date": "2026-05-26",
+    "sell_date": "2026-05-27",
+    "picks": [
+      {
+        "name": "七彩化学",
+        "code": "300758",
+        "score": 93,
+        "buy_price": 14.99,
+        "sell_price": 15.4,
+        "chg": 2.74
+      },
+      {
+        "name": "三力制药",
+        "code": "603439",
+        "score": 93,
+        "buy_price": 15.141,
+        "sell_price": 13.551,
+        "chg": -10.5
+      },
+      {
+        "name": "东方钽业",
+        "code": "000962",
+        "score": 90,
+        "buy_price": 63.569,
+        "sell_price": 66.359,
+        "chg": 4.39
+      }
+    ],
+    "avg_chg": -1.12,
+    "cumulative": 148.43
+  },
+  {
+    "pick_date": "2026-05-26",
+    "buy_date": "2026-05-27",
+    "sell_date": "2026-05-28",
+    "picks": [
+      {
+        "name": "鼎泰高科",
+        "code": "301377",
+        "score": 98,
+        "buy_price": 326.94,
+        "sell_price": 343.9,
+        "chg": 5.19
+      },
+      {
+        "name": "中兰环保",
+        "code": "300854",
+        "score": 98,
+        "buy_price": 29.579,
+        "sell_price": 30.264,
+        "chg": 2.32
+      },
+      {
+        "name": "火炬电子",
+        "code": "603678",
+        "score": 93,
+        "buy_price": 41.27,
+        "sell_price": 43.72,
+        "chg": 5.94
+      }
+    ],
+    "avg_chg": 4.48,
+    "cumulative": 155.08
+  },
+  {
+    "pick_date": "2026-05-27",
+    "buy_date": "2026-05-28",
+    "sell_date": "2026-05-29",
+    "picks": [
+      {
+        "name": "长源电力",
+        "code": "000966",
+        "score": 93,
+        "buy_price": 5.2,
+        "sell_price": 5.22,
+        "chg": 0.38
+      },
+      {
+        "name": "苏试试验",
+        "code": "300416",
+        "score": 90,
+        "buy_price": 19.36,
+        "sell_price": 19.73,
+        "chg": 1.91
+      },
+      {
+        "name": "罗博特科",
+        "code": "300757",
+        "score": 88,
+        "buy_price": 653.0,
+        "sell_price": 660.02,
+        "chg": 1.08
+      }
+    ],
+    "avg_chg": 1.12,
+    "cumulative": 156.82
+  },
+  {
+    "pick_date": "2026-05-28",
+    "buy_date": "2026-05-29",
+    "sell_date": "2026-06-01",
+    "picks": [
+      {
+        "name": "皖能电力",
+        "code": "000543",
+        "score": 98,
+        "buy_price": 9.34,
+        "sell_price": 9.92,
+        "chg": 6.21
+      },
+      {
+        "name": "中闽能源",
+        "code": "600163",
+        "score": 91,
+        "buy_price": 6.83,
+        "sell_price": 6.88,
+        "chg": 0.73
+      },
+      {
+        "name": "天永智能",
+        "code": "603895",
+        "score": 90,
+        "buy_price": 39.0,
+        "sell_price": 38.1,
+        "chg": -2.31
+      }
+    ],
+    "avg_chg": 1.54,
+    "cumulative": 159.24
+  },
+  {
+    "pick_date": "2026-05-29",
+    "buy_date": "2026-06-01",
+    "sell_date": "2026-06-02",
+    "picks": [
+      {
+        "name": "贵绳股份",
+        "code": "600992",
+        "score": 98,
+        "buy_price": 13.02,
+        "sell_price": 13.05,
+        "chg": 0.23
+      },
+      {
+        "name": "江南新材",
+        "code": "603124",
+        "score": 90,
+        "buy_price": 136.69,
+        "sell_price": 132.52,
+        "chg": -3.05
+      },
+      {
+        "name": "铜陵有色",
+        "code": "000630",
+        "score": 90,
+        "buy_price": 6.85,
+        "sell_price": 6.96,
+        "chg": 1.61
+      }
+    ],
+    "avg_chg": -0.4,
+    "cumulative": 158.6
+  },
+  {
+    "pick_date": "2026-06-01",
+    "buy_date": "2026-06-02",
+    "sell_date": "2026-06-03",
+    "picks": [
+      {
+        "name": "美湖股份",
+        "code": "603319",
+        "score": 93,
+        "buy_price": 37.54,
+        "sell_price": 39.74,
+        "chg": 5.86
+      },
+      {
+        "name": "永泰能源",
+        "code": "600157",
+        "score": 88,
+        "buy_price": 1.85,
+        "sell_price": 1.83,
+        "chg": -1.08
+      },
+      {
+        "name": "北京文化",
+        "code": "000802",
+        "score": 86,
+        "buy_price": 5.18,
+        "sell_price": 5.01,
+        "chg": -3.28
+      }
+    ],
+    "avg_chg": 0.5,
+    "cumulative": 159.39
+  },
+  {
+    "pick_date": "2026-06-02",
+    "buy_date": "2026-06-03",
+    "sell_date": "2026-06-04",
+    "picks": [
+      {
+        "name": "五洲医疗",
+        "code": "301234",
+        "score": 98,
+        "buy_price": 41.72,
+        "sell_price": 40.72,
+        "chg": -2.4
+      },
+      {
+        "name": "冠捷科技",
+        "code": "000727",
+        "score": 88,
+        "buy_price": 2.98,
+        "sell_price": 2.88,
+        "chg": -3.36
+      },
+      {
+        "name": "新亚电缆",
+        "code": "001382",
+        "score": 88,
+        "buy_price": 21.41,
+        "sell_price": 21.93,
+        "chg": 2.43
+      }
+    ],
+    "avg_chg": -1.11,
+    "cumulative": 157.62
+  },
+  {
+    "pick_date": "2026-06-03",
+    "buy_date": "2026-06-04",
+    "sell_date": "2026-06-05",
+    "picks": [
+      {
+        "name": "铜陵有色",
+        "code": "000630",
+        "score": 98,
+        "buy_price": 6.8,
+        "sell_price": 6.6,
+        "chg": -2.94
+      },
+      {
+        "name": "东睦股份",
+        "code": "600114",
+        "score": 93,
+        "buy_price": 39.0,
+        "sell_price": 39.2,
+        "chg": 0.51
+      },
+      {
+        "name": "电连技术",
+        "code": "300679",
+        "score": 93,
+        "buy_price": 58.9,
+        "sell_price": 57.0,
+        "chg": -3.23
+      }
+    ],
+    "avg_chg": -1.89,
+    "cumulative": 154.64
+  },
+  {
+    "pick_date": "2026-06-04",
+    "buy_date": "2026-06-05",
+    "sell_date": "2026-06-08",
+    "picks": [
+      {
+        "name": "万憬能源",
+        "code": "002700",
+        "score": 88,
+        "buy_price": 8.22,
+        "sell_price": 7.58,
+        "chg": -7.79
+      },
+      {
+        "name": "三利谱",
+        "code": "002876",
+        "score": 88,
+        "buy_price": 32.1,
+        "sell_price": 31.67,
+        "chg": -1.34
+      },
+      {
+        "name": "南山控股",
+        "code": "002314",
+        "score": 88,
+        "buy_price": 2.46,
+        "sell_price": 2.54,
+        "chg": 3.25
+      }
+    ],
+    "avg_chg": -1.96,
+    "cumulative": 151.61
+  },
+  {
+    "pick_date": "2026-06-05",
+    "buy_date": "2026-06-08",
+    "sell_date": "2026-06-09",
+    "picks": [
+      {
+        "name": "三利谱",
+        "code": "002876",
+        "score": 98,
+        "buy_price": 31.67,
+        "sell_price": 31.73,
+        "chg": 0.19
+      },
+      {
+        "name": "浙江众成",
+        "code": "002522",
+        "score": 98,
+        "buy_price": 6.82,
+        "sell_price": 7.31,
+        "chg": 7.18
+      },
+      {
+        "name": "开尔新材",
+        "code": "300234",
+        "score": 93,
+        "buy_price": 8.6,
+        "sell_price": 9.3,
+        "chg": 8.14
+      }
+    ],
+    "avg_chg": 5.17,
+    "cumulative": 159.45
+  },
+  {
+    "pick_date": "2026-06-08",
+    "buy_date": "2026-06-09",
+    "sell_date": "2026-06-10",
+    "picks": [
+      {
+        "name": "德力股份",
+        "code": "002571",
+        "score": 88,
+        "buy_price": 12.97,
+        "sell_price": 12.55,
+        "chg": -3.24
+      },
+      {
+        "name": "鸿合科技",
+        "code": "002955",
+        "score": 83,
+        "buy_price": 28.22,
+        "sell_price": 28.46,
+        "chg": 0.85
+      },
+      {
+        "name": "创世纪",
+        "code": "300083",
+        "score": 81,
+        "buy_price": 10.3,
+        "sell_price": 10.8,
+        "chg": 4.85
+      }
+    ],
+    "avg_chg": 0.82,
+    "cumulative": 160.76
+  },
+  {
+    "pick_date": "2026-06-09",
+    "buy_date": "2026-06-10",
+    "sell_date": "2026-06-11",
+    "picks": [
+      {
+        "name": "润阳科技",
+        "code": "300920",
+        "score": 91,
+        "buy_price": 40.3,
+        "sell_price": 40.54,
+        "chg": 0.6
+      },
+      {
+        "name": "东土科技",
+        "code": "300353",
+        "score": 88,
+        "buy_price": 22.08,
+        "sell_price": 21.0,
+        "chg": -4.89
+      },
+      {
+        "name": "理工光科",
+        "code": "300557",
+        "score": 88,
+        "buy_price": 30.5,
+        "sell_price": 30.3,
+        "chg": -0.66
+      }
+    ],
+    "avg_chg": -1.65,
+    "cumulative": 158.11
+  },
+  {
+    "pick_date": "2026-06-10",
+    "buy_date": "2026-06-11",
+    "sell_date": "2026-06-12",
+    "picks": [
+      {
+        "name": "中钢天源",
+        "code": "002057",
+        "score": 98,
+        "buy_price": 11.102,
+        "sell_price": 11.402,
+        "chg": 2.7
+      },
+      {
+        "name": "欧晶科技",
+        "code": "001269",
+        "score": 93,
+        "buy_price": 28.96,
+        "sell_price": 28.81,
+        "chg": -0.52
+      },
+      {
+        "name": "高伟达",
+        "code": "300465",
+        "score": 88,
+        "buy_price": 16.32,
+        "sell_price": 16.22,
+        "chg": -0.61
+      }
+    ],
+    "avg_chg": 0.52,
+    "cumulative": 158.93
+  },
+  {
+    "pick_date": "2026-06-11",
+    "buy_date": "2026-06-12",
+    "sell_date": "2026-06-15",
+    "picks": [
+      {
+        "name": "民德电子",
+        "code": "300656",
+        "score": 90,
+        "buy_price": 37.7,
+        "sell_price": 36.0,
+        "chg": -4.51
+      },
+      {
+        "name": "沃顿科技",
+        "code": "000920",
+        "score": 88,
+        "buy_price": 13.286,
+        "sell_price": 13.956,
+        "chg": 5.04
+      },
+      {
+        "name": "必创科技",
+        "code": "300667",
+        "score": 83,
+        "buy_price": 19.48,
+        "sell_price": 18.44,
+        "chg": -5.34
+      }
+    ],
+    "avg_chg": -1.6,
+    "cumulative": 156.39
+  },
+  {
+    "pick_date": "2026-06-12",
+    "buy_date": "2026-06-15",
+    "sell_date": "2026-06-16",
+    "picks": [
+      {
+        "name": "盛和资源",
+        "code": "600392",
+        "score": 93,
+        "buy_price": 26.0,
+        "sell_price": 26.4,
+        "chg": 1.54
+      },
+      {
+        "name": "中钢天源",
+        "code": "002057",
+        "score": 93,
+        "buy_price": 11.652,
+        "sell_price": 11.842,
+        "chg": 1.63
+      },
+      {
+        "name": "中国稀土",
+        "code": "000831",
+        "score": 93,
+        "buy_price": 56.021,
+        "sell_price": 57.271,
+        "chg": 2.23
+      }
+    ],
+    "avg_chg": 1.8,
+    "cumulative": 159.2
+  },
+  {
+    "pick_date": "2026-06-15",
+    "buy_date": "2026-06-16",
+    "sell_date": "2026-06-17",
+    "picks": [
+      {
+        "name": "海特高新",
+        "code": "002023",
+        "score": 98,
+        "buy_price": 12.37,
+        "sell_price": 12.25,
+        "chg": -0.97
+      },
+      {
+        "name": "比音勒芬",
+        "code": "002832",
+        "score": 93,
+        "buy_price": 21.53,
+        "sell_price": 21.48,
+        "chg": -0.23
+      },
+      {
+        "name": "盛剑科技",
+        "code": "603324",
+        "score": 93,
+        "buy_price": 34.06,
+        "sell_price": 34.7,
+        "chg": 1.88
+      }
+    ],
+    "avg_chg": 0.23,
+    "cumulative": 159.57
+  },
+  {
+    "pick_date": "2026-06-16",
+    "buy_date": "2026-06-17",
+    "sell_date": "2026-06-18",
+    "picks": [
+      {
+        "name": "唯科科技",
+        "code": "301196",
+        "score": 98,
+        "buy_price": 151.777,
+        "sell_price": 145.615,
+        "chg": -4.06
+      },
+      {
+        "name": "园林股份",
+        "code": "605303",
+        "score": 98,
+        "buy_price": 31.33,
+        "sell_price": 31.63,
+        "chg": 0.96
+      },
+      {
+        "name": "同飞股份",
+        "code": "300990",
+        "score": 98,
+        "buy_price": 90.0,
+        "sell_price": 93.27,
+        "chg": 3.63
+      }
+    ],
+    "avg_chg": 0.18,
+    "cumulative": 159.85
+  },
+  {
+    "pick_date": "2026-06-17",
+    "buy_date": "2026-06-18",
+    "sell_date": "2026-06-22",
+    "picks": [
+      {
+        "name": "通用电梯",
+        "code": "300931",
+        "score": 93,
+        "buy_price": 16.69,
+        "sell_price": 16.57,
+        "chg": -0.72
+      },
+      {
+        "name": "江苏博云",
+        "code": "301003",
+        "score": 93,
+        "buy_price": 56.5,
+        "sell_price": 57.65,
+        "chg": 2.04
+      },
+      {
+        "name": "美联新材",
+        "code": "300586",
+        "score": 93,
+        "buy_price": 14.7,
+        "sell_price": 15.5,
+        "chg": 5.44
+      }
+    ],
+    "avg_chg": 2.25,
+    "cumulative": 163.45
+  },
+  {
+    "pick_date": "2026-06-18",
+    "buy_date": "2026-06-22",
+    "sell_date": "2026-06-23",
+    "picks": [
+      {
+        "name": "富乐德",
+        "code": "301297",
+        "score": 93,
+        "buy_price": 55.0,
+        "sell_price": 50.18,
+        "chg": -8.76
+      },
+      {
+        "name": "新疆众和",
+        "code": "600888",
+        "score": 93,
+        "buy_price": 13.68,
+        "sell_price": 13.8,
+        "chg": 0.88
+      },
+      {
+        "name": "中国巨石",
+        "code": "600176",
+        "score": 90,
+        "buy_price": 54.0,
+        "sell_price": 59.5,
+        "chg": 10.19
+      }
+    ],
+    "avg_chg": 0.77,
+    "cumulative": 164.71
+  },
+  {
+    "pick_date": "2026-06-22",
+    "buy_date": "2026-06-23",
+    "sell_date": "2026-06-24",
+    "picks": [
+      {
+        "name": "宝鼎科技",
+        "code": "002552",
+        "score": 98,
+        "buy_price": 76.67,
+        "sell_price": 68.82,
+        "chg": -10.24
+      },
+      {
+        "name": "利民股份",
+        "code": "002734",
+        "score": 98,
+        "buy_price": 19.19,
+        "sell_price": 18.87,
+        "chg": -1.67
+      },
+      {
+        "name": "江苏博云",
+        "code": "301003",
+        "score": 98,
+        "buy_price": 58.5,
+        "sell_price": 55.86,
+        "chg": -4.51
+      }
+    ],
+    "avg_chg": -5.47,
+    "cumulative": 155.7
+  },
+  {
+    "pick_date": "2026-06-23",
+    "buy_date": "2026-06-24",
+    "sell_date": "2026-06-25",
+    "picks": [
+      {
+        "name": "柯力传感",
+        "code": "603662",
+        "score": 98,
+        "buy_price": 70.46,
+        "sell_price": 68.67,
+        "chg": -2.54
+      },
+      {
+        "name": "芯瑞达",
+        "code": "002983",
+        "score": 98,
+        "buy_price": 25.83,
+        "sell_price": 25.6,
+        "chg": -0.89
+      },
+      {
+        "name": "东方材料",
+        "code": "603110",
+        "score": 93,
+        "buy_price": 25.26,
+        "sell_price": 25.0,
+        "chg": -1.03
+      }
+    ],
+    "avg_chg": -1.49,
+    "cumulative": 153.38
+  },
+  {
+    "pick_date": "2026-06-24",
+    "buy_date": "2026-06-25",
+    "sell_date": "2026-06-26",
+    "picks": [
+      {
+        "name": "长联科技",
+        "code": "301618",
+        "score": 98,
+        "buy_price": 42.93,
+        "sell_price": 45.16,
+        "chg": 5.19
+      },
+      {
+        "name": "捷捷微电",
+        "code": "300623",
+        "score": 93,
+        "buy_price": 42.34,
+        "sell_price": 40.97,
+        "chg": -3.24
+      },
+      {
+        "name": "和顺科技",
+        "code": "301237",
+        "score": 93,
+        "buy_price": 71.39,
+        "sell_price": 74.04,
+        "chg": 3.71
+      }
+    ],
+    "avg_chg": 1.89,
+    "cumulative": 156.28
+  },
+  {
+    "pick_date": "2026-06-25",
+    "buy_date": "2026-06-26",
+    "sell_date": "2026-06-29",
+    "picks": [
+      {
+        "name": "百普赛斯",
+        "code": "301080",
+        "score": 98,
+        "buy_price": 44.16,
+        "sell_price": 43.72,
+        "chg": -1.0
+      },
+      {
+        "name": "开创电气",
+        "code": "301448",
+        "score": 98,
+        "buy_price": 51.98,
+        "sell_price": 47.49,
+        "chg": -8.64
+      },
+      {
+        "name": "圣晖集成",
+        "code": "603163",
+        "score": 93,
+        "buy_price": 123.21,
+        "sell_price": 140.3,
+        "chg": 13.87
+      }
+    ],
+    "avg_chg": 1.41,
+    "cumulative": 158.48
+  },
+  {
+    "pick_date": "2026-06-26",
+    "buy_date": "2026-06-29",
+    "sell_date": "2026-06-30",
+    "picks": [
+      {
+        "name": "精测电子",
+        "code": "300567",
+        "score": 98,
+        "buy_price": 275.39,
+        "sell_price": 298.0,
+        "chg": 8.21
+      },
+      {
+        "name": "飞荣达",
+        "code": "300602",
+        "score": 98,
+        "buy_price": 50.05,
+        "sell_price": 47.81,
+        "chg": -4.48
+      },
+      {
+        "name": "苏试试验",
+        "code": "300416",
+        "score": 98,
+        "buy_price": 20.28,
+        "sell_price": 19.69,
+        "chg": -2.91
+      }
+    ],
+    "avg_chg": 0.27,
+    "cumulative": 158.91
+  },
+  {
+    "pick_date": "2026-06-29",
+    "buy_date": "2026-06-30",
+    "sell_date": "2026-07-01",
+    "picks": [
+      {
+        "name": "博迁新材",
+        "code": "605376",
+        "score": 93,
+        "buy_price": 288.88,
+        "sell_price": 270.0,
+        "chg": -6.54
+      },
+      {
+        "name": "天亿马",
+        "code": "301178",
+        "score": 93,
+        "buy_price": 46.79,
+        "sell_price": 48.94,
+        "chg": 4.59
+      },
+      {
+        "name": "杭氧股份",
+        "code": "002430",
+        "score": 88,
+        "buy_price": 29.45,
+        "sell_price": 30.5,
+        "chg": 3.57
+      }
+    ],
+    "avg_chg": 0.54,
+    "cumulative": 159.77
+  },
+  {
+    "pick_date": "2026-06-30",
+    "buy_date": "2026-07-01",
+    "sell_date": "2026-07-02",
+    "picks": [
+      {
+        "name": "TCL中环",
+        "code": "002129",
+        "score": 95,
+        "buy_price": 11.87,
+        "sell_price": 11.42,
+        "chg": -3.79
+      },
+      {
+        "name": "维峰电子",
+        "code": "301328",
+        "score": 90,
+        "buy_price": 72.2,
+        "sell_price": 73.29,
+        "chg": 1.51
+      },
+      {
+        "name": "开勒股份",
+        "code": "301070",
+        "score": 88,
+        "buy_price": 89.0,
+        "sell_price": 85.99,
+        "chg": -3.38
+      }
+    ],
+    "avg_chg": -1.89,
+    "cumulative": 156.75
+  },
+  {
+    "pick_date": "2026-07-01",
+    "buy_date": "2026-07-02",
+    "sell_date": "2026-07-03",
+    "picks": [
+      {
+        "name": "菲菱科思",
+        "code": "301191",
+        "score": 93,
+        "buy_price": 115.13,
+        "sell_price": 117.36,
+        "chg": 1.94
+      },
+      {
+        "name": "汉钟精机",
+        "code": "002158",
+        "score": 90,
+        "buy_price": 35.0,
+        "sell_price": 36.29,
+        "chg": 3.69
+      },
+      {
+        "name": "成都路桥",
+        "code": "002628",
+        "score": 88,
+        "buy_price": 5.47,
+        "sell_price": 5.45,
+        "chg": -0.37
+      }
+    ],
+    "avg_chg": 1.75,
+    "cumulative": 159.49
+  },
+  {
+    "pick_date": "2026-07-02",
+    "buy_date": "2026-07-03",
+    "sell_date": "2026-07-06",
+    "picks": [
+      {
+        "name": "星帅尔",
+        "code": "002860",
+        "score": 98,
+        "buy_price": 14.8,
+        "sell_price": 15.97,
+        "chg": 7.91
+      },
+      {
+        "name": "金杨精密",
+        "code": "301210",
+        "score": 98,
+        "buy_price": 30.61,
+        "sell_price": 32.7,
+        "chg": 6.83
+      },
+      {
+        "name": "麒盛科技",
+        "code": "603610",
+        "score": 98,
+        "buy_price": 19.0,
+        "sell_price": 18.15,
+        "chg": -4.47
+      }
+    ],
+    "avg_chg": 3.42,
+    "cumulative": 164.95
+  },
+  {
+    "pick_date": "2026-07-03",
+    "buy_date": "2026-07-06",
+    "sell_date": "2026-07-07",
+    "picks": [
+      {
+        "name": "金力永磁",
+        "code": "300748",
+        "score": 98,
+        "buy_price": 34.74,
+        "sell_price": 32.31,
+        "chg": -6.99
+      },
+      {
+        "name": "正海磁材",
+        "code": "300224",
+        "score": 98,
+        "buy_price": 14.25,
+        "sell_price": 13.3,
+        "chg": -6.67
+      },
+      {
+        "name": "浙江恒威",
+        "code": "301222",
+        "score": 90,
+        "buy_price": 34.97,
+        "sell_price": 34.23,
+        "chg": -2.12
+      }
+    ],
+    "avg_chg": -5.26,
+    "cumulative": 156.27
+  },
+  {
+    "pick_date": "2026-07-06",
+    "buy_date": "2026-07-07",
+    "sell_date": "2026-07-08",
+    "picks": [
+      {
+        "name": "致远新能",
+        "code": "300985",
+        "score": 98,
+        "buy_price": 49.86,
+        "sell_price": 54.28,
+        "chg": 8.86
+      },
+      {
+        "name": "宏昌科技",
+        "code": "301008",
+        "score": 93,
+        "buy_price": 32.44,
+        "sell_price": 31.7,
+        "chg": -2.28
+      },
+      {
+        "name": "美硕科技",
+        "code": "301295",
+        "score": 90,
+        "buy_price": 46.2,
+        "sell_price": 43.88,
+        "chg": -5.02
+      }
+    ],
+    "avg_chg": 0.52,
+    "cumulative": 157.08
+  },
+  {
+    "pick_date": "2026-07-07",
+    "buy_date": "2026-07-08",
+    "sell_date": "2026-07-09",
+    "picks": [
+      {
+        "name": "游族网络",
+        "code": "002174",
+        "score": 93,
+        "buy_price": 12.56,
+        "sell_price": 11.9,
+        "chg": -5.25
+      },
+      {
+        "name": "联德股份",
+        "code": "605060",
+        "score": 90,
+        "buy_price": 55.78,
+        "sell_price": 53.52,
+        "chg": -4.05
+      },
+      {
+        "name": "中持股份",
+        "code": "603903",
+        "score": 88,
+        "buy_price": 15.9,
+        "sell_price": 15.93,
+        "chg": 0.19
+      }
+    ],
+    "avg_chg": -3.04,
+    "cumulative": 152.31
+  },
+  {
+    "pick_date": "2026-07-08",
+    "buy_date": "2026-07-09",
+    "sell_date": "2026-07-10",
+    "picks": [
+      {
+        "name": "松发股份",
+        "code": "603268",
+        "score": 93,
+        "buy_price": 164.9,
+        "sell_price": 157.87,
+        "chg": -4.26
+      },
+      {
+        "name": "儒意电影",
+        "code": "002739",
+        "score": 88,
+        "buy_price": 9.9,
+        "sell_price": 9.69,
+        "chg": -2.12
+      },
+      {
+        "name": "泰林生物",
+        "code": "300813",
+        "score": 88,
+        "buy_price": 21.25,
+        "sell_price": 21.3,
+        "chg": 0.24
+      }
+    ],
+    "avg_chg": -2.05,
+    "cumulative": 149.19
+  },
+  {
+    "pick_date": "2026-07-09",
+    "buy_date": "2026-07-10",
+    "sell_date": "2026-07-13",
+    "picks": [
+      {
+        "name": "瑞芯微",
+        "code": "603893",
+        "score": 88,
+        "buy_price": 210.0,
+        "sell_price": 208.79,
+        "chg": -0.58
+      },
+      {
+        "name": "晶华新材",
+        "code": "603683",
+        "score": 86,
+        "buy_price": 30.5,
+        "sell_price": 30.48,
+        "chg": -0.07
+      },
+      {
+        "name": "溯联股份",
+        "code": "301397",
+        "score": 85,
+        "buy_price": 37.58,
+        "sell_price": 28.256,
+        "chg": -24.81
+      }
+    ],
+    "avg_chg": -8.49,
+    "cumulative": 136.52
+  },
+  {
+    "pick_date": "2026-07-10",
+    "buy_date": "2026-07-13",
+    "sell_date": "2026-07-14",
+    "picks": [
+      {
+        "name": "华勤技术",
+        "code": "603296",
+        "score": 98,
+        "buy_price": 82.49,
+        "sell_price": 81.5,
+        "chg": -1.2
+      },
+      {
+        "name": "名家汇",
+        "code": "300506",
+        "score": 98,
+        "buy_price": 6.49,
+        "sell_price": 6.57,
+        "chg": 1.23
+      },
+      {
+        "name": "昆仑万维",
+        "code": "300418",
+        "score": 93,
+        "buy_price": 49.87,
+        "sell_price": 48.66,
+        "chg": -2.43
+      }
+    ],
+    "avg_chg": -0.8,
+    "cumulative": 135.43
+  },
+  {
+    "pick_date": "2026-07-13",
+    "buy_date": "2026-07-14",
+    "sell_date": "2026-07-15",
+    "picks": [
+      {
+        "name": "松发股份",
+        "code": "603268",
+        "score": 88,
+        "buy_price": 160.0,
+        "sell_price": 163.28,
+        "chg": 2.05
+      },
+      {
+        "name": "昊帆生物",
+        "code": "301393",
+        "score": 83,
+        "buy_price": 67.23,
+        "sell_price": 69.58,
+        "chg": 3.5
+      },
+      {
+        "name": "拓维信息",
+        "code": "002261",
+        "score": 83,
+        "buy_price": 33.65,
+        "sell_price": 29.8,
+        "chg": -11.44
+      }
+    ],
+    "avg_chg": -1.96,
+    "cumulative": 132.77
+  },
+  {
+    "pick_date": "2026-07-14",
+    "buy_date": "2026-07-15",
+    "sell_date": "2026-07-16",
+    "picks": [
+      {
+        "name": "亨迪药业",
+        "code": "301211",
+        "score": 88,
+        "buy_price": 12.14,
+        "sell_price": 12.52,
+        "chg": 3.13
+      },
+      {
+        "name": "盘龙药业",
+        "code": "002864",
+        "score": 82,
+        "buy_price": 29.31,
+        "sell_price": 31.1,
+        "chg": 6.11
+      },
+      {
+        "name": "妙可蓝多",
+        "code": "600882",
+        "score": 81,
+        "buy_price": 20.01,
+        "sell_price": 20.26,
+        "chg": 1.25
+      }
+    ],
+    "avg_chg": 3.5,
+    "cumulative": 137.42
+  },
+  {
+    "pick_date": "2026-07-15",
+    "buy_date": "2026-07-16",
+    "sell_date": "2026-07-17",
+    "picks": [
+      {
+        "name": "沃森生物",
+        "code": "300142",
+        "score": 88,
+        "buy_price": 13.54,
+        "sell_price": 13.8,
+        "chg": 1.92
+      },
+      {
+        "name": "千红制药",
+        "code": "002550",
+        "score": 88,
+        "buy_price": 7.05,
+        "sell_price": 7.07,
+        "chg": 0.28
+      },
+      {
+        "name": "特一药业",
+        "code": "002728",
+        "score": 83,
+        "buy_price": 10.01,
+        "sell_price": 10.15,
+        "chg": 1.4
+      }
+    ],
+    "avg_chg": 1.2,
+    "cumulative": 139.07
+  },
+  {
+    "pick_date": "2026-07-16",
+    "buy_date": "2026-07-17",
+    "sell_date": "2026-07-20",
+    "picks": [
+      {
+        "name": "中兴通讯",
+        "code": "000063",
+        "score": 88,
+        "buy_price": 38.97,
+        "sell_price": 36.0,
+        "chg": -7.62
+      },
+      {
+        "name": "诺思格",
+        "code": "301333",
+        "score": 88,
+        "buy_price": 58.26,
+        "sell_price": 51.76,
+        "chg": -11.16
+      },
+      {
+        "name": "一品红",
+        "code": "300723",
+        "score": 88,
+        "buy_price": 40.77,
+        "sell_price": 36.0,
+        "chg": -11.7
+      }
+    ],
+    "avg_chg": -10.16,
+    "cumulative": 124.94
+  }
+]
